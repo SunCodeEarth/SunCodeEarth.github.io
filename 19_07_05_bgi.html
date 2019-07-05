@@ -3,10 +3,10 @@
 <body>
   <h1> Boost Geometry Index: Splitting and Packing </h1>
   <p>
-    The initial progrmmer of the Boost Geometry Spatial Index is now the lead software developer for UrbanAccess and UDST (Urban Data Science Toolkit). These are related to Paul Waddle from UrbnSim.
+    The original progrmmer of the Boost Geometry Spatial Index is now the lead software developer for UrbanAccess and UDST (Urban Data Science Toolkit). They are related to Paul Waddle from UrbnSim.
   </p>
   <p>
-    RTree can be created with splitting (kind of top-down) or packing (bottom-up). BGI supports both. The splitting method is simpler, but some benchmarking indicated that packing is faster. To use packing with BGI, the program must know the range of the inputs. Only with the range, the packing methods know how to pack shapes in the inputs. When the rtree::rtree constructor or the rtree::insert method has range or <first, last> as parameter, the packing method will be activated. Packing method is pretty simple, but I suspect it is not quite well for very dynamic data, that is with frequent addition and removal.   
+    RTree can be created with splitting (kind of top-down) or packing (bottom-up). BGI supports both. The splitting method is simpler, but some benchmarking indicated that packing is faster. To use packing with BGI, the program must know the range of the inputs. Only with the range, the packing methods know how to pack shapes in the inputs. When the rtree::rtree constructor or the rtree::insert method has range or <first, last> as parameter, the packing method will be activated. Packing method is pretty simple, but I suspect it is not quite well for very dynamic data, that is with frequent addition and removal. If the data do not change, packing will perform best according to the published algorithm paper.   
   </p>
 
 </body>
