@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Spatial Regression in R | Data Analysis and Visualization with R: Spatial</title>
+  <meta name="description" content="Learning materials for Data Analysis and Visualization with R" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Spatial Regression in R | Data Analysis and Visualization with R: Spatial" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Learning materials for Data Analysis and Visualization with R" />
+  <meta name="github-repo" content="SunCodeEarth/R-spatial" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Spatial Regression in R | Data Analysis and Visualization with R: Spatial" />
+  
+  <meta name="twitter:description" content="Learning materials for Data Analysis and Visualization with R" />
+  
+
+<meta name="author" content="Geography and Environmental Science, Hunter College" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mapping.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.0/leaflet.js"></script>
+<script src="libs/leaflet-providers-1.9.0/leaflet-providers_1.9.0.js"></script>
+<script src="libs/leaflet-providers-plugin-2.1.0/leaflet-providers-plugin.js"></script>
+<link href="libs/HomeButton-0.0.1/home-button.css" rel="stylesheet" />
+<script src="libs/HomeButton-0.0.1/home-button.js"></script>
+<script src="libs/HomeButton-0.0.1/easy-button-src.min.js"></script>
+<script src="libs/clipboard-0.0.1/setClipboardText.js"></script>
+<link href="libs/mapviewCSS-0.0.1/mapview-popup.css" rel="stylesheet" />
+<link href="libs/mapviewCSS-0.0.1/mapview.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Spatial Data Analysis and Visualization with R</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#prerequisites-and-preparations">Prerequisites and Preparations<span></span></a>
+<ul>
+<li><a href="index.html#references">References<span></span></a></li>
+<li><a href="index.html#acknowledgements">Acknowledgements<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction to spatial data in R<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#spatial-vector-data-model-in-r"><i class="fa fa-check"></i><b>1.1</b> Spatial vector data model in R<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#handling-spatial-data-in-r"><i class="fa fa-check"></i><b>1.1.1</b> Handling spatial data in R<span></span></a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#the-sf-package"><i class="fa fa-check"></i><b>1.1.2</b> The <em>sf</em> package<span></span></a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#create-a-spatial-sf-object-manually"><i class="fa fa-check"></i><b>1.1.3</b> Create a spatial <em>sf</em> object manually<span></span></a></li>
+<li class="chapter" data-level="1.1.4" data-path="intro.html"><a href="intro.html#sf-methods"><i class="fa fa-check"></i><b>1.1.4</b> <em>sf</em> methods<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#load-and-display-data-with-sf"><i class="fa fa-check"></i><b>1.2</b> Load and Display Data with <em>sf</em><span></span></a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#reading-shapefiles-into-r"><i class="fa fa-check"></i><b>1.2.1</b> Reading Shapefiles into R<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#simple-sf-plotting"><i class="fa fa-check"></i><b>1.2.2</b> Simple <em>sf</em> plotting<span></span></a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#simple-interactive-mapping-with-mapview"><i class="fa fa-check"></i><b>1.2.3</b> Simple interactive mapping with <em>mapview</em><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#creating-a-spatial-object-from-a-latlon-table"><i class="fa fa-check"></i><b>1.3</b> Creating a spatial object from a lat/lon table<span></span></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="intro.html"><a href="intro.html#with-sf"><i class="fa fa-check"></i><b>1.3.1</b> With <em>sf</em><span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="intro.html"><a href="intro.html#sp-and-sf-conversion"><i class="fa fa-check"></i><b>1.3.2</b> <em>sp</em> and <em>sf</em> conversion<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="intro.html"><a href="intro.html#save-sf-objects"><i class="fa fa-check"></i><b>1.3.3</b> Save <em>sf</em> objects<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#reprojecting-or-projection-transformation"><i class="fa fa-check"></i><b>1.4</b> Reprojecting or Projection Transformation<span></span></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="intro.html"><a href="intro.html#transform-or-reproject-sf-objects"><i class="fa fa-check"></i><b>1.4.1</b> Transform or reproject <strong><em>sf</em></strong> objects<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#raster-data-in-r"><i class="fa fa-check"></i><b>1.5</b> Raster data in R<span></span></a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#rasterstack-vs-rasterbrick"><i class="fa fa-check"></i><b>1.5.1</b> RasterStack vs RasterBrick<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#lab-assignment"><i class="fa fa-check"></i><b>1.6</b> Lab Assignment<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="spatialops.html"><a href="spatialops.html"><i class="fa fa-check"></i><b>2</b> Spatial data manipulation in R<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="spatialops.html"><a href="spatialops.html#attribute-join"><i class="fa fa-check"></i><b>2.1</b> Attribute Join<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="spatialops.html"><a href="spatialops.html#how-to-do-this-in-sf"><i class="fa fa-check"></i><b>2.1.1</b> How to do this in <em>sf</em><span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="spatialops.html"><a href="spatialops.html#attribute-selection-or-non-spatial-subsetting"><i class="fa fa-check"></i><b>2.2</b> Attribute Selection (or non-spatial subsetting)<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="spatialops.html"><a href="spatialops.html#spatial-query"><i class="fa fa-check"></i><b>2.3</b> Spatial Query<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="spatialops.html"><a href="spatialops.html#using-the-sf-package"><i class="fa fa-check"></i><b>2.3.1</b> Using the <em>sf</em> package<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="spatialops.html"><a href="spatialops.html#reprojecting-or-projection-transform"><i class="fa fa-check"></i><b>2.4</b> Reprojecting or Projection Transform<span></span></a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="spatialops.html"><a href="spatialops.html#transform-or-reproject-sf-objects-1"><i class="fa fa-check"></i><b>2.4.1</b> Transform or reproject <strong><em>sf</em></strong> objects<span></span></a></li>
+<li class="chapter" data-level="2.4.2" data-path="spatialops.html"><a href="spatialops.html#spatial-query-with-reprojection"><i class="fa fa-check"></i><b>2.4.2</b> Spatial Query with Reprojection<span></span></a></li>
+<li class="chapter" data-level="2.4.3" data-path="spatialops.html"><a href="spatialops.html#raster-reprojection"><i class="fa fa-check"></i><b>2.4.3</b> Raster reprojection<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="spatialops.html"><a href="spatialops.html#spatial-join-and-aggregation-points-in-polygons"><i class="fa fa-check"></i><b>2.5</b> Spatial Join and Aggregation: Points in Polygons<span></span></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="spatialops.html"><a href="spatialops.html#with-sf-1"><i class="fa fa-check"></i><b>2.5.1</b> With <em>sf</em><span></span></a></li>
+<li class="chapter" data-level="2.5.2" data-path="spatialops.html"><a href="spatialops.html#sp---sf-comparison"><i class="fa fa-check"></i><b>2.5.2</b> <em>sp</em> - <em>sf</em> comparison<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="spatialops.html"><a href="spatialops.html#spatial-operations"><i class="fa fa-check"></i><b>2.6</b> Spatial Operations<span></span></a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="spatialops.html"><a href="spatialops.html#spatial-measures"><i class="fa fa-check"></i><b>2.6.1</b> Spatial Measures<span></span></a></li>
+<li class="chapter" data-level="2.6.2" data-path="spatialops.html"><a href="spatialops.html#geometric-operations"><i class="fa fa-check"></i><b>2.6.2</b> Geometric Operations<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="spatialops.html"><a href="spatialops.html#information-for-raster-operations"><i class="fa fa-check"></i><b>2.7</b> Information for Raster Operations<span></span></a></li>
+<li class="chapter" data-level="2.8" data-path="spatialops.html"><a href="spatialops.html#lab-assignment-1"><i class="fa fa-check"></i><b>2.8</b> Lab Assignment<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mapping.html"><a href="mapping.html"><i class="fa fa-check"></i><b>3</b> Making Maps in R<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mapping.html"><a href="mapping.html#plotting-simple-features-sf-with-plot"><i class="fa fa-check"></i><b>3.1</b> Plotting simple features (<code>sf</code>) with <code>plot</code><span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="mapping.html"><a href="mapping.html#choropleth-mapping-with-spplot"><i class="fa fa-check"></i><b>3.2</b> Choropleth mapping with <code>spplot</code><span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="mapping.html"><a href="mapping.html#choropleth-mapping-with-ggplot2"><i class="fa fa-check"></i><b>3.3</b> Choropleth mapping with <code>ggplot2</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mapping.html"><a href="mapping.html#basic-sf-plotting-using-ggplot"><i class="fa fa-check"></i><b>3.3.1</b> Basic <code>sf</code> plotting using <code>ggplot</code><span></span></a></li>
+<li class="chapter" data-level="3.3.2" data-path="mapping.html"><a href="mapping.html#multi-layer-plotting"><i class="fa fa-check"></i><b>3.3.2</b> Multi-layer plotting<span></span></a></li>
+<li class="chapter" data-level="3.3.3" data-path="mapping.html"><a href="mapping.html#label-spatial-objects"><i class="fa fa-check"></i><b>3.3.3</b> Label spatial objects<span></span></a></li>
+<li class="chapter" data-level="3.3.4" data-path="mapping.html"><a href="mapping.html#adding-basemaps-with-ggmap"><i class="fa fa-check"></i><b>3.3.4</b> Adding basemaps with <code>ggmap</code><span></span></a></li>
+<li class="chapter" data-level="3.3.5" data-path="mapping.html"><a href="mapping.html#arrange-and-export-plots"><i class="fa fa-check"></i><b>3.3.5</b> Arrange and export plots<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mapping.html"><a href="mapping.html#choropleth-with-tmap"><i class="fa fa-check"></i><b>3.4</b> Choropleth with <code>tmap</code><span></span></a></li>
+<li class="chapter" data-level="3.5" data-path="mapping.html"><a href="mapping.html#web-mapping-with-leaflet"><i class="fa fa-check"></i><b>3.5</b> Web mapping with <code>leaflet</code><span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="mapping.html"><a href="mapping.html#animated-maps"><i class="fa fa-check"></i><b>3.6</b> Animated maps<span></span></a></li>
+<li class="chapter" data-level="3.7" data-path="mapping.html"><a href="mapping.html#lab-assignment-2"><i class="fa fa-check"></i><b>3.7</b> Lab Assignment<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="spregression.html"><a href="spregression.html"><i class="fa fa-check"></i><b>4</b> Spatial Regression in R<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="spregression.html"><a href="spregression.html#spatial-autocorrelation"><i class="fa fa-check"></i><b>4.1</b> Spatial Autocorrelation<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="spregression.html"><a href="spregression.html#global-indicators-of-spatial-autocorrelation"><i class="fa fa-check"></i><b>4.1.1</b> Global Indicators of Spatial Autocorrelation<span></span></a></li>
+<li class="chapter" data-level="4.1.2" data-path="spregression.html"><a href="spregression.html#local-indicators-of-spatial-autocorrelation"><i class="fa fa-check"></i><b>4.1.2</b> Local Indicators of Spatial Autocorrelation<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="spregression.html"><a href="spregression.html#spatial-error-and-lag-models"><i class="fa fa-check"></i><b>4.2</b> Spatial Error and Lag Models<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="spregression.html"><a href="spregression.html#spatial-error-model"><i class="fa fa-check"></i><b>4.2.1</b> Spatial Error Model<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="spregression.html"><a href="spregression.html#spatial-lag-model"><i class="fa fa-check"></i><b>4.2.2</b> Spatial Lag Model<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="spregression.html"><a href="spregression.html#spatial-heterogeneity-and-spatially-varying-coefficients"><i class="fa fa-check"></i><b>4.3</b> Spatial Heterogeneity and Spatially Varying Coefficients<span></span></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="spregression.html"><a href="spregression.html#geographically-weighted-regression-gwr"><i class="fa fa-check"></i><b>4.3.1</b> Geographically Weighted Regression (GWR)<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Analysis and Visualization with R: Spatial</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spregression" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Spatial Regression in R<a href="spregression.html#spregression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="tipbox">
+<blockquote>
+<p><strong>Learning Objectives</strong></p>
+</blockquote>
+<ul>
+<li>Describe Spatial Autocorrelation</li>
+<li>Calculate Global and Local Indicators of Spatial Autocorrelation</li>
+<li>Apply Spatial Error and Spatial Lag Models to address spatial autocorrelation</li>
+<li>Explore Spatial Heterogeneity with Geographically Weighted Regression</li>
+</ul>
+</div>
+<hr />
+<div id="spatial-autocorrelation" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Spatial Autocorrelation<a href="spregression.html#spatial-autocorrelation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Most statistical methods are based on certain assumptions such as that the samples are independent of each other. Geographic phenomena, however, are all related to each other as Waldo R. Tobler’s <em>First Law of Geography</em> states: <em>Everything is related to everything else, but near things are more related than distant things.</em></p>
+<blockquote>
+<p>“In spatial data, it is often the case that some or all outcome measures exhibit spatial autocorrelation. This occurs when the relative outcomes of two points is related to the distance between them or two polygons share boundaries. When analyzing spatial data, it is important to check for autocorrelation. If there is no evidence of spatial autocorrelation, then proceeding with a standard approach is acceptable. However, if there is evidence of spatial autocorrelation, then one of the underlying assumptions of standard non-spatial analyses may be violated and the results may not be valid.”</p>
+</blockquote>
+<p>“Spatial autocorrelation measures how similar or dissimilar objects are in comparison with close objects or neighbors.” Spatial autocorrelation can be measured globally or locally.</p>
+<div id="global-indicators-of-spatial-autocorrelation" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Global Indicators of Spatial Autocorrelation<a href="spregression.html#global-indicators-of-spatial-autocorrelation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>While there are many methods to indicate global spatial autocorrelation, the Moran’s I is one of the most widely used.</p>
+<blockquote>
+<p><strong><em>Moran’s I </em></strong></p>
+</blockquote>
+<ul>
+<li>Positive spatial autocorrelation
+<ul>
+<li>values are similar to their neighbors or other close objects</li>
+<li>clusters of similar values on the map</li>
+</ul></li>
+<li>Zero or no spatial autocorrelation
+<ul>
+<li>random values of close objects or neighbors</li>
+<li>no clear pattern visually</li>
+</ul></li>
+<li>Negative spatial autocorrelation
+<ul>
+<li>values are dissimilar to their neighbors or close objects</li>
+<li>dispersed patterns of values on the map</li>
+<li>checker board style for polygons</li>
+</ul></li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:globalSpAutocorrelation"></span>
+<img src="img/global_spatial_autocorrelation.png" alt="Global Spatial Autocorrelation" width="100%" />
+<p class="caption">
+FIGURE 4.1: Global Spatial Autocorrelation
+</p>
+</div>
+<p>First, let us load the data into a <strong><em>sf</em></strong> object. The data is about education and socio-demographic characteristics for New York City Census tracts compiled from American Community Survey 2008-2012, US Census Bureau. It is available at <a href="https://geodacenter.github.io/data-and-lab//NYC_Tract_ACS2008_12/">GeoDa Data Repository</a>.</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="spregression.html#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download and unzip the data. Skip this if you downloaded the data from GeoDa.</span></span>
+<span id="cb236-2"><a href="spregression.html#cb236-2" aria-hidden="true" tabindex="-1"></a><span class="co">#download.file(&quot;http://www.geo.hunter.cuny.edu/~ssun/R-Spatial/data/NYC.zip&quot;, &quot;NYC.zip&quot;);</span></span>
+<span id="cb236-3"><a href="spregression.html#cb236-3" aria-hidden="true" tabindex="-1"></a><span class="co">#unzip(&quot;NYC.zip&quot;, exdir = &quot;data&quot;)</span></span>
+<span id="cb236-4"><a href="spregression.html#cb236-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-5"><a href="spregression.html#cb236-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the data</span></span>
+<span id="cb236-6"><a href="spregression.html#cb236-6" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_read</span>(<span class="st">&#39;./data/NYC/NYC_Tract_ACS2008_12.shp&#39;</span>) <span class="ot">-&gt;</span> nycDat</span>
+<span id="cb236-7"><a href="spregression.html#cb236-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the CRS ID</span></span>
+<span id="cb236-8"><a href="spregression.html#cb236-8" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">st_crs</span>(nycDat) <span class="ot">&lt;-</span> <span class="dv">4326</span>;</span>
+<span id="cb236-9"><a href="spregression.html#cb236-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-10"><a href="spregression.html#cb236-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Check data</span></span>
+<span id="cb236-11"><a href="spregression.html#cb236-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(nycDat); </span>
+<span id="cb236-12"><a href="spregression.html#cb236-12" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nycDat);</span>
+<span id="cb236-13"><a href="spregression.html#cb236-13" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(nycDat)</span>
+<span id="cb236-14"><a href="spregression.html#cb236-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb236-15"><a href="spregression.html#cb236-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple plot to confirm</span></span>
+<span id="cb236-16"><a href="spregression.html#cb236-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(nycDat[<span class="st">&#39;popunemplo&#39;</span>], <span class="at">graticule=</span> sf<span class="sc">::</span><span class="fu">st_crs</span>(<span class="dv">4326</span>), </span>
+<span id="cb236-17"><a href="spregression.html#cb236-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">&#39;Total Unmployment&#39;</span>, <span class="at">breaks=</span><span class="st">&quot;jenks&quot;</span>, <span class="at">axes=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/loadData-1.png" width="672" /></p>
+<p>With the spatial object, we can run the global Moran’s I test. In order to run that, we need to prepare a list of weights based on neighboring relationships. Essentially, we want to see if the unemployment rate at a census tract is similar to or dissimilar to its neighbors. The <code>spdep::poly2nb</code> produces such neighboring relationships and then <code>spdep::nb2listw</code> turns them into weights. Depending on the parameters to those functions, neighbors get higher weights and non-neighbors get low or zero weights.</p>
+<p>For point type of data, <code>spdep::knearneigh</code> and <code>spdep::knn2nb</code> can construct the weights for neighbors. And <code>spdep::grid2nb</code> can do so for raster data. Alternatively, <code>spdep::graph2nb</code> can produce neighbors for point data using graphs.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="spregression.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use spdep package to test (global autocorrelation)</span></span>
+<span id="cb237-2"><a href="spregression.html#cb237-2" aria-hidden="true" tabindex="-1"></a><span class="co"># spdep::moran, spdep::moran.test</span></span>
+<span id="cb237-3"><a href="spregression.html#cb237-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The zero.policy = TRUE allows zero-length weights vectors </span></span>
+<span id="cb237-4"><a href="spregression.html#cb237-4" aria-hidden="true" tabindex="-1"></a>nycDat <span class="sc">%&gt;%</span> spdep<span class="sc">::</span><span class="fu">poly2nb</span>(<span class="fu">c</span>(<span class="st">&#39;cartodb_id&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb237-5"><a href="spregression.html#cb237-5" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">nb2listw</span>(<span class="at">zero.policy =</span> <span class="cn">TRUE</span>) <span class="ot">-&gt;</span> nycNbList</span>
+<span id="cb237-6"><a href="spregression.html#cb237-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb237-7"><a href="spregression.html#cb237-7" aria-hidden="true" tabindex="-1"></a>nycNbList <span class="sc">%&gt;%</span></span>
+<span id="cb237-8"><a href="spregression.html#cb237-8" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">moran.test</span>(nycDat<span class="sc">$</span>UNEMP_RATE, ., <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt;  Moran I test under randomisation
+#&gt; 
+#&gt; data:  nycDat$UNEMP_RATE  
+#&gt; weights: .  n reduced by no-neighbour observations
+#&gt;   
+#&gt; 
+#&gt; Moran I statistic standard deviate = 22.049, p-value &lt; 2.2e-16
+#&gt; alternative hypothesis: greater
+#&gt; sample estimates:
+#&gt; Moran I statistic       Expectation          Variance 
+#&gt;      0.2748112287     -0.0004625347      0.0001558661</code></pre>
+<p>The Moran’s I test shows a positive statistic of 0.275. And it is also statistically significant with a near zero p-value. Because the p-value &lt; 0.01, we are 99% confident that the unemployment rates are not spatially independent from those in their neighboring census tracts. And a positive Moran’s I implies the unemployment rate of a census tract tends to be similar to its neighboring tracts, which is what we expect.</p>
+<p>The Moran scatter-plot can offer more details than the single statistic, which also helps us understand the local Moran’s I in the next section.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="spregression.html#cb239-1" aria-hidden="true" tabindex="-1"></a> spdep<span class="sc">::</span><span class="fu">moran.plot</span>(nycDat<span class="sc">$</span>UNEMP_RATE, </span>
+<span id="cb239-2"><a href="spregression.html#cb239-2" aria-hidden="true" tabindex="-1"></a>                   nycNbList, </span>
+<span id="cb239-3"><a href="spregression.html#cb239-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb239-4"><a href="spregression.html#cb239-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xlab =</span> <span class="st">&#39;Unemployment Rate at Census&#39;</span>,</span>
+<span id="cb239-5"><a href="spregression.html#cb239-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ylab =</span> <span class="st">&#39;Lagged Unemployment Rate (of Neighbors)&#39;</span>,</span>
+<span id="cb239-6"><a href="spregression.html#cb239-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">pch=</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/moranIPlot-1.png" width="672" /></p>
+<p>To better examine the concept, let us make a simpler case by filtering and choosing data in Brooklyn only.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="spregression.html#cb240-1" aria-hidden="true" tabindex="-1"></a>nycDat <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(boroname <span class="sc">==</span> <span class="st">&#39;Brooklyn&#39;</span>) <span class="ot">-&gt;</span> brklnDat</span>
+<span id="cb240-2"><a href="spregression.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb240-3"><a href="spregression.html#cb240-3" aria-hidden="true" tabindex="-1"></a>brklnDat <span class="sc">%&gt;%</span> </span>
+<span id="cb240-4"><a href="spregression.html#cb240-4" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">poly2nb</span>(<span class="fu">c</span>(<span class="st">&#39;cartodb_id&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb240-5"><a href="spregression.html#cb240-5" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">nb2listw</span>(<span class="at">zero.policy =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb240-6"><a href="spregression.html#cb240-6" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">moran.plot</span>(brklnDat<span class="sc">$</span>UNEMP_RATE, ., </span>
+<span id="cb240-7"><a href="spregression.html#cb240-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb240-8"><a href="spregression.html#cb240-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">xlab =</span> <span class="st">&#39;Unemployment Rate at Census Level in Brooklyn&#39;</span>,</span>
+<span id="cb240-9"><a href="spregression.html#cb240-9" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ylab =</span> <span class="st">&#39;Lagged Unemployment Rate (of Neighbors)&#39;</span>,</span>
+<span id="cb240-10"><a href="spregression.html#cb240-10" aria-hidden="true" tabindex="-1"></a>                    <span class="at">pch=</span><span class="dv">20</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/moranIconcept-1.png" width="672" /></p>
+<p>On the X axis are the standardized unemployment rate, whose mean value is about 0.1. The Y axis is the spatially lagged unemployment rate, which we can interpret as the unemployment rate around a census tract. Each point in the scatter plot is a census tract. Its X value is its real unemployment rate and Y is the unemployment rate estimated from its neighbors.</p>
+<p>The two dashed lines in the figure divide the plot into four quadrants. All the points in the upper right quadrant have higher-than-mean unemployment rates. Their neighbors also have higher-than-mean rates. The points in the bottom left quadrant have lower-than-mean values, both for census tracts and their neighbors. By contrast, the census tracts that fall into the bottom right quadrant have high-than-median values but their neighbors have lower-than-mean values. Similarly, those in the upper left quadrant have lower-than-mean values but their neighbors have high-than-mean values.</p>
+<p>The solid line in the plot indicates in the Moran’s I statistic. It goes though the mean values and its slope is exactly the Moran’s I. Obviously, a upward slope means a positive autocorrelation and downward slope means a negative autocorrelation.</p>
+</div>
+<div id="local-indicators-of-spatial-autocorrelation" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Local Indicators of Spatial Autocorrelation<a href="spregression.html#local-indicators-of-spatial-autocorrelation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To examine spatial autocorrelation locally, we can use Local Moran’s I or Local Indicators of Spatial Association (LISA), among others.</p>
+<div class="figure"><span style="display:block;" id="fig:moranScatterPlot"></span>
+<img src="img/moran_scatter_plot.png" alt="Global Spatial Autocorrelation" width="100%" />
+<p class="caption">
+FIGURE 4.2: Global Spatial Autocorrelation
+</p>
+</div>
+<p>LISA can help identify clusters of high or low values as well as outliers that are surrounded by opposite values. As explained above, we could identify HH (high values surrounded by high values), LL (low values surrounded by low values), HL (high values surrounded by low values), and LH (Low values surrounded by high values).</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="spregression.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use spdep package to test (global autocorrelation)</span></span>
+<span id="cb241-2"><a href="spregression.html#cb241-2" aria-hidden="true" tabindex="-1"></a><span class="co"># spdep::localmoran, spdep::localmoran.exact</span></span>
+<span id="cb241-3"><a href="spregression.html#cb241-3" aria-hidden="true" tabindex="-1"></a><span class="co"># localmoran result: </span></span>
+<span id="cb241-4"><a href="spregression.html#cb241-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  High positive Ii means simlar values (either high or low clusters)</span></span>
+<span id="cb241-5"><a href="spregression.html#cb241-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  Low negative Ii means dissimilar values (outliers)</span></span>
+<span id="cb241-6"><a href="spregression.html#cb241-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  </span></span>
+<span id="cb241-7"><a href="spregression.html#cb241-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-8"><a href="spregression.html#cb241-8" aria-hidden="true" tabindex="-1"></a>lisaRslt <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">localmoran</span>(nycDat<span class="sc">$</span>UNEMP_RATE, nycNbList, </span>
+<span id="cb241-9"><a href="spregression.html#cb241-9" aria-hidden="true" tabindex="-1"></a>                              <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, <span class="at">na.action =</span> na.omit)</span>
+<span id="cb241-10"><a href="spregression.html#cb241-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-11"><a href="spregression.html#cb241-11" aria-hidden="true" tabindex="-1"></a><span class="co"># The dimension of LISA result and the orignal sf object</span></span>
+<span id="cb241-12"><a href="spregression.html#cb241-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(lisaRslt); <span class="fu">dim</span>(nycDat);</span></code></pre></div>
+<pre><code>#&gt; [1] 2166    5</code></pre>
+<pre><code>#&gt; [1] 2166  114</code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="spregression.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some results </span></span>
+<span id="cb244-2"><a href="spregression.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lisaRslt)</span></code></pre></div>
+<pre><code>#&gt;            Ii          E.Ii     Var.Ii       Z.Ii Pr(z != E(Ii))
+#&gt; 1  0.00000000  0.000000e+00 0.00000000        NaN            NaN
+#&gt; 2 -0.04952833 -5.118754e-05 0.03692135 -0.2574932     0.79679806
+#&gt; 3 -0.43545072 -5.322679e-04 0.23002975 -0.9068090     0.36450780
+#&gt; 4  0.65905181 -1.220423e-03 0.87925671  0.7041500     0.48133936
+#&gt; 5  0.09599460 -2.501648e-05 0.01352731  0.8255708     0.40904763
+#&gt; 6  0.54067850 -2.494425e-04 0.10783185  1.6472742     0.09950171</code></pre>
+<p>The columns in the LISA results have specific meanings.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ii</td>
+<td>local moran statistic</td>
+</tr>
+<tr class="even">
+<td>E.Ii</td>
+<td>expectation of local moran statistic</td>
+</tr>
+<tr class="odd">
+<td>Var.Ii</td>
+<td>variance of local moran statistic</td>
+</tr>
+<tr class="even">
+<td>Z.Ii</td>
+<td>standard deviate of local moran statistic</td>
+</tr>
+<tr class="odd">
+<td>Pr(z &gt; 0)</td>
+<td>p-value of local moran statistic</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The combined information allows for a classification of the significant locations as high-high and low-low spatial clusters, and high-low and low-high spatial outliers. It is important to keep in mind that the reference to high and low is relative to the mean of the variable, and should not be interpreted in an absolute sense.</p>
+<p>— GeoDa</p>
+</blockquote>
+<p>First, using the <code>p-value</code>, we can determine whether we can draw statistically significant conclusions for the existence of clusters or outliers around those spatial features. If the <code>p-vale &gt;= signficance level</code> such as <code>p &gt;= 0.05</code>, they could be labeled insignificant and we would not know if they are clusters or outliers. For those significant features, that is <code>p &lt; 0.05</code>, we need to identify if they are clusters or outliers, which can be identified using <code>Ii</code>. If <code>Ii</code> is positive, it would be a cluster (similar to nearby or neighboring values); otherwise, it would be a outlier (very different from nearby or neighboring values). Then, it is very easy to determine if it is a high or low value relative to the mean.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="spregression.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we can derive the cluster/outlier types (COType in ArcGIS term) for each spatial feature in the data</span></span>
+<span id="cb246-2"><a href="spregression.html#cb246-2" aria-hidden="true" tabindex="-1"></a>significanceLevel <span class="ot">&lt;-</span> <span class="fl">0.05</span>; <span class="co"># 95% confidence</span></span>
+<span id="cb246-3"><a href="spregression.html#cb246-3" aria-hidden="true" tabindex="-1"></a>meanVal <span class="ot">&lt;-</span> <span class="fu">mean</span>(nycDat<span class="sc">$</span>UNEMP_RATE);</span>
+<span id="cb246-4"><a href="spregression.html#cb246-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-5"><a href="spregression.html#cb246-5" aria-hidden="true" tabindex="-1"></a>lisaRslt <span class="sc">%&lt;&gt;%</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb246-6"><a href="spregression.html#cb246-6" aria-hidden="true" tabindex="-1"></a>  magrittr<span class="sc">::</span><span class="fu">set_colnames</span>(<span class="fu">c</span>(<span class="st">&quot;Ii&quot;</span>,<span class="st">&quot;E.Ii&quot;</span>,<span class="st">&quot;Var.Ii&quot;</span>,<span class="st">&quot;Z.Ii&quot;</span>,<span class="st">&quot;Pr(z &gt; 0)&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb246-7"><a href="spregression.html#cb246-7" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">coType =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb246-8"><a href="spregression.html#cb246-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;Insignificant&quot;</span>,</span>
+<span id="cb246-9"><a href="spregression.html#cb246-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> nycDat<span class="sc">$</span>UNEMP_RATE <span class="sc">&gt;=</span> meanVal <span class="sc">~</span> <span class="st">&quot;HH&quot;</span>,</span>
+<span id="cb246-10"><a href="spregression.html#cb246-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> nycDat<span class="sc">$</span>UNEMP_RATE <span class="sc">&lt;</span> meanVal <span class="sc">~</span> <span class="st">&quot;LL&quot;</span>,</span>
+<span id="cb246-11"><a href="spregression.html#cb246-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> nycDat<span class="sc">$</span>UNEMP_RATE <span class="sc">&gt;=</span> meanVal <span class="sc">~</span> <span class="st">&quot;HL&quot;</span>,</span>
+<span id="cb246-12"><a href="spregression.html#cb246-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> nycDat<span class="sc">$</span>UNEMP_RATE <span class="sc">&lt;</span> meanVal <span class="sc">~</span> <span class="st">&quot;LH&quot;</span></span>
+<span id="cb246-13"><a href="spregression.html#cb246-13" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb246-14"><a href="spregression.html#cb246-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-15"><a href="spregression.html#cb246-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Now add this coType to original sf data</span></span>
+<span id="cb246-16"><a href="spregression.html#cb246-16" aria-hidden="true" tabindex="-1"></a>nycDat<span class="sc">$</span>coType <span class="ot">&lt;-</span> lisaRslt<span class="sc">$</span>coType <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="st">&quot;Insignificant&quot;</span>)</span>
+<span id="cb246-17"><a href="spregression.html#cb246-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb246-18"><a href="spregression.html#cb246-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nycDat) <span class="sc">+</span></span>
+<span id="cb246-19"><a href="spregression.html#cb246-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill=</span>coType),<span class="at">color =</span> <span class="st">&#39;lightgrey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb246-20"><a href="spregression.html#cb246-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;red&#39;</span>,<span class="st">&#39;brown&#39;</span>,<span class="st">&#39;NA&#39;</span>,<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;cyan&#39;</span>), <span class="at">name=</span><span class="st">&#39;Clusters &amp; </span><span class="sc">\n</span><span class="st">Outliers&#39;</span>) <span class="sc">+</span></span>
+<span id="cb246-21"><a href="spregression.html#cb246-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Unemployment Rate at Census Tract Level&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/coTpye-1.png" width="672" /></p>
+<p>From the plot, it is clear that no outliers are present in the unemployment distribution at 95% confidence level. In other words, if a census tract has high or low unemployment rate, its neighborhoods are unlikely to have an opposite low or high rates. This is probably an indicator of socioeconomic segregation, which is not surprising to local residents.</p>
+<p>The HH, LL clusters suggest that there are local clusters of high unemployment areas like Bronx and Coney Island. Similarly, there are also clusters of low unemployment areas such as upper west and upper east areas in Manhattan.</p>
+<p>Obviously, the local Moran’s I or LISA provides more detailed and local information about spatial autocorrelation. More importantly, they can identify those local clusters (hotspots, coldspots) and outliers.</p>
+<p>A few more examples from the same dataset.</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="spregression.html#cb247-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define this as a function, which could save some space.</span></span>
+<span id="cb247-2"><a href="spregression.html#cb247-2" aria-hidden="true" tabindex="-1"></a>plotCOType <span class="ot">&lt;-</span> <span class="cf">function</span>(varName, titleText, <span class="at">cols=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb247-3"><a href="spregression.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  varVals <span class="ot">&lt;-</span> nycDat[[varName]] <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>()</span>
+<span id="cb247-4"><a href="spregression.html#cb247-4" aria-hidden="true" tabindex="-1"></a>  lisaRslt <span class="ot">&lt;-</span> spdep<span class="sc">::</span><span class="fu">localmoran</span>(varVals, nycNbList, </span>
+<span id="cb247-5"><a href="spregression.html#cb247-5" aria-hidden="true" tabindex="-1"></a>                                <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, <span class="at">na.action =</span> na.exclude)</span>
+<span id="cb247-6"><a href="spregression.html#cb247-6" aria-hidden="true" tabindex="-1"></a>  significanceLevel <span class="ot">&lt;-</span> <span class="fl">0.05</span>; <span class="co"># 95% confidence</span></span>
+<span id="cb247-7"><a href="spregression.html#cb247-7" aria-hidden="true" tabindex="-1"></a>  meanVal <span class="ot">&lt;-</span> <span class="fu">mean</span>(varVals, <span class="at">na.rm=</span><span class="cn">TRUE</span>);</span>
+<span id="cb247-8"><a href="spregression.html#cb247-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb247-9"><a href="spregression.html#cb247-9" aria-hidden="true" tabindex="-1"></a>  lisaRslt <span class="sc">%&lt;&gt;%</span> tibble<span class="sc">::</span><span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb247-10"><a href="spregression.html#cb247-10" aria-hidden="true" tabindex="-1"></a>    magrittr<span class="sc">::</span><span class="fu">set_colnames</span>(<span class="fu">c</span>(<span class="st">&quot;Ii&quot;</span>,<span class="st">&quot;E.Ii&quot;</span>,<span class="st">&quot;Var.Ii&quot;</span>,<span class="st">&quot;Z.Ii&quot;</span>,<span class="st">&quot;Pr(z &gt; 0)&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb247-11"><a href="spregression.html#cb247-11" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">coType =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(</span>
+<span id="cb247-12"><a href="spregression.html#cb247-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">&quot;Insignificant&quot;</span>,</span>
+<span id="cb247-13"><a href="spregression.html#cb247-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> varVals <span class="sc">&gt;=</span> meanVal <span class="sc">~</span> <span class="st">&quot;HH&quot;</span>,</span>
+<span id="cb247-14"><a href="spregression.html#cb247-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&gt;=</span> <span class="dv">0</span> <span class="sc">&amp;</span> varVals <span class="sc">&lt;</span> meanVal <span class="sc">~</span> <span class="st">&quot;LL&quot;</span>,</span>
+<span id="cb247-15"><a href="spregression.html#cb247-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> varVals <span class="sc">&gt;=</span> meanVal <span class="sc">~</span> <span class="st">&quot;HL&quot;</span>,</span>
+<span id="cb247-16"><a href="spregression.html#cb247-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Pr(z &gt; 0)</span><span class="st">`</span> <span class="sc">&lt;=</span> <span class="fl">0.05</span> <span class="sc">&amp;</span> Ii <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> varVals <span class="sc">&lt;</span> meanVal <span class="sc">~</span> <span class="st">&quot;LH&quot;</span></span>
+<span id="cb247-17"><a href="spregression.html#cb247-17" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb247-18"><a href="spregression.html#cb247-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb247-19"><a href="spregression.html#cb247-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Now add this coType to original sf data</span></span>
+<span id="cb247-20"><a href="spregression.html#cb247-20" aria-hidden="true" tabindex="-1"></a>  nycDat<span class="sc">$</span>coType <span class="ot">&lt;-</span> lisaRslt<span class="sc">$</span>coType <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(<span class="st">&quot;Insignificant&quot;</span>)</span>
+<span id="cb247-21"><a href="spregression.html#cb247-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-22"><a href="spregression.html#cb247-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-23"><a href="spregression.html#cb247-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(nycDat) <span class="sc">+</span></span>
+<span id="cb247-24"><a href="spregression.html#cb247-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">fill=</span>coType),<span class="at">color =</span> <span class="st">&#39;lightgrey&#39;</span>) <span class="sc">+</span></span>
+<span id="cb247-25"><a href="spregression.html#cb247-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&#39;red&#39;</span>,<span class="st">&#39;brown&#39;</span>,<span class="st">&#39;NA&#39;</span>,<span class="st">&#39;blue&#39;</span>,<span class="st">&#39;cyan&#39;</span>)[cols], <span class="at">name=</span><span class="st">&#39;Clusters &amp; </span><span class="sc">\n</span><span class="st">Outliers&#39;</span>) <span class="sc">+</span></span>
+<span id="cb247-26"><a href="spregression.html#cb247-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> titleText)</span>
+<span id="cb247-27"><a href="spregression.html#cb247-27" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb247-28"><a href="spregression.html#cb247-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb247-29"><a href="spregression.html#cb247-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCOType</span>(<span class="st">&#39;medianinco&#39;</span>, <span class="st">&quot;Median Household Income at Census Tract Level&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/lisaCoTypeMHI-1.png" width="672" /></p>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="spregression.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCOType</span>(<span class="st">&#39;asian&#39;</span>, <span class="st">&#39;Asian Population at Census Tract Level&#39;</span>, <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/lisa-COtype-Asian-1.png" width="672" /></p>
+<div class="note">
+<p>Like many other spatial measures, global and local Moran’s I are sensitive to geographic scales. While no outliers exist at census tract level for these variables, they may surface when being examined at a coarser scale such as the neighborhood level.</p>
+</div>
+</div>
+</div>
+<div id="spatial-error-and-lag-models" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Spatial Error and Lag Models<a href="spregression.html#spatial-error-and-lag-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>With the presence of spatial autocorrelation, we need to address its possible influence on simple linear regression models that assume spatial independence. Spatial regression models are specifically developed to achieve this.</p>
+<blockquote>
+<p>Spatial regression models are statistical models that account for the presence of spatial effects, i.e., spatial autocorrelation (or more generally spatial dependence) and/or spatial heterogeneity. With R, we can run Ordinary Least Squares models using <code>lm</code> or other generalized linear regression using <code>glm</code>. Using <code>spdep</code> package, we can also obtain spatial diagnostics like Moran’s I. While there are many other options, we can use <code>spdep</code> to estimate a model with a spatially lagged dependent variable (spatial lag model) and a spatial autoregressive process for the error term (spatial error model).</p>
+<p>— Adapted from GeoDa documentation</p>
+</blockquote>
+<div id="spatial-error-model" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Spatial Error Model<a href="spregression.html#spatial-error-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Spatial error autocorrelation arises if error terms are correlated across observations, i.e., the error of an observation affects the errors of its neighbors. It is similar to serial correlation in time series analysis and leaves OLS coefficients unbiased but renders them inefficient. Because it’s such a bothersome problem, spatial errors is also called “nuisance dependence in the error.”</p>
+<p>There are a number of instances in which spatial error can arise. For example, similar to what can happen in time series, a source of correlation may come from unmeasured variables that are related through space. Correlation can also arise from aggregation of spatially correlated variables and systematic measurement error.</p>
+<p>So what to do if there is good reason to believe that there is spatial error? Maybe the most famous test is Moran’s I which is based on the regression residuals and is also related to Moran’s scatterplot of residuals which can be used to spot the problem graphically. There are other statistics like Lagrange multiplier and likelihood ratio tests, and each of them has different ways of getting at the same problem. If there is good reason to believe that spatial error is a problem, then the way forward is either model the error directly or to use autoregressive methods.</p>
+<p>In any case it’s probably a good idea to assess whether spatial error might apply to the research problem. Because of it’s effect on OLS, there might be a better way to estimate the coefficients that we are interested in, and the results might improve quite a bit.</p>
+<p>— James Greiner, Harvard Social Science Statistics Blog</p>
+</blockquote>
+<p>The spatial error model handles the spatial autocorrelation in the residuals. The idea is that such errors (residuals from regression) are autocorrelated in that the error from one spatial feature can be modeled as a weighted average of the errors of its neighbors. In other words, such errors have spatial autocorrelation. This model can be expressed as:</p>
+<p><span class="math display">\[
+{\mathbf y} = {\mathbf X}{\mathbf \beta} + {\mathbf u},
+\qquad {\mathbf u} = \lambda_{\mathrm{Err}} {\mathbf W} {\mathbf u} + {\mathbf \varepsilon}
+\]</span>
+where <span class="math inline">\({\mathbf y}\)</span> is an <span class="math inline">\((N \times 1)\)</span> vector of observations on a response variable taken at each of <span class="math inline">\(N\)</span> locations, <span class="math inline">\({\mathbf X}\)</span> is an <span class="math inline">\((N \times k)\)</span> matrix of covariates, <span class="math inline">\({\mathbf \beta}\)</span> is a <span class="math inline">\((k \times 1)\)</span> vector of parameters, <span class="math inline">\({\mathbf u}\)</span> is an <span class="math inline">\((N \times 1)\)</span> spatially autocorrelated disturbance vector, <span class="math inline">\({\mathbf \varepsilon}\)</span> is an <span class="math inline">\((N \times 1)\)</span> vector of independent and identically distributed disturbances and <span class="math inline">\(\lambda_{\mathrm{Err}}\)</span> is a scalar spatial parameter.</p>
+<p>The following code does an OLS and test whether spatial autocorrelation is present in the residuals.</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="spregression.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data: covert some factors to numeric values</span></span>
+<span id="cb249-2"><a href="spregression.html#cb249-2" aria-hidden="true" tabindex="-1"></a>nycDat <span class="sc">%&lt;&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">medianage =</span> medianage <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>(),</span>
+<span id="cb249-3"><a href="spregression.html#cb249-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">househol_1 =</span> househol_1 <span class="sc">%&gt;%</span> <span class="fu">as.character</span>() <span class="sc">%&gt;%</span> <span class="fu">as.numeric</span>())</span>
+<span id="cb249-4"><a href="spregression.html#cb249-4" aria-hidden="true" tabindex="-1"></a><span class="co"># olsRslt &lt;- lm(nycDat$popunemplo ~ nycDat$popinlabou +</span></span>
+<span id="cb249-5"><a href="spregression.html#cb249-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                 nycDat$onlylessth + nycDat$master + </span></span>
+<span id="cb249-6"><a href="spregression.html#cb249-6" aria-hidden="true" tabindex="-1"></a><span class="co">#                 nycDat$africaninl + nycDat$asianinlab + </span></span>
+<span id="cb249-7"><a href="spregression.html#cb249-7" aria-hidden="true" tabindex="-1"></a><span class="co">#                 nycDat$hispanicin + nycDat$medianage,</span></span>
+<span id="cb249-8"><a href="spregression.html#cb249-8" aria-hidden="true" tabindex="-1"></a><span class="co">#               data = nycDat)</span></span>
+<span id="cb249-9"><a href="spregression.html#cb249-9" aria-hidden="true" tabindex="-1"></a><span class="co"># summary(olsRslt)</span></span>
+<span id="cb249-10"><a href="spregression.html#cb249-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb249-11"><a href="spregression.html#cb249-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple linear regression on unemployed population</span></span>
+<span id="cb249-12"><a href="spregression.html#cb249-12" aria-hidden="true" tabindex="-1"></a>olsRslt <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(popunemplo <span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>popinlabou) <span class="sc">+</span></span>
+<span id="cb249-13"><a href="spregression.html#cb249-13" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>onlylessth) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>master) <span class="sc">+</span> </span>
+<span id="cb249-14"><a href="spregression.html#cb249-14" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>africaninl) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>asianinlab) <span class="sc">+</span> </span>
+<span id="cb249-15"><a href="spregression.html#cb249-15" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>hispanicin) <span class="sc">+</span> nycDat<span class="sc">$</span>medianage,</span>
+<span id="cb249-16"><a href="spregression.html#cb249-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> nycDat)</span>
+<span id="cb249-17"><a href="spregression.html#cb249-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(olsRslt)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; lm(formula = log(popunemplo + 1) ~ log(1 + popinlabou) + log(1 + 
+#&gt;     onlylessth) + log(1 + master) + log(1 + africaninl) + log(1 + 
+#&gt;     asianinlab) + log(1 + hispanicin) + nycDat$medianage, data = nycDat)
+#&gt; 
+#&gt; Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -4.6967 -0.2451  0.0518  0.3223  1.9265 
+#&gt; 
+#&gt; Coefficients:
+#&gt;                      Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt; (Intercept)         -1.983558   0.148840 -13.327  &lt; 2e-16 ***
+#&gt; log(1 + popinlabou)  0.731806   0.027352  26.755  &lt; 2e-16 ***
+#&gt; log(1 + onlylessth)  0.185133   0.015073  12.283  &lt; 2e-16 ***
+#&gt; log(1 + master)     -0.036226   0.013619  -2.660 0.007876 ** 
+#&gt; log(1 + africaninl)  0.082545   0.005890  14.015  &lt; 2e-16 ***
+#&gt; log(1 + asianinlab) -0.015196   0.006458  -2.353 0.018709 *  
+#&gt; log(1 + hispanicin)  0.040066   0.011579   3.460 0.000551 ***
+#&gt; nycDat$medianage     0.003001   0.001888   1.589 0.112124    
+#&gt; ---
+#&gt; Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+#&gt; 
+#&gt; Residual standard error: 0.5168 on 2116 degrees of freedom
+#&gt;   (42 observations deleted due to missingness)
+#&gt; Multiple R-squared:  0.6931, Adjusted R-squared:  0.6921 
+#&gt; F-statistic: 682.8 on 7 and 2116 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="spregression.html#cb251-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Derive the residuals from the regression. Need to handle those missed values</span></span>
+<span id="cb251-2"><a href="spregression.html#cb251-2" aria-hidden="true" tabindex="-1"></a>lmResiduals <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(nycDat<span class="sc">$</span>popunemplo))</span>
+<span id="cb251-3"><a href="spregression.html#cb251-3" aria-hidden="true" tabindex="-1"></a>resIndex <span class="ot">&lt;-</span> olsRslt<span class="sc">$</span>residuals <span class="sc">%&gt;%</span> <span class="fu">names</span>() <span class="sc">%&gt;%</span> <span class="fu">as.integer</span>();</span>
+<span id="cb251-4"><a href="spregression.html#cb251-4" aria-hidden="true" tabindex="-1"></a>lmResiduals[resIndex] <span class="ot">&lt;-</span> olsRslt<span class="sc">$</span>residuals</span>
+<span id="cb251-5"><a href="spregression.html#cb251-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb251-6"><a href="spregression.html#cb251-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Test if there is spatial autocorrelation in the regression residuals (errors).</span></span>
+<span id="cb251-7"><a href="spregression.html#cb251-7" aria-hidden="true" tabindex="-1"></a>nycNbList <span class="sc">%&gt;%</span></span>
+<span id="cb251-8"><a href="spregression.html#cb251-8" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">moran.test</span>(lmResiduals, ., <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt;  Moran I test under randomisation
+#&gt; 
+#&gt; data:  lmResiduals  
+#&gt; weights: .  n reduced by no-neighbour observations
+#&gt;   
+#&gt; 
+#&gt; Moran I statistic standard deviate = 10.285, p-value &lt; 2.2e-16
+#&gt; alternative hypothesis: greater
+#&gt; sample estimates:
+#&gt; Moran I statistic       Expectation          Variance 
+#&gt;      0.1283881833     -0.0004625347      0.0001569522</code></pre>
+<p>The Moran’s test shows that the residuals from linear regression have statistically significant positive spatial autocorrelation. The Moran’s I is 0.128 and the p-value &lt; 0.01. With that, we can run a spatial error model to take such autocorrelation into account.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="spregression.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use spdep package to run the spatial error model </span></span>
+<span id="cb253-2"><a href="spregression.html#cb253-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use spatialreg::errorsarlm to run the same model</span></span>
+<span id="cb253-3"><a href="spregression.html#cb253-3" aria-hidden="true" tabindex="-1"></a>serrRslt <span class="ot">&lt;-</span> spatialreg<span class="sc">::</span><span class="fu">errorsarlm</span>(<span class="fu">log</span>(popunemplo <span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>popinlabou) <span class="sc">+</span></span>
+<span id="cb253-4"><a href="spregression.html#cb253-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>onlylessth) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>master) <span class="sc">+</span> </span>
+<span id="cb253-5"><a href="spregression.html#cb253-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>africaninl) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>asianinlab) <span class="sc">+</span> </span>
+<span id="cb253-6"><a href="spregression.html#cb253-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>hispanicin) <span class="sc">+</span> medianage,</span>
+<span id="cb253-7"><a href="spregression.html#cb253-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> nycDat,</span>
+<span id="cb253-8"><a href="spregression.html#cb253-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">listw =</span> nycNbList,</span>
+<span id="cb253-9"><a href="spregression.html#cb253-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb253-10"><a href="spregression.html#cb253-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">na.action =</span> na.omit);</span>
+<span id="cb253-11"><a href="spregression.html#cb253-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb253-12"><a href="spregression.html#cb253-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(serrRslt)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt; Call:spatialreg::errorsarlm(formula = log(popunemplo + 1) ~ log(1 + 
+#&gt;     popinlabou) + log(1 + onlylessth) + log(1 + master) + log(1 + 
+#&gt;     africaninl) + log(1 + asianinlab) + log(1 + hispanicin) + 
+#&gt;     medianage, data = nycDat, listw = nycNbList, na.action = na.omit, 
+#&gt;     zero.policy = TRUE)
+#&gt; 
+#&gt; Residuals:
+#&gt;       Min        1Q    Median        3Q       Max 
+#&gt; -4.526908 -0.244982  0.055031  0.300734  1.897656 
+#&gt; 
+#&gt; Type: error 
+#&gt; Regions with no neighbours included:
+#&gt;  289 627 1967 
+#&gt; Coefficients: (asymptotic standard errors) 
+#&gt;                       Estimate Std. Error  z value  Pr(&gt;|z|)
+#&gt; (Intercept)         -1.8431148  0.1519117 -12.1328 &lt; 2.2e-16
+#&gt; log(1 + popinlabou)  0.7245485  0.0277532  26.1068 &lt; 2.2e-16
+#&gt; log(1 + onlylessth)  0.1911611  0.0160471  11.9125 &lt; 2.2e-16
+#&gt; log(1 + master)     -0.0399508  0.0139103  -2.8720  0.004078
+#&gt; log(1 + africaninl)  0.0761078  0.0068356  11.1341 &lt; 2.2e-16
+#&gt; log(1 + asianinlab) -0.0115502  0.0070767  -1.6322  0.102646
+#&gt; log(1 + hispanicin)  0.0346482  0.0127560   2.7162  0.006603
+#&gt; medianage            0.0014076  0.0020147   0.6987  0.484770
+#&gt; 
+#&gt; Lambda: 0.29439, LR test value: 85.367, p-value: &lt; 2.22e-16
+#&gt; Asymptotic standard error: 0.03168
+#&gt;     z-value: 9.2926, p-value: &lt; 2.22e-16
+#&gt; Wald statistic: 86.352, p-value: &lt; 2.22e-16
+#&gt; 
+#&gt; Log likelihood: -1564.967 for error model
+#&gt; ML residual variance (sigma squared): 0.25155, (sigma: 0.50155)
+#&gt; Number of observations: 2124 
+#&gt; Number of parameters estimated: 10 
+#&gt; AIC: 3149.9, (AIC for lm: 3233.3)</code></pre>
+<p>From the AIC, the spatial error model performs much better than the linear model (lower AIC basically means better fit). The <span class="math display">\[\lambda\]</span> Lambda value of 0.294 is also statistically significant, suggesting the error term is spatially autoregressive. While the model coefficients do not change much, most of them have higher absolute Z values, meaning more robust estimation with lower variance.</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="spregression.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Derive the residuals from the regression. Need to handle those missed values</span></span>
+<span id="cb255-2"><a href="spregression.html#cb255-2" aria-hidden="true" tabindex="-1"></a>seResiduals <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(nycDat<span class="sc">$</span>popunemplo))</span>
+<span id="cb255-3"><a href="spregression.html#cb255-3" aria-hidden="true" tabindex="-1"></a>resIndex <span class="ot">&lt;-</span> serrRslt<span class="sc">$</span>residuals <span class="sc">%&gt;%</span> <span class="fu">names</span>() <span class="sc">%&gt;%</span> <span class="fu">as.integer</span>();</span>
+<span id="cb255-4"><a href="spregression.html#cb255-4" aria-hidden="true" tabindex="-1"></a>seResiduals[resIndex] <span class="ot">&lt;-</span> serrRslt<span class="sc">$</span>residuals</span>
+<span id="cb255-5"><a href="spregression.html#cb255-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb255-6"><a href="spregression.html#cb255-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Test if there is spatial autocorrelation in the regression residuals (errors).</span></span>
+<span id="cb255-7"><a href="spregression.html#cb255-7" aria-hidden="true" tabindex="-1"></a>nycNbList <span class="sc">%&gt;%</span></span>
+<span id="cb255-8"><a href="spregression.html#cb255-8" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">moran.test</span>(seResiduals, ., <span class="at">zero.policy =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>#&gt; 
+#&gt;  Moran I test under randomisation
+#&gt; 
+#&gt; data:  seResiduals  
+#&gt; weights: .  n reduced by no-neighbour observations
+#&gt;   
+#&gt; 
+#&gt; Moran I statistic standard deviate = -0.54661, p-value = 0.7077
+#&gt; alternative hypothesis: greater
+#&gt; sample estimates:
+#&gt; Moran I statistic       Expectation          Variance 
+#&gt;     -0.0073098388     -0.0004625347      0.0001569199</code></pre>
+<p>Now, it is rather clear that there is no spatial autocorrelation in the residuals anymore as the Moran’s I is close to zero now. More importantly, the p-value is 0.71, meaning we cannot reject the hypothesis that the Moran’s I is zero.</p>
+</div>
+<div id="spatial-lag-model" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Spatial Lag Model<a href="spregression.html#spatial-lag-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>A spatial lag is a variable that essentially averages the neighboring values of a location (the value of each neighboring location is multiplied by the spatial weight and then the products are summed). It can be used to compare the neighboring values with those of the location itself. Which locations are defined as neighbors in this process is specified through a row-standardized spatial weights matrix in GeoDa and a list of standardized weights in <code>spdep</code>. By convention, the location at the center of its neighbors is not included in the definition of neighbors and is therefore set to zero.</p>
+<p>— Adapted from GeoDa Documentation</p>
+</blockquote>
+<p>For these spatial lags, we can use the spatial lag model to address the spatial autocorrelation in the dependent variable.</p>
+<p><span class="math display">\[
+{\mathbf y} = \rho_{\mathrm{Lag}} {\mathbf W}{\mathbf y} + {\mathbf X}{\mathbf \beta} + {\mathbf \varepsilon},
+\]</span>
+where <span class="math inline">\(\rho_{\mathrm{Lag}}\)</span> is a scalar spatial parameter, indicating how much a spatial feature is influenced by its neighbors.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="spregression.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use spdep package to run the spatial lag model </span></span>
+<span id="cb257-2"><a href="spregression.html#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="co"># spatialreg::lagsarlm </span></span>
+<span id="cb257-3"><a href="spregression.html#cb257-3" aria-hidden="true" tabindex="-1"></a>slmRslt <span class="ot">&lt;-</span> spatialreg<span class="sc">::</span><span class="fu">lagsarlm</span>(<span class="fu">log</span>(popunemplo <span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>popinlabou) <span class="sc">+</span></span>
+<span id="cb257-4"><a href="spregression.html#cb257-4" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>onlylessth) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>master) <span class="sc">+</span> </span>
+<span id="cb257-5"><a href="spregression.html#cb257-5" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>africaninl) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>asianinlab) <span class="sc">+</span> </span>
+<span id="cb257-6"><a href="spregression.html#cb257-6" aria-hidden="true" tabindex="-1"></a>                <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>hispanicin) <span class="sc">+</span> medianage,</span>
+<span id="cb257-7"><a href="spregression.html#cb257-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> nycDat,</span>
+<span id="cb257-8"><a href="spregression.html#cb257-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">listw =</span> nycNbList,</span>
+<span id="cb257-9"><a href="spregression.html#cb257-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">zero.policy =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb257-10"><a href="spregression.html#cb257-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">na.action =</span> na.omit);</span>
+<span id="cb257-11"><a href="spregression.html#cb257-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb257-12"><a href="spregression.html#cb257-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(slmRslt)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt; Call:spatialreg::lagsarlm(formula = log(popunemplo + 1) ~ log(1 + 
+#&gt;     popinlabou) + log(1 + onlylessth) + log(1 + master) + log(1 + 
+#&gt;     africaninl) + log(1 + asianinlab) + log(1 + hispanicin) + 
+#&gt;     medianage, data = nycDat, listw = nycNbList, na.action = na.omit, 
+#&gt;     zero.policy = TRUE)
+#&gt; 
+#&gt; Residuals:
+#&gt;       Min        1Q    Median        3Q       Max 
+#&gt; -4.591905 -0.248899  0.053451  0.306993  1.797936 
+#&gt; 
+#&gt; Type: lag 
+#&gt; Regions with no neighbours included:
+#&gt;  289 627 1967 
+#&gt; Coefficients: (asymptotic standard errors) 
+#&gt;                       Estimate Std. Error  z value Pr(&gt;|z|)
+#&gt; (Intercept)         -2.4911142  0.1626826 -15.3127  &lt; 2e-16
+#&gt; log(1 + popinlabou)  0.7208913  0.0269525  26.7467  &lt; 2e-16
+#&gt; log(1 + onlylessth)  0.1810895  0.0148579  12.1881  &lt; 2e-16
+#&gt; log(1 + master)     -0.0314152  0.0134174  -2.3414  0.01921
+#&gt; log(1 + africaninl)  0.0713624  0.0059629  11.9678  &lt; 2e-16
+#&gt; log(1 + asianinlab) -0.0150805  0.0063527  -2.3739  0.01760
+#&gt; log(1 + hispanicin)  0.0287700  0.0114775   2.5066  0.01219
+#&gt; medianage            0.0030659  0.0018591   1.6491  0.09912
+#&gt; 
+#&gt; Rho: 0.14127, LR test value: 54.515, p-value: 1.5421e-13
+#&gt; Asymptotic standard error: 0.019469
+#&gt;     z-value: 7.2563, p-value: 3.979e-13
+#&gt; Wald statistic: 52.654, p-value: 3.979e-13
+#&gt; 
+#&gt; Log likelihood: -1580.393 for lag model
+#&gt; ML residual variance (sigma squared): 0.25841, (sigma: 0.50834)
+#&gt; Number of observations: 2124 
+#&gt; Number of parameters estimated: 10 
+#&gt; AIC: 3180.8, (AIC for lm: 3233.3)
+#&gt; LM test for residual autocorrelation
+#&gt; test value: 31.043, p-value: 2.5237e-08</code></pre>
+<p>Similarly, the spatial lag model is much better than the linear mode, even though it is not as good as the spatial error model. The spatial lag term <span class="math display">\[\rho\]</span> or Rho is also statistically significant.</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="spregression.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Derive the residuals from the regression. Need to handle those missed values</span></span>
+<span id="cb259-2"><a href="spregression.html#cb259-2" aria-hidden="true" tabindex="-1"></a>slResiduals <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">length</span>(nycDat<span class="sc">$</span>popunemplo))</span>
+<span id="cb259-3"><a href="spregression.html#cb259-3" aria-hidden="true" tabindex="-1"></a>resIndex <span class="ot">&lt;-</span> slmRslt<span class="sc">$</span>residuals <span class="sc">%&gt;%</span> <span class="fu">names</span>() <span class="sc">%&gt;%</span> <span class="fu">as.integer</span>();</span>
+<span id="cb259-4"><a href="spregression.html#cb259-4" aria-hidden="true" tabindex="-1"></a>slResiduals[resIndex] <span class="ot">&lt;-</span> slmRslt<span class="sc">$</span>residuals</span>
+<span id="cb259-5"><a href="spregression.html#cb259-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb259-6"><a href="spregression.html#cb259-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Test if there is spatial autocorrelation in the regression residuals (errors).</span></span>
+<span id="cb259-7"><a href="spregression.html#cb259-7" aria-hidden="true" tabindex="-1"></a>nycNbList <span class="sc">%&gt;%</span></span>
+<span id="cb259-8"><a href="spregression.html#cb259-8" aria-hidden="true" tabindex="-1"></a>  spdep<span class="sc">::</span><span class="fu">moran.test</span>(slResiduals, ., <span class="at">zero.policy =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; 
+#&gt;  Moran I test under randomisation
+#&gt; 
+#&gt; data:  slResiduals  
+#&gt; weights: .  n reduced by no-neighbour observations
+#&gt;   
+#&gt; 
+#&gt; Moran I statistic standard deviate = 4.7, p-value = 1.301e-06
+#&gt; alternative hypothesis: greater
+#&gt; sample estimates:
+#&gt; Moran I statistic       Expectation          Variance 
+#&gt;      0.0584191208     -0.0004625347      0.0001569527</code></pre>
+<p>The under-performance of spatial lag model is also evident from the Moran’s I test. Residuals from spatial lag model still have statistically significant (p &lt; 0.01) spatial autocorrelation, although the Moran’s I of 0.06 is much smaller than 0.27 of the dependent variable.</p>
+<p>In fact, we can combine the spatial error and spatial lag models into a spatial simultaneous autoregression model or “SAC/SARAR” model.</p>
+<p><span class="math display">\[
+{\mathbf y} = \rho_{\mathrm{Lag}} {\mathbf W}{\mathbf y} + {\mathbf X}{\mathbf \beta} + {\mathbf u}, 
+\qquad {\mathbf u} = \lambda_{\mathrm{Err}} {\mathbf W} {\mathbf u} + {\mathbf \varepsilon}
+\]</span></p>
+<p>This model can be estimated using <code>spatialreg::sacsarlm</code> but will not be discussed here.</p>
+</div>
+</div>
+<div id="spatial-heterogeneity-and-spatially-varying-coefficients" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Spatial Heterogeneity and Spatially Varying Coefficients<a href="spregression.html#spatial-heterogeneity-and-spatially-varying-coefficients" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<blockquote>
+<p>Spatial heterogeneity exists when structural changes related to location exist in a dataset. In such cases, spatial regimes might be present, which are characterized by differing parameter values or functional forms (e.g., crime in certain regions might be structurally different from crime in other regions). Spatial heterogeneity can result in non-constant error variance (heteroskedasticity) across areas, especially when scale-related measurement errors are present. It can be difficult to distinguish from spatial dependence.</p>
+<p>— GeoDa Documentation</p>
+</blockquote>
+<p>There are two families of models that can nicely address spatial heterogeneity: geographically weighted regression (GWR) and Bayesian hierarchical spatial models. While GWR is more like an exploratory tool than a rigorous statistical analysis, it is rather easy to understand and can produce insightful visualizations.</p>
+<div id="geographically-weighted-regression-gwr" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Geographically Weighted Regression (GWR)<a href="spregression.html#geographically-weighted-regression-gwr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>Geographically Weighted Regression (GWR) is one of several spatial regression techniques used in geography and other disciplines to address spatial heterogeneity. GWR evaluates a local model of the variable or process that we are trying to understand or predict by fitting a regression equation to every feature in the dataset. GWR constructs these separate equations by incorporating the dependent and explanatory variables of the features falling within the neighborhood of each target feature or the <code>k</code> nearest neighbors. GWR should be applied to datasets with over several hundred features. It is not an appropriate method for small datasets and does not work with multipoint data.</p>
+</blockquote>
+<blockquote>
+<p>Geographically Weighted Regression can be used for a variety of applications, including the following:</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Is the relationship between educational attainment and income consistent across the study area?</li>
+<li>Do certain illness or disease occurrences increase with proximity to water features?</li>
+<li>What are the key variables that explain high forest fire frequency?</li>
+<li>Which habitats should be protected to encourage the reintroduction of an endangered species?</li>
+<li>Where are the districts where children are achieving high test scores? What characteristics seem to be associated? Where is each characteristic most important?</li>
+<li>Are the factors influencing higher cancer rates consistent across the study area?</li>
+</ul>
+<p>— ArcGIS Documentation</p>
+</blockquote>
+<p>Here we are going to do a basic GWR using the <code>GWmodel</code> package in R. First we need to estimate an optimal bandwidth that will define the local neighborhood for every spatial feature. Then spatial features within the neighborhood will be used to estimate a regression model for that particular feature. There are many different ways to define such “neighborhoods” or <code>bandwidth</code>. The code below is using an “adaptive” neighborhood, which is defined as the <code>k</code> nearest neighbors based on Euclidean distances. But then how do we know how many neighbors we should use for the local regression? Or what is best value for <code>k</code>? <code>GWmodel::bw.gwr</code> can help us search for such an optimal value based on the model fitness. With that bandwidth, we can conduct a basic GWR.</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="spregression.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove all the NAs in the dataset</span></span>
+<span id="cb261-2"><a href="spregression.html#cb261-2" aria-hidden="true" tabindex="-1"></a>nycDatNoNA <span class="ot">&lt;-</span> nycDat <span class="sc">%&gt;%</span> tidyr<span class="sc">::</span><span class="fu">drop_na</span>()</span>
+<span id="cb261-3"><a href="spregression.html#cb261-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate an optimal bandwidth</span></span>
+<span id="cb261-4"><a href="spregression.html#cb261-4" aria-hidden="true" tabindex="-1"></a>bwVal <span class="ot">&lt;-</span> GWmodel<span class="sc">::</span><span class="fu">bw.gwr</span>(<span class="fu">log</span>(popunemplo <span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>popinlabou) <span class="sc">+</span></span>
+<span id="cb261-5"><a href="spregression.html#cb261-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>onlylessth) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>master) <span class="sc">+</span> </span>
+<span id="cb261-6"><a href="spregression.html#cb261-6" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>africaninl) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>asianinlab) <span class="sc">+</span> </span>
+<span id="cb261-7"><a href="spregression.html#cb261-7" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>hispanicin) <span class="sc">+</span> medianage,</span>
+<span id="cb261-8"><a href="spregression.html#cb261-8" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> nycDatNoNA <span class="sc">%&gt;%</span> sf<span class="sc">::</span><span class="fu">as_Spatial</span>(), </span>
+<span id="cb261-9"><a href="spregression.html#cb261-9" aria-hidden="true" tabindex="-1"></a>                         <span class="at">approach =</span> <span class="st">&#39;AICc&#39;</span>, <span class="at">kernel =</span> <span class="st">&#39;bisquare&#39;</span>, </span>
+<span id="cb261-10"><a href="spregression.html#cb261-10" aria-hidden="true" tabindex="-1"></a>                         <span class="at">adaptive =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; Take a cup of tea and have a break, it will take a few minutes.
+#&gt;           -----A kind suggestion from GWmodel development group
+#&gt; Adaptive bandwidth (number of nearest neighbours): 1314 AICc value: 3056.162 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 820 AICc value: 3010.612 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 513 AICc value: 2977.403 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 325 AICc value: 2943.909 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 207 AICc value: 2925.297 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 136 AICc value: 2944.405 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 253 AICc value: 2930.353 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 180 AICc value: 2923.699 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 162 AICc value: 2928.638 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 190 AICc value: 2925.533 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 172 AICc value: 2925.419 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 183 AICc value: 2923.988 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 176 AICc value: 2924.437 
+#&gt; Adaptive bandwidth (number of nearest neighbours): 180 AICc value: 2923.699</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="spregression.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a basic GWR</span></span>
+<span id="cb263-2"><a href="spregression.html#cb263-2" aria-hidden="true" tabindex="-1"></a>gwr.res <span class="ot">&lt;-</span> <span class="fu">gwr.basic</span>(<span class="fu">log</span>(popunemplo <span class="sc">+</span><span class="dv">1</span>) <span class="sc">~</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>popinlabou) <span class="sc">+</span></span>
+<span id="cb263-3"><a href="spregression.html#cb263-3" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>onlylessth) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>master) <span class="sc">+</span> </span>
+<span id="cb263-4"><a href="spregression.html#cb263-4" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>africaninl) <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>asianinlab) <span class="sc">+</span> </span>
+<span id="cb263-5"><a href="spregression.html#cb263-5" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">log</span>(<span class="dv">1</span><span class="sc">+</span>hispanicin) <span class="sc">+</span> medianage,</span>
+<span id="cb263-6"><a href="spregression.html#cb263-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">data =</span> nycDatNoNA <span class="sc">%&gt;%</span> sf<span class="sc">::</span><span class="fu">as_Spatial</span>(), </span>
+<span id="cb263-7"><a href="spregression.html#cb263-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">bw =</span> bwVal, <span class="at">kernel =</span> <span class="st">&quot;bisquare&quot;</span>, <span class="at">adaptive =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>#&gt; Warning in proj4string(data): CRS object has comment, which is lost in output; in tests, see
+#&gt; https://cran.r-project.org/web/packages/sp/vignettes/CRS_warnings.html</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="spregression.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the results</span></span>
+<span id="cb265-2"><a href="spregression.html#cb265-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gwr.res)</span></code></pre></div>
+<pre><code>#&gt;    ***********************************************************************
+#&gt;    *                       Package   GWmodel                             *
+#&gt;    ***********************************************************************
+#&gt;    Program starts at: 2022-03-23 16:41:33 
+#&gt;    Call:
+#&gt;    gwr.basic(formula = log(popunemplo + 1) ~ log(1 + popinlabou) + 
+#&gt;     log(1 + onlylessth) + log(1 + master) + log(1 + africaninl) + 
+#&gt;     log(1 + asianinlab) + log(1 + hispanicin) + medianage, data = nycDatNoNA %&gt;% 
+#&gt;     sf::as_Spatial(), bw = bwVal, kernel = &quot;bisquare&quot;, adaptive = TRUE)
+#&gt; 
+#&gt;    Dependent (y) variable:  popunemplo
+#&gt;    Independent variables:  popinlabou onlylessth master africaninl asianinlab hispanicin medianage
+#&gt;    Number of data points: 2115
+#&gt;    ***********************************************************************
+#&gt;    *                    Results of Global Regression                     *
+#&gt;    ***********************************************************************
+#&gt; 
+#&gt;    Call:
+#&gt;     lm(formula = formula, data = data)
+#&gt; 
+#&gt;    Residuals:
+#&gt;     Min      1Q  Median      3Q     Max 
+#&gt; -4.7298 -0.2514  0.0565  0.3249  2.0892 
+#&gt; 
+#&gt;    Coefficients:
+#&gt;                         Estimate Std. Error t value Pr(&gt;|t|)    
+#&gt;    (Intercept)         -2.621486   0.172640 -15.185  &lt; 2e-16 ***
+#&gt;    log(1 + popinlabou)  0.856573   0.032845  26.079  &lt; 2e-16 ***
+#&gt;    log(1 + onlylessth)  0.167166   0.015982  10.459  &lt; 2e-16 ***
+#&gt;    log(1 + master)     -0.061666   0.014385  -4.287 1.89e-05 ***
+#&gt;    log(1 + africaninl)  0.078297   0.005837  13.415  &lt; 2e-16 ***
+#&gt;    log(1 + asianinlab) -0.018332   0.006388  -2.870  0.00415 ** 
+#&gt;    log(1 + hispanicin)  0.030994   0.011509   2.693  0.00714 ** 
+#&gt;    medianage            0.003609   0.001902   1.898  0.05788 .  
+#&gt; 
+#&gt;    ---Significance stars
+#&gt;    Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+#&gt;    Residual standard error: 0.5098 on 2107 degrees of freedom
+#&gt;    Multiple R-squared: 0.6757
+#&gt;    Adjusted R-squared: 0.6746 
+#&gt;    F-statistic: 627.1 on 7 and 2107 DF,  p-value: &lt; 2.2e-16 
+#&gt;    ***Extra Diagnostic information
+#&gt;    Residual sum of squares: 547.5001
+#&gt;    Sigma(hat): 0.5090288
+#&gt;    AIC:  3161.799
+#&gt;    AICc:  3161.884
+#&gt;    BIC:  1166.621
+#&gt;    ***********************************************************************
+#&gt;    *          Results of Geographically Weighted Regression              *
+#&gt;    ***********************************************************************
+#&gt; 
+#&gt;    *********************Model calibration information*********************
+#&gt;    Kernel function: bisquare 
+#&gt;    Adaptive bandwidth: 180 (number of nearest neighbours)
+#&gt;    Regression points: the same locations as observations are used.
+#&gt;    Distance metric: Euclidean distance metric is used.
+#&gt; 
+#&gt;    ****************Summary of GWR coefficient estimates:******************
+#&gt;                              Min.    1st Qu.     Median    3rd Qu.   Max.
+#&gt;    Intercept           -7.2771344 -3.2662540 -2.3904552 -1.5407623 0.4646
+#&gt;    log(1 + popinlabou)  0.0227865  0.7145161  0.8723999  1.0315822 1.7145
+#&gt;    log(1 + onlylessth) -0.3053821  0.0612402  0.1315848  0.2488254 0.6085
+#&gt;    log(1 + master)     -0.3135134 -0.1358077 -0.0505235 -0.0144470 0.1334
+#&gt;    log(1 + africaninl) -0.1071455  0.0301272  0.0555869  0.1098297 0.3374
+#&gt;    log(1 + asianinlab) -0.1755278 -0.0413494 -0.0182863  0.0149573 0.2309
+#&gt;    log(1 + hispanicin) -0.5906099 -0.0249766  0.0281980  0.0997731 0.4744
+#&gt;    medianage           -0.0522653 -0.0114841 -0.0010550  0.0082988 0.0810
+#&gt;    ************************Diagnostic information*************************
+#&gt;    Number of data points: 2115 
+#&gt;    Effective number of parameters (2trace(S) - trace(S&#39;S)): 288.7402 
+#&gt;    Effective degrees of freedom (n-2trace(S) + trace(S&#39;S)): 1826.26 
+#&gt;    AICc (GWR book, Fotheringham, et al. 2002, p. 61, eq 2.33): 2923.699 
+#&gt;    AIC (GWR book, Fotheringham, et al. 2002,GWR p. 96, eq. 4.22): 2651.793 
+#&gt;    BIC (GWR book, Fotheringham, et al. 2002,GWR p. 61, eq. 2.34): 1992.695 
+#&gt;    Residual sum of squares: 391.2425 
+#&gt;    R-square value:  0.768232 
+#&gt;    Adjusted R-square value:  0.7315684 
+#&gt; 
+#&gt;    ***********************************************************************
+#&gt;    Program stops at: 2022-03-23 16:41:35</code></pre>
+<p>While the pseudo-R square values improve a lot from GWR, the most valuable application of GWR outputs is to examine the spatial variations of the estimated model coefficients.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="spregression.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The gwr.res$SDF is a Spatial*DataFrame that contain all the coefficients estimated </span></span>
+<span id="cb267-2"><a href="spregression.html#cb267-2" aria-hidden="true" tabindex="-1"></a><span class="co"># at each sptial feature. We can simply map it out as a sp object</span></span>
+<span id="cb267-3"><a href="spregression.html#cb267-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(gwr.res<span class="sc">$</span>SDF)</span></code></pre></div>
+<pre><code>#&gt;  [1] &quot;Intercept&quot;              &quot;log(1 + popinlabou)&quot;    &quot;log(1 + onlylessth)&quot;   
+#&gt;  [4] &quot;log(1 + master)&quot;        &quot;log(1 + africaninl)&quot;    &quot;log(1 + asianinlab)&quot;   
+#&gt;  [7] &quot;log(1 + hispanicin)&quot;    &quot;medianage&quot;              &quot;y&quot;                     
+#&gt; [10] &quot;yhat&quot;                   &quot;residual&quot;               &quot;CV_Score&quot;              
+#&gt; [13] &quot;Stud_residual&quot;          &quot;Intercept_SE&quot;           &quot;log(1 + popinlabou)_SE&quot;
+#&gt; [16] &quot;log(1 + onlylessth)_SE&quot; &quot;log(1 + master)_SE&quot;     &quot;log(1 + africaninl)_SE&quot;
+#&gt; [19] &quot;log(1 + asianinlab)_SE&quot; &quot;log(1 + hispanicin)_SE&quot; &quot;medianage_SE&quot;          
+#&gt; [22] &quot;Intercept_TV&quot;           &quot;log(1 + popinlabou)_TV&quot; &quot;log(1 + onlylessth)_TV&quot;
+#&gt; [25] &quot;log(1 + master)_TV&quot;     &quot;log(1 + africaninl)_TV&quot; &quot;log(1 + asianinlab)_TV&quot;
+#&gt; [28] &quot;log(1 + hispanicin)_TV&quot; &quot;medianage_TV&quot;           &quot;Local_R2&quot;</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="spregression.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Because the spplot cannot handle those unconventional column names, we need to do extra works.</span></span>
+<span id="cb269-2"><a href="spregression.html#cb269-2" aria-hidden="true" tabindex="-1"></a>spGWRData <span class="ot">&lt;-</span> gwr.res<span class="sc">$</span>SDF<span class="sc">@</span>data;</span>
+<span id="cb269-3"><a href="spregression.html#cb269-3" aria-hidden="true" tabindex="-1"></a>spGWRData<span class="sc">$</span>coefMaster <span class="ot">&lt;-</span> spGWRData<span class="sc">$</span><span class="st">`</span><span class="at">log(1 + master)</span><span class="st">`</span>;</span>
+<span id="cb269-4"><a href="spregression.html#cb269-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the p value from (student) t value</span></span>
+<span id="cb269-5"><a href="spregression.html#cb269-5" aria-hidden="true" tabindex="-1"></a>spGWRData<span class="sc">$</span>pMaster <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(spGWRData<span class="sc">$</span><span class="st">`</span><span class="at">log(1 + master)_TV</span><span class="st">`</span>), <span class="at">df =</span> <span class="fu">dim</span>(spGWRData)[<span class="dv">1</span>] <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb269-6"><a href="spregression.html#cb269-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb269-7"><a href="spregression.html#cb269-7" aria-hidden="true" tabindex="-1"></a>spGWRData<span class="sc">$</span>coefAfrican <span class="ot">&lt;-</span> spGWRData<span class="sc">$</span><span class="st">`</span><span class="at">log(1 + africaninl)</span><span class="st">`</span>; </span>
+<span id="cb269-8"><a href="spregression.html#cb269-8" aria-hidden="true" tabindex="-1"></a>spGWRData<span class="sc">$</span>coefHighschool <span class="ot">&lt;-</span> spGWRData<span class="sc">$</span><span class="st">`</span><span class="at">log(1 + onlylessth)</span><span class="st">`</span></span>
+<span id="cb269-9"><a href="spregression.html#cb269-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb269-10"><a href="spregression.html#cb269-10" aria-hidden="true" tabindex="-1"></a>spGWR <span class="ot">&lt;-</span> gwr.res<span class="sc">$</span>SDF; </span>
+<span id="cb269-11"><a href="spregression.html#cb269-11" aria-hidden="true" tabindex="-1"></a>spGWR<span class="sc">@</span>data <span class="ot">&lt;-</span> spGWRData;</span>
+<span id="cb269-12"><a href="spregression.html#cb269-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb269-13"><a href="spregression.html#cb269-13" aria-hidden="true" tabindex="-1"></a><span class="co"># This show how the coefficients of the master degree on unemplyment change over space. </span></span>
+<span id="cb269-14"><a href="spregression.html#cb269-14" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(spGWR, <span class="st">&#39;Local_R2&#39;</span>, <span class="at">main=</span><span class="st">&quot;Local R Squared&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/gwr-vis-spatial-varying-1.png" width="672" /></p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="spregression.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This show how the coefficients of the master degree on unemplyment change over space. </span></span>
+<span id="cb270-2"><a href="spregression.html#cb270-2" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(spGWR, <span class="st">&#39;coefMaster&#39;</span>, <span class="at">main=</span><span class="st">&quot;Estimated Coefficients of Master Degree on Unemployment&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/gwr-vis-spatial-varying-2.png" width="672" /></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="spregression.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="co"># But this variable is not signficiant everywhere.</span></span>
+<span id="cb271-2"><a href="spregression.html#cb271-2" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(spGWR, <span class="st">&#39;pMaster&#39;</span>, <span class="at">main=</span><span class="st">&quot;p-value of Master Degree on Unemployment&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/gwr-vis-spatial-varying-3.png" width="672" /></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="spregression.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Another factor of highschool</span></span>
+<span id="cb272-2"><a href="spregression.html#cb272-2" aria-hidden="true" tabindex="-1"></a><span class="fu">spplot</span>(spGWR, <span class="st">&#39;coefHighschool&#39;</span>, <span class="at">main=</span><span class="st">&quot;Estimated Coefficients of Highshcool or Less on Unemployment&quot;</span>)</span></code></pre></div>
+<p><img src="R-spatial_files/figure-html/gwr-vis-spatial-varying-4.png" width="672" /></p>
+<p>The <code>SDF</code> object in the <code>gwr.basic</code> resutls contains estimated coefficients, predicted Y calues, coefficient standard errors, and t-values. All these values are organized in a Spatial*DataFrame that can be directly mapped.</p>
+<p>From these plots, it seems like a master degree, while helping reduce unemployment overall with statistical significance, may not matter at some places (where p-value is high). Additionally, it can also positively contribute to unemployment at some areas, even though the master degree factor is mostly not significant at those areas. Similarly, the number of population with an education of high school or less in the labor force may positively or negatively contribute to the unemployment, depending on the locations. Clearly, GWR is a powerful exploratory tool as we instantly want to know why such spatial variation exists and what might explain it. Such exploration would continue in advanced R topics, but the book has to stop here.</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mapping.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/#/04-spatial-regression.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["R-spatial.pdf", "R-spatial.epub", "R-spatial.docx"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

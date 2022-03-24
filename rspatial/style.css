@@ -1,0 +1,93 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+/* my style additions */
+kbd {
+  color: #770000;
+  border-style: solid;
+}
+
+/* my style additions - from https://github.com/rstudio/bookdown/blob/master/inst/examples/css/style.css */
+
+.header-section-number {
+  padding-right: .2em;
+  font-weight: 500;
+}
+.level1 .header-section-number {
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+.level1 h1 {
+  border-bottom: 1px solid;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+h1.title {
+  font-weight: 700;
+}
+.book .book-body .page-wrapper .page-inner section.normal strong {
+  font-weight: 500;
+}
+
+div.puzzle, div.fyi, div.demo, div.note, div.tipbox {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+}
+  
+div.tipbox {
+  padding-left: 10px;  
+}
+
+div.puzzle {
+  background-image: url("img/puzzle.png");
+}
+
+div.fyi {
+ background-image: url("fyi.png");
+}
+
+div.demo {
+  background-image: url("Live-code.png");
+}
+
+div.note {
+  background-image: url("img/lightbulb.png");
+}  
+
+
+element {
+
+}
+
+/* this is how I pinpointed the layer control icon 
+   the bookdown set background to nothing for the 'a'. 
+   have to reset it at the finest scale. hopefully this does not affect any other things
+*/
+.book .book-body .page-wrapper .page-inner section.normal .leaflet-control-layers a {
+  color: #4183c4;
+  text-decoration: none;
+  background-image: url(img/layers.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
