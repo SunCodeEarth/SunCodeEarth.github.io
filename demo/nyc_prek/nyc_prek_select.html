@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NYC Pre-K Schools</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="../img/dice-triangle.png"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+    <script src="../js/leaflet-providers.js"></script>
+
+    <!--script src="https://d3js.org/d3.v5.min.js"></script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/d3js/7.0.0/d3.min.js"></script>
+
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.js"></script>
+    <link
+      href="https://labs.easyblog.it/maps/leaflet-search/src/leaflet-search.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      #map {
+        width: 100%;
+        /*600px;*/
+        height: 100%;
+        /*400px;*/
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var map = L.map("map", {
+        fullscreenControl: true,
+      }).setView([40.73, -73.935], 11);
+
+      let baseLayer0 = L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw",
+        {
+          maxZoom: 17,
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          id: "mapbox/light-v9",
+          tileSize: 512,
+          zoomOffset: -1,
+        }
+      ).addTo(map);
+
+      let baseLayer1 = L.tileLayer.provider("CartoDB.Positron");
+      let baseLayer2 = L.tileLayer.provider("CartoDB.DarkMatter");
+      let baseLayer3 = L.tileLayer.provider("OpenStreetMap");
+      let baseLayer4 = L.tileLayer.provider("Esri.WorldImagery");
+      let baseLayer5 = L.tileLayer.provider("OpenTopoMap");
+      let baseLayer6 = L.tileLayer.provider("CartoDB.Positron");
+
+      var schoolIcon = L.Icon.extend({
+        options: {
+          iconUrl: "school_32_32.png",
+          iconAnchor: [16, 16], // point of the icon which will correspond to marker's location
+          popupAnchor: [3, 3], // point from which the popup should open relative to the iconAnchor
+        },
+      });
+
+      var smallSchoolIcon = new schoolIcon({
+        iconSize: [16, 16], // size of the icon
+      });
+
+      var mediumSchoolIcon = new schoolIcon({
+        iconSize: [28, 28], // size of the icon
+        iconAnchor: [18, 32]
+      });
+
+      function showEachSchool(feature, layer) {
+        var popupContent =
+          "<p> <strong>" +
+          feature.properties.LocName +
+          "</strong>" +
+          "</br> Web Address: " +
+          '<a target="_blank" href="' +
+          feature.properties.Website +
+          '">' +
+          feature.properties.Website +
+          "</a>" +
+          "</p>";
+
+        if (feature.properties && feature.properties.popupContent) {
+          popupContent += feature.properties.popupContent;
+        }
+
+        layer.bindPopup(popupContent);
+        layer.bindTooltip(feature.properties.LocName, {"offset": L.point(10, -20)});
+
+        layer.on({
+          mouseover: (e) => e.target.setIcon(mediumSchoolIcon),
+          mouseout: (e) => e.target.setIcon(smallSchoolIcon),
+        });
+      }
+
+      var nycUPK = L.geoJSON(null, {
+        pointToLayer: (geoJsonPoint, latlng) => {
+          return L.marker(latlng, { icon: smallSchoolIcon });
+        },
+        style: function (feature) {
+          return { color: "#000", fill: "#ccc" };
+        },
+        onEachFeature: showEachSchool,
+      }).addTo(map);
+
+      $.getJSON("./nyc_prek.geojson", function (data) {
+        // Do NOT create the GeoJSON layer here.
+        // Create it outside and then fill the data
+        nycUPK.addData(data);
+      });
+
+      var baseMaps = {
+        Mapbox: baseLayer0,
+        "CartoDB.Positron": baseLayer1,
+        "CartoDB.DarkMatter": baseLayer2,
+        OpenStreetMap: baseLayer3,
+        "Esri.WorldImagery": baseLayer4,
+        OpenTopoMap: baseLayer5,
+        "CartoDB.Positron": baseLayer6,
+      };
+
+      var overlayMaps = {
+        "Pre-K Schools": nycUPK,
+      };
+
+      var lC = L.control
+        .layers(baseMaps, overlayMaps, {
+          collapsed: false,
+          hideSingleBase: true,
+        })
+        .addTo(map)
+        .expand();
+
+      var lcDIVElem = lC.getContainer();
+      document.addEventListener("keydown", (e) => {
+        if ((e.key === "l") | (e.key === "L")) {
+          if (lcDIVElem.style.display == "") {
+            lcDIVElem.style.display = "none";
+          } else {
+            lcDIVElem.style.display = "";
+          }
+        } else if ((e.key === "s") | (e.key === "S")) {
+          nycUPK.eachLayer((f) => {
+            if (f.feature.properties.LocName.indexOf('Lenox') != -1) {
+              console.log("I find " + f.feature.properties.LocName);
+            }
+          });
+        }
+      });
+
+      var searchControl = new L.Control.Search({
+        layer: nycUPK,
+        propertyName: "LocName",
+        marker: false,
+        moveToLocation: function (latlng, title, map) {
+          //map.fitBounds( latlng.layer.getBounds() );
+          //var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+          map.setView(latlng, 15); // access the zoom
+        },
+      });
+
+      searchControl
+        .on("search:locationfound", function (e) {
+          e.layer.setStyle({ fillColor: "#3f0", color: "#0f0" });
+          if (e.layer._popup) e.layer.openPopup();
+        })
+        .on("search:collapsed", function (e) {
+          nycUPK.eachLayer(function (layer) {
+            //restore feature color
+            nycUPK.resetStyle(layer);
+          });
+        });
+
+      map.addControl(searchControl); //inizialize search control
+    </script>
+  </body>
+</html>

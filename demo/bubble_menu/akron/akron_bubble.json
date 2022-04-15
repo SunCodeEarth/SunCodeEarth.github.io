@@ -1,0 +1,61 @@
+{"name":"bubble", "children": [
+    {"name":"High","description":"High Schools",
+	"children":[
+	    {"name": "Akron Alternative Academy","address":"https://aaa.akronschools.com"},
+	    {"name": "Akron Early College HS","address":"https://akronearlycollege.akronschools.com"},
+	    {"name": "Bridges K-12","address":"https://bridges.akronschools.com"},
+	    {"name": "Buchtel CLC 9-12","address":"https://buchtelclchigh.akronschools.com"},
+	    {"name": "East CLC 9-12","address":"https://eastclchigh.akronschools.com"},
+	    {"name": "Ellet CLC","address":"https://ellet.akronschools.com"},
+	    {"name": "Firestone CLC 9-12","address":"https://firestoneclc.akronschools.com"},
+	    {"name": "Kenmore-Garfield HS","address":"https://kenmoregarfield.akronschools.com"},
+	    {"name": "NIHF STEM HS","address":"https://stemhigh.akronschools.com"},
+	    {"name": "North HS","address":"https://north.akronschools.com"}
+	]},
+    {"name": "Middle", "description": "Middle Schools",
+	"children":[
+	{"name":"Buchtel CLC 6-8","address":"https://buchtelclcmiddle.akronschools.com"},
+	{"name":"East CLC 7-8","address":"https://eastclcmiddle.akronschools.com"},
+	{"name":"Hyre CLC 6-8","address":"https://hyreclc.akronschools.com"},
+	{"name":"Innes CLC 6-8","address":"https://innesclc.akronschools.com"},
+	{"name":"Jennings CLC 6-8","address":"https://jenningsclc.akronschools.com"},
+	{"name":"Litchfield CLC 6-8","address":"https://litchfieldclc.akronschools.com"},
+	{"name":"Miller South School VPA 4-8","address":"https://millersouth.akronschools.com"},
+	{"name":"NIHF STEM Middle School","address":"https://stemmiddle.akronschools.com"}
+	]},
+    {"name":"Elem. A-L", "description":"Elementary Schools A-L",
+	"children":[
+	    {"name":"Barber CLC Pre-K-6","address":"https://barberclc.akronschools.com"},
+	    {"name":"Betty Jane CLC K-5","address":"https://bettyjaneclc.akronschools.com"},
+	    {"name":"Case CLC K-5","address":"https://case.akronschools.com"},
+	    {"name":"Crouse CLC Pre-K-5","address":"https://crouseclc.akronschools.com"},
+	    {"name":"David Hill CLC K-6","address":"https://davidhillclc.akronschools.com"},
+	    {"name":"Findley CLC K-5","address":"https://findleyclc.akronschools.com"},
+	    {"name":"Firestone Park Elementary","address":"https://firestonepark.akronschools.com"},
+	    {"name":"Forest Hill CLC K-5","address":"https://foresthillclc.akronschools.com"},
+	    {"name":"Glover CLC K-5","address":"https://gloverclc.akronschools.com"},
+	    {"name":"Harris-Jackson CLC K-5","address":"https://harrisclc.akronschools.com"},
+	    {"name":"Hatton CLC K-5","address":"https://hattonclc.akronschools.com"},
+	    {"name":"Helen Arnold CLC K-5","address":"https://helenarnoldclc.akronschools.com"},
+	    {"name":"I PROMISE School","address":"https://ipromiseschool.akronschools.com"},
+	    {"name":"King CLC K-5","address":"https://kingclc.akronschools.com"},
+	    {"name":"Leggett CLC K-5","address":"https://leggettclc.akronschools.com"}
+	]},
+    {"name":"Elem. M-Z", "description":"Elementary Schools M-Z",
+	"children":[
+	    {"name":"Mason CLC Pre-K-6","address":"https://masonclc.akronschools.com"},
+	    {"name":"McEbright CLC K-5","address":"https://mcebrightclc.akronschools.com"},
+	    {"name":"Pfeiffer Elementary","address":"https://pfeiffer.akronschools.com"},
+	    {"name":"Portage Path CLC K-5","address":"https://portagepath.akronschools.com"},
+	    {"name":"Preschool","address":"https://preschool.akronschools.com"},
+	    {"name":"Resnik CLC K-5","address":"https://resnikclc.akronschools.com"},
+	    {"name":"Rimer CLC PreK-5","address":"https://rimerclc.akronschools.com"},
+	    {"name":"Ritzman CLC K-5","address":"https://ritzmanclc.akronschools.com"},
+	    {"name":"Robinson CLC Pre-K-6 ","address":"https://robinsonclc.akronschools.com"},
+	    {"name":"Sam Salem CLC Pre-K-5","address":"https://samsalemclc.akronschools.com"},
+	    {"name":"Schumacher CLC K-5","address":"https://schumacherclc.akronschools.com"},
+	    {"name":"Seiberling CLC K-6","address":"https://seiberlingclc.com"},
+	    {"name":"Voris CLC K-5","address":"https://vorisclc.akronschools.com"},
+	    {"name":"Windemere CLC K-5","address":"https://windemereclc.akronschools.com"}
+    ]}
+]}
