@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>    
+  
+  <link rel="stylesheet" type="text/css" href="bubbleui.css">
+
+  <!--script type="text/javascript" src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script-->
+  <script type="text/javascript" src="./d3.v3.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://sunsp.net/script/ga_sunsp.js"></script>    
+  <script type="text/javascript" src="./bubbleui-min.js"></script>    
+ 
+    <title>
+      Bubble Menu
+    </title>
+  </head>
+
+  <body>
+<html>
+
+
+<div id="page">
+     <div id="mainBubble">
+    </div>
+    <div id="content">
+      <p class="bibliquote"><span class="attribution">
+        <a href="http://sunsp.net/code/bubbleMenu.html" target="_blank">Source Code</a>
+        <a href="http://sunsp.net/code/main_bubble_json.html" target="_blank">JSON File</a>
+      </span> </p>
+      <p class="bibliquote"><span class="attribution">By  
+        <a href="http://sunsp.net/" target="_blank"> Shipeng Sun</a>, currently at 
+        <a href="http://www.geo.hunter.cuny.edu" target="_blank">Department of Geography and Environmental Science, Hunter College</a>
+      </span> </p>
+    </div>
+</div>
+
+</html>
+  </body>
+    <script>
+    let b = new BubbleUI('#mainBubble', options = {
+        "focalEnlargeFactor": 2.6, // higher for bigger enlarged circles
+        "margins": [5, 5, 5, 5], // top, left, bottom, right margins to the DIV
+        "maxChildrenNum": 15, // maximum number of children of the top node
+        "subBubbleSizeRatios": [0.9, 0.92],
+        "bubbleColors": (i) => ['blue', 'green','red','#555'][i], // Colors of the top level bubbles
+        "responsiveSetting": (p) => { // change this as needed
+            if (p >= 1440) return 4; // if the hosting/parent DIV is at least 1440 pixel wide, show four columns.
+            else if(p >= 900) return 3; // otherwise, if it is at least 900 pixels, show three columns.
+            else if (p >= 600) return 2; // if it is at least 600 pixels, show two columns.
+            else return 1; // less than 600 pixels, just one column.
+        }
+    }).init();
+    
+    d3.json("akron_bubble.json", function (error, root) {
+        b.addData(root).resize();
+    });
+
+    window.onresize = () => {
+      b.resize();
+    };
+
+  </script>
+
+</html>
