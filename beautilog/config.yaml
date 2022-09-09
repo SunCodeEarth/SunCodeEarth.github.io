@@ -1,0 +1,81 @@
+baseurl: http://127.0.0.1:7654/
+DefaultContentLanguage: en
+title: Blogging on Earth  
+theme: beautifulhugo
+metaDataFormat: yaml
+pygmentsStyle: trac
+pygmentsUseClasses: yes
+pygmentsCodeFences: yes
+pygmentsCodefencesGuessSyntax: yes
+Params:
+  comments: yes
+  commit: no
+  dateFormat: January 2, 2006
+  delayDisqus: yes
+  favicon: img/favicon.ico
+  logo: img/dice-triangle_me_res_icon.png
+  mainSections:
+    - post
+    - posts
+  readingTime: yes
+  rss: yes
+  showRelatedPosts: yes
+  socialShare: yes
+  subtitle: Sun's Blog on Coding Earth
+  useHLJS: yes
+  wordCount: yes
+Author:
+  500px: username
+  bandcamp: username
+  bitbucket: username
+  codepen: username
+  email: youremail@domain.com
+  facebook: username
+  github: suncodeearth
+  gitlab: username
+  instagram: username
+  itchio: username
+  kaggle: username
+  linkedin: username
+  mastodon: url
+  name: Shipeng Sun
+  paypal: username
+  reddit: username
+  slack: username
+  snapchat: username
+  soundcloud: username
+  spotify: username
+  stackoverflow: users/XXXXXXX/username
+  telegram: username
+  twitter: username
+  vk: username
+  website: sunsp.net
+  weibo: username
+  xing: username
+  youtube: user/username
+menu:
+  main:
+    - name: Blog
+      url: ''
+      weight: 1
+    - name: About
+      url: page/about/
+      weight: 3
+    - identifier: samples
+      name: Samples
+      weight: 2
+    - name: Big Image Sample
+      parent: samples
+      url: post/2017-03-07-bigimg-sample
+      weight: 1
+    - name: Math Sample
+      parent: samples
+      url: post/2017-03-05-math-sample
+      weight: 2
+    - name: Code Sample
+      parent: samples
+      url: post/2016-03-08-code-sample
+      weight: 3
+    - name: Tags
+      url: tags
+      weight: 3

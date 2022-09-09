@@ -1,0 +1,107 @@
+---
+title: Regularly Report Computer IP with DHCP
+author: Shipeng Sun
+date: '2022-05-26'
+slug: []
+categories: []
+tags:
+  - code
+  - python
+  - DHCP
+  - IP
+  - Repeated tasks
+type: ''
+subtitle: ''
+image: ''
+---
+
+As many are working from home during/after the pandemic, it is super convenient and even necessary to remotely connected to office computers or home computers. However, wirelessly connected devices or ISP-connected devices may have their IP updated from time to time. This blog describes a short Python program that can automatically and periodically report a computer's IP address. The information is saved into a text file, which can be saved in Dropbox or other cloud drives. Users can then check and utilize the latest IP address. Alternatively, it is easy to change the code to send the IP address via emails instead of saving it to a file.
+
+```{python loadPackages, echo=TRUE, eval=FALSE}
+
+import socket
+from datetime import datetime, timedelta
+
+# install apscheduler
+# conda install -c conda-forge apscheduler
+
+from apscheduler.schedulers.blocking import BlockingScheduler
+from apscheduler.triggers.interval import IntervalTrigger
+
+```
+
+Define a function that does the "job".
+
+```{python jobfunc, eval=FALSE, echo=TRUE}
+
+def writeLocalIP():
+
+    # Open a file with access mode 'a'
+    file_object = open('ip.txt', 'a')
+    # datetime object containing current date and time
+    now = datetime.now()
+
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+
+    # Append 'the IP address' at the end of file
+    file_object.write(dt_string + ' : ' +
+                      socket.gethostbyname(socket.gethostname()) + '\n')
+
+    # Close the file
+    file_object.close()
+
+#writeLocalIP()
+
+```
+
+Schedule the job. It will report and save IP every two hours.
+
+```{python scheduleJob, eval=FALSE, echo=TRUE}
+
+
+# Start within 30 seconds
+startDateTime = datetime.now() + timedelta(seconds=30)
+
+# This will run 97 days. Change this duration as needed.
+durationTime = timedelta(days=97, seconds=10, minutes=1,
+                         hours=2) # you can set days/hours/minutes/seconds
+# durationTime = timedelta(days=0, seconds=10, minutes=1, hours=0)  # Just 70 seconds for testing
+
+stopDateTime = startDateTime + durationTime
+
+#sh = apscheduler.schedulers.background.BackgroundScheduler()
+sh = BlockingScheduler()
+#tg = apscheduler.triggers.cron.CronTrigger(year=2020, month=7)
+ti = IntervalTrigger(hours=2, start_date=startDateTime, end_date=stopDateTime)
+
+print("Scheduled to get local IP from " +
+      startDateTime.strftime("%Y-%m-%d %H:%M:%S") + " to " +
+      stopDateTime.strftime("%Y-%m-%d %H:%M:%S") + " for every two hours.")
+
+sh.add_job(writeLocalIP, ti)
+
+try:
+    sh.start()
+except (KeyboardInterrupt, SystemExit):
+    pass
+
+
+```
+
+The program can be started as a regular Python program. Or a better method is to use [NSSM (Non-sucking service management)](nsmm.cc) to register the program as a service. As a service, it still reports IP in the event of restart.
+
+```{bash, eval=FALSE}
+
+nsmm.exe install "ReportLocalIP"
+
+path: "D:\MiniConda\python.exe"
+
+Startup directory: D:\Dropbox (Personal)\Workspace (where the Python program file is)
+
+Arguments: local_ip.py 
+
+```
+
+
+[comment]: # Local Folder: "D:\Cloud_Drive\Dropbox (Hunter  College)\Workspace\PythonLand\PySQL\local_ip.py"

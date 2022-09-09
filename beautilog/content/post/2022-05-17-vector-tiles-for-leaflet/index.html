@@ -1,0 +1,73 @@
+---
+title: "Vector Tiles for Leaflet"
+author: "Shipeng Sun"
+date: '2022-05-17'
+slug: vector-tiles-for-leaflet
+categories: JavaScript
+tags:
+- leaflet
+- vector tiles
+- large dataset
+- geospatial data
+---
+
+
+
+<div id="install-gdal-tools" class="section level2">
+<h2>Install GDAL Tools</h2>
+<p>The GDAL tools are installed from <a href="https://www.gisinternals.com/" class="uri">https://www.gisinternals.com/</a>. Install the core with Python applications, which contain some useful raster tools like gdal2tile.py.</p>
+<p>Alternatively, it can be installed using OSGeo4W. However, OSGeo4W can interfere with PostgreSQL/PostGIS on GDAL for the setting. Therefore, it is not recommended to use OSGeo4W for GDAL.</p>
+<div id="gis-internals" class="section level3">
+<h3>GIS Internals</h3>
+<p>By default, it is installed under <code>C:\Program Files\GDAL</code>. We can start with GDAL specified command terminal
+<code>C:\Windows\SysWOW64\cmd.exe /k "C:\Program Files\GDAL\GDALShell.bat"</code>
+The Shell correctly set all the environmental variables in the terminal. This is how it avoids the conflicts with PostGIS and turns out to be a better option than OSGEO4W. This command has been created as a command shell in Windows and can be launched from the Apps menu.</p>
+</div>
+</div>
+<div id="run-gdal-tools" class="section level2">
+<h2>Run GDAL Tools</h2>
+<div id="show-the-database-information-with-tables" class="section level3">
+<h3>Show the database information with tables</h3>
+<pre class="cmd"><code>ogrinfo.exe PG:&quot;host=localhost port=5432 dbname=nycod user=postgres password=postgres tables=&#39;ap,ap_census&#39;&quot;</code></pre>
+<p>Show all the records in the table (don’t do this if the table is very big)</p>
+<pre class="cmd"><code>ogrinfo.exe PG:&quot;host=localhost port=5432 dbname=nycod user=postgres password=postgres&quot; &quot;rivers&quot;</code></pre>
+</div>
+<div id="export-postgis-tables-to-mvt" class="section level3">
+<h3>Export PostGIS tables to MVT</h3>
+<p>Change directory to the folder where you want to save the data.<br />
+<code>C:\Program Files\GDAL</code><br />
+Note this is the default GDAL folder.<br />
+Change to the “working directory”:<br />
+<code>D:\Cloud_Drive\Dropbox (Hunter College)\Workspace\PythonPlayground\PySQL</code><br />
+</p>
+<p>Using ogr2ogr to export PostgerSQL/PostGIS tables into MVT. Of course, the most important and most difficult part of this is to figure out all the options and parameters. Some of the most useful ones are as follows.<br />
+</p>
+<ul>
+<li>TABLES open option of PostgreSQL/PostGIS controls what tables are included in the results. By default, all tables with a geometry type of column will be exported.<br />
+</li>
+<li>dsco: Data Set Creation Options<br />
+</li>
+<li>COMPRESS: leaflet.VectorGrid plugin cannot handle gzipped (Compressed) pbf, so it needs to be NO<br />
+</li>
+<li>CONF: the configuration file that specifies how the vector tiles will be generated.<br />
+</li>
+</ul>
+<pre class="cmd"><code>C:\WorkingDir&gt;ogr2ogr -f MVT nyc_census_boundary -overwrite PG:&quot;host=&#39;localhost&#39; port=&#39;5432&#39; dbname=&#39;nycod&#39; user=&#39;postgres&#39; password=&#39;postgres&#39; tables=&#39;ap,ap_census&#39;&quot; -dsco CONF=&quot;mvt.json&quot; -dsco MAXZOOM=18 -dsco MINZOOM=14 -dsco COMPRESS=NO
+</code></pre>
+<p>A sample CONFiguration file in JSON format is:</p>
+<pre><code>{
+    &quot;ap&quot;: {
+        &quot;target_name&quot;: &quot;nyc_census_blocks&quot;,
+        &quot;description&quot;: &quot;Census Units in New York City&quot;,
+        &quot;minzoom&quot;: 16,
+        &quot;maxzoom&quot;: 18
+    },
+    &quot;ap_census&quot;: {
+        &quot;target_name&quot;: &quot;nyc_census_blocks&quot;,
+        &quot;minzoom&quot;: 14,
+        &quot;maxzoom&quot;: 15
+    }
+}</code></pre>
+<p>Clearly, the two tables <code>ap</code> and <code>ap_census</code> in the database will be built into a single MVT layer <code>nyc_census_blocks</code>, where <code>ap_census</code> shows up at zoom levels 14-15 while <code>ap</code> shows up at level 16-18.</p>
+</div>
+</div>

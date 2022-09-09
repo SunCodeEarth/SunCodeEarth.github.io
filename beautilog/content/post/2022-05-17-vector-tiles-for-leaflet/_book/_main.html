@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Vector Tiles for Leaflet</title>
+  <meta name="description" content="Vector Tiles for Leaflet" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Vector Tiles for Leaflet" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Vector Tiles for Leaflet" />
+  
+  
+  
+
+<meta name="author" content="Shipeng Sun" />
+
+
+<meta name="date" content="2022-05-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="0.1" data-path=""><a href="#installing-gdal-tools"><i class="fa fa-check"></i><b>0.1</b> Installing GDAL Tools</a>
+<ul>
+<li class="chapter" data-level="0.1.1" data-path=""><a href="#gis-internals"><i class="fa fa-check"></i><b>0.1.1</b> GIS Internals</a></li>
+</ul></li>
+<li class="chapter" data-level="0.2" data-path=""><a href="#running-gdal-tools"><i class="fa fa-check"></i><b>0.2</b> Running GDAL Tools</a>
+<ul>
+<li class="chapter" data-level="0.2.1" data-path=""><a href="#show-the-database-information-with-tables"><i class="fa fa-check"></i><b>0.2.1</b> Show the database information with tables</a></li>
+<li class="chapter" data-level="0.2.2" data-path=""><a href="#try-to-export-to-mvt"><i class="fa fa-check"></i><b>0.2.2</b> Try to export to MVT</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Vector Tiles for Leaflet</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Vector Tiles for Leaflet</h1>
+<p class="author"><em>Shipeng Sun</em></p>
+<p class="date"><em>2022-05-17</em></p>
+</div>
+<div id="installing-gdal-tools" class="section level2 hasAnchor" number="0.1">
+<h2><span class="header-section-number">0.1</span> Installing GDAL Tools<a href="#installing-gdal-tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The GDAL tools are installed from <a href="https://www.gisinternals.com/" class="uri">https://www.gisinternals.com/</a>. Rem Install the core with Python applications.</p>
+<p>Alternatively, it can be installed using OSGeo4W. However, OSGeo4W can interfere with PostgreSQL/PostGIS on GDAL for the setting. Therefore, it is not recommended to use OSGeo4W for GDAL.</p>
+<div id="gis-internals" class="section level3 hasAnchor" number="0.1.1">
+<h3><span class="header-section-number">0.1.1</span> GIS Internals<a href="#gis-internals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By default, it is installed under <code>C:\Program Files\GDAL</code>. We can start with GDAL specified command terminal
+<code>C:\Windows\SysWOW64\cmd.exe /k "C:\Program Files\GDAL\GDALShell.bat"</code>
+The Shell correctly set all the environmental variables in the terminal. This is how it avoids the conflicts with PostGIS and turns out to be a better option than OSGEO4W.</p>
+</div>
+</div>
+<div id="running-gdal-tools" class="section level2 hasAnchor" number="0.2">
+<h2><span class="header-section-number">0.2</span> Running GDAL Tools<a href="#running-gdal-tools" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="show-the-database-information-with-tables" class="section level3 hasAnchor" number="0.2.1">
+<h3><span class="header-section-number">0.2.1</span> Show the database information with tables<a href="#show-the-database-information-with-tables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><code>ogrinfo.exe PG:"host=localhost port=5432 dbname=nycod user=postgres password=postgres tables='ap,ap_census'"</code></p>
+<p>Show all the records in the table (don’t do this if the table is very big)
+<code>ogrinfo.exe PG:"host=localhost port=5432 dbname=nycod user=postgres password=postgres" "rivers"</code></p>
+</div>
+<div id="try-to-export-to-mvt" class="section level3 hasAnchor" number="0.2.2">
+<h3><span class="header-section-number">0.2.2</span> Try to export to MVT<a href="#try-to-export-to-mvt" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Change directory to the folder where you want to save the data.
+<code>C:\Program Files\GDAL</code> “This is the default GDAL folder”
+Change to the “working directory”: <code>D:\Cloud_Drive\Dropbox (Hunter College)\Workspace\PythonPlayground\PySQL</code></p>
+<p>Rem TABLES open option of PostgreSQL/PostGIS controls what tables are included in the results.
+Rem By default, all tables with a geometry type of column will be exported.
+Rem dsco: data set creation options
+Rem leaflet.VectorGrid plugin cannot handle gzipped (Compressed) pbf
+<code>ogr2ogr -f MVT nyc_census_boundary -overwrite PG:"host='localhost' port='5432' dbname='nycod' user='postgres' password='postgres' tables='ap,ap_census'" -dsco CONF="mvt.json" -dsco MAXZOOM=18 -dsco MINZOOM=14 -dsco COMPRESS=NO</code></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

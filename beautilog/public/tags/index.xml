@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Blogging on Earth</title>
+    <link>http://127.0.0.1:7654/tags/</link>
+    <description>Recent content in Tags on Blogging on Earth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
+    <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://127.0.0.1:7654/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>computer settings</title>
+      <link>http://127.0.0.1:7654/tags/computer-settings/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/computer-settings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ebook</title>
+      <link>http://127.0.0.1:7654/tags/ebook/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/ebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ereader</title>
+      <link>http://127.0.0.1:7654/tags/ereader/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/ereader/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fonts</title>
+      <link>http://127.0.0.1:7654/tags/fonts/</link>
+      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/fonts/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geospatial database</title>
+      <link>http://127.0.0.1:7654/tags/geospatial-database/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/geospatial-database/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PostGIS</title>
+      <link>http://127.0.0.1:7654/tags/postgis/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/postgis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PostgreSQL</title>
+      <link>http://127.0.0.1:7654/tags/postgresql/</link>
+      <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/postgresql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>http://127.0.0.1:7654/tags/code/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/code/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DHCP</title>
+      <link>http://127.0.0.1:7654/tags/dhcp/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IP</title>
+      <link>http://127.0.0.1:7654/tags/ip/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/ip/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://127.0.0.1:7654/tags/python/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Repeated tasks</title>
+      <link>http://127.0.0.1:7654/tags/repeated-tasks/</link>
+      <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/repeated-tasks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blogdown</title>
+      <link>http://127.0.0.1:7654/tags/blogdown/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/blogdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R Markdown</title>
+      <link>http://127.0.0.1:7654/tags/r-markdown/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/r-markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>http://127.0.0.1:7654/tags/theme/</link>
+      <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>geospatial data</title>
+      <link>http://127.0.0.1:7654/tags/geospatial-data/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/geospatial-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>large dataset</title>
+      <link>http://127.0.0.1:7654/tags/large-dataset/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/large-dataset/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>leaflet</title>
+      <link>http://127.0.0.1:7654/tags/leaflet/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/leaflet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vector tiles</title>
+      <link>http://127.0.0.1:7654/tags/vector-tiles/</link>
+      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/vector-tiles/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plot</title>
+      <link>http://127.0.0.1:7654/tags/plot/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/plot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>regression</title>
+      <link>http://127.0.0.1:7654/tags/regression/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>example</title>
+      <link>http://127.0.0.1:7654/tags/example/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/example/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>photoswipe</title>
+      <link>http://127.0.0.1:7654/tags/photoswipe/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/photoswipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>bigimg</title>
+      <link>http://127.0.0.1:7654/tags/bigimg/</link>
+      <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/bigimg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>math</title>
+      <link>http://127.0.0.1:7654/tags/math/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/math/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>http://127.0.0.1:7654/tags/markdown/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      <author>youremail@domain.com (Shipeng Sun)</author>
+      <guid>http://127.0.0.1:7654/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

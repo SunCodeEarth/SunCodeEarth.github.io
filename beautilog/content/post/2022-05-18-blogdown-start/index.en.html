@@ -1,0 +1,50 @@
+---
+title: "Start bloggind using R blogdown"
+author: "Shipeng Sun"
+date: '2022-05-18'
+slug: []
+categories:
+- R
+- blogdown
+tags:
+- R Markdown
+- blogdown
+- theme
+type: ''
+subtitle: ''
+image: ''
+---
+
+
+
+<p>How to start using R blogdown for effortless blogging.</p>
+<!--more-->
+<ul>
+<li><p>Install blogdown package in RStudio</p></li>
+<li><p>Start a new project “Website using Blogdown”</p>
+<ul>
+<li>This will install hugo automatically if it is not installed yet.</li>
+</ul></li>
+<li><p>Choose a favorite theme on hugo website</p></li>
+<li><p>Create a new website using the theme</p></li>
+</ul>
+<pre class="r"><code>install.packages(&#39;blogdown&#39;)
+
+# Install Hugo and a theme
+# blogdown::install_hugo(&quot;0.99.0&quot;)
+# blogdown::install_theme(theme = &#39;halogenica/beautifulhugo&#39;, force = TRUE)
+
+# This uses the popular beautiful hugo theme (my personal favorite)
+blogdown::new_site(dir=&#39;newdir&#39;, theme = &#39;halogenica/beautifulhugo&#39;)
+
+# Now you can create new post, either using the tools in Addins or using blogdown functions
+
+blogdown::new_post(title=&#39;start using blogdown&#39;)</code></pre>
+<ul>
+<li>Knit R markdown and Build Website
+<ul>
+<li>Turn on the <code>Knit on Save</code> option is you want to have automatic knitting.</li>
+<li><code>Build Website</code> is on the Build panel on the right side.</li>
+<li>The final site is in the “public” folder of the project.</li>
+</ul></li>
+</ul>

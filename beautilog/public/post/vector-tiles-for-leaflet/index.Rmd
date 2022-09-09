@@ -1,0 +1,75 @@
+---
+title: "Vector Tiles for Leaflet"
+author: "Shipeng Sun"
+date: '2022-05-17'
+slug: vector-tiles-for-leaflet
+categories: JavaScript
+tags:
+- leaflet
+- vector tiles
+- large dataset
+- geospatial data
+---
+
+## Install GDAL Tools
+
+The GDAL tools are installed from https://www.gisinternals.com/. Install the core with Python applications, which contain some useful raster tools like gdal2tile.py.
+
+Alternatively, it can be installed using OSGeo4W. However, OSGeo4W can interfere with PostgreSQL/PostGIS on GDAL for the setting. Therefore, it is not recommended to use OSGeo4W for GDAL.
+
+### GIS Internals
+By default, it is installed under `C:\Program Files\GDAL`. We can start with GDAL specified command terminal 
+`C:\Windows\SysWOW64\cmd.exe /k "C:\Program Files\GDAL\GDALShell.bat"`
+The Shell correctly set all the environmental variables in the terminal. This is how it avoids the conflicts with PostGIS and turns out to be a better option than OSGEO4W. This command has been created as a command shell in Windows and can be lauched from the Apps menu.
+
+## Run GDAL Tools
+### Show the database information with tables
+```cmd
+ogrinfo.exe PG:"host=localhost port=5432 dbname=nycod user=postgres password=postgres tables='ap,ap_census'"
+```
+
+Show all the records in the table (don't do this if the table is very big)
+```cmd
+ogrinfo.exe PG:"host=localhost port=5432 dbname=nycod user=postgres password=postgres" "rivers"
+```
+
+### Export PostGIS tables to MVT
+
+Change directory to the folder where you want to save the data. \
+`C:\Program Files\GDAL` \
+Note this is the default GDAL folder. \
+Change to the "working directory": \
+`D:\Cloud_Drive\Dropbox (Hunter College)\Workspace\PythonPlayground\PySQL` \
+
+Using ogr2ogr to export PostgerSQL/PostGIS tables into MVT. Of course, the most important and most difficult part of this is to figure out all the options and parameters. Some of the most useful ones are as follows. \
+
+
+- TABLES open option of PostgreSQL/PostGIS controls what tables are included in the results. By default, all tables with a geometry type of column will be exported. \
+- dsco: Data Set Creation Options \
+- COMPRESS: leaflet.VectorGrid plugin cannot handle gzipped (Compressed) pbf, so it needs to be NO \
+- CONF: the configuration file that specifies how the vector tiles will be generated. \
+```cmd
+C:\WorkingDir>ogr2ogr -f MVT nyc_census_boundary -overwrite PG:"host='localhost' port='5432' dbname='nycod' user='postgres' password='postgres' tables='ap,ap_census'" -dsco CONF="mvt.json" -dsco MAXZOOM=18 -dsco MINZOOM=14 -dsco COMPRESS=NO
+
+```
+
+A sample CONFiguration file in JSON format is:
+```
+{
+    "ap": {
+        "target_name": "nyc_census_blocks",
+        "description": "Census Units in New York City",
+        "minzoom": 16,
+        "maxzoom": 18
+    },
+    "ap_census": {
+        "target_name": "nyc_census_blocks",
+        "minzoom": 14,
+        "maxzoom": 15
+    }
+}
+```
+Clearly, the two tables `ap` and `ap_census` in the database will be built into a single MVT layer `nyc_census_blocks`, where `ap_census` shows up at zoom levels 14-15 while `ap` shows up at level 16-18.
+
+
+[comment]: # Local Folder: "D:\Cloud_Drive\Dropbox (Hunter  College)\Workspace/PythonLand/PySQL"
