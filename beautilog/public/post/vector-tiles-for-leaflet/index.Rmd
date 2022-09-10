@@ -20,7 +20,7 @@ Alternatively, it can be installed using OSGeo4W. However, OSGeo4W can interfere
 ### GIS Internals
 By default, it is installed under `C:\Program Files\GDAL`. We can start with GDAL specified command terminal 
 `C:\Windows\SysWOW64\cmd.exe /k "C:\Program Files\GDAL\GDALShell.bat"`
-The Shell correctly set all the environmental variables in the terminal. This is how it avoids the conflicts with PostGIS and turns out to be a better option than OSGEO4W. This command has been created as a command shell in Windows and can be lauched from the Apps menu.
+The Shell correctly set all the environmental variables in the terminal. This is how it avoids the conflicts with PostGIS and turns out to be a better option than OSGEO4W. This command has been created as a command shell in Windows and can be launched from the Apps menu.
 
 ## Run GDAL Tools
 ### Show the database information with tables

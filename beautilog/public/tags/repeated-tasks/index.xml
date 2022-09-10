@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Repeated tasks on Blogging on Earth</title>
-    <link>http://127.0.0.1:7654/tags/repeated-tasks/</link>
+    <link>https://suncodeearth.github.com/beautiblog/tags/repeated-tasks/</link>
     <description>Recent content in Repeated tasks on Blogging on Earth</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
     <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Thu, 26 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://127.0.0.1:7654/tags/repeated-tasks/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/tags/repeated-tasks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Regularly Report Computer IP with DHCP</title>
-      <link>http://127.0.0.1:7654/post/2022-05-26-regularly-report-computer-ip-with-dhcp/</link>
+      <link>https://suncodeearth.github.com/beautiblog/post/2022-05-26-regularly-report-computer-ip-with-dhcp/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>http://127.0.0.1:7654/post/2022-05-26-regularly-report-computer-ip-with-dhcp/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/post/2022-05-26-regularly-report-computer-ip-with-dhcp/</guid>
       <description>As many are working from home during/after the pandemic, it is super convenient and even necessary to remotely connected to office computers or home computers. However, wirelessly connected devices or ISP-connected devices may have their IP updated from time to time. This blog describes a short Python program that can automatically and periodically report a computer’s IP address. The information is saved into a text file, which can be saved in Dropbox or other cloud drives.</description>
     </item>
     

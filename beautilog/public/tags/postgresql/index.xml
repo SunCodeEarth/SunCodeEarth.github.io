@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PostgreSQL on Blogging on Earth</title>
-    <link>http://127.0.0.1:7654/tags/postgresql/</link>
+    <link>https://suncodeearth.github.com/beautiblog/tags/postgresql/</link>
     <description>Recent content in PostgreSQL on Blogging on Earth</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
     <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://127.0.0.1:7654/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PostgreSQL/PostGIS with/ instllation</title>
-      <link>http://127.0.0.1:7654/post/postgresql-start-cmd/</link>
+      <link>https://suncodeearth.github.com/beautiblog/post/postgresql-start-cmd/</link>
       <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>http://127.0.0.1:7654/post/postgresql-start-cmd/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/post/postgresql-start-cmd/</guid>
       <description>Using EnterpriseDB installer to install PostgreSQL and using Stackbuilder to install PostGIS is very easy. However, PostgreSQL/PostGIS as a service as the result of such installations has some overhead because it is running in the background no matter it is actually used or not. Note that PostgreSQL has a small footprint when in “idle”. Nevertheless, it could be useful to run PostgreSQL/PostGIS as needed.
 Download PostgreSQL and PostGIS BinariesPostgreSQL and PostGIS binaries are executable files and can run without installation.</description>
     </item>
