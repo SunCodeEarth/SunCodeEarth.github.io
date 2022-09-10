@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>math on Blogging on Earth</title>
-    <link>https://suncodeearth.github.com/beautiblog/tags/math/</link>
+    <link>https://suncodeearth.github.com/beautiblog/public/tags/math/</link>
     <description>Recent content in math on Blogging on Earth</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
     <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/public/tags/math/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math Sample</title>
-      <link>https://suncodeearth.github.com/beautiblog/post/2017-03-05-math-sample/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/post/2017-03-05-math-sample/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/post/2017-03-05-math-sample/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/post/2017-03-05-math-sample/</guid>
       <description>&lt;p&gt;KaTeX can be used to generate complex math formulas server-side.&lt;/p&gt;
 &lt;p&gt;$$
 \phi = \frac{(1+\sqrt{5})}{2} = 1.6180339887\cdots

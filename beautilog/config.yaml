@@ -1,4 +1,4 @@
-baseurl: https://suncodeearth.github.com/beautiblog/
+baseurl: https://suncodeearth.github.com/beautiblog/public/
 DefaultContentLanguage: en
 title: Blogging on Earth  
 theme: beautifulhugo

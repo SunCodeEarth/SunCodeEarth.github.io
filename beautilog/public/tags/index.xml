@@ -2,243 +2,243 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Blogging on Earth</title>
-    <link>https://suncodeearth.github.com/beautiblog/tags/</link>
+    <link>https://suncodeearth.github.com/beautiblog/public/tags/</link>
     <description>Recent content in Tags on Blogging on Earth</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
     <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.com/beautiblog/public/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>computer settings</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/computer-settings/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/computer-settings/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/computer-settings/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/computer-settings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ebook</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/ebook/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/ebook/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/ebook/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/ebook/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ereader</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/ereader/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/ereader/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/ereader/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/ereader/</guid>
       <description></description>
     </item>
     
     <item>
       <title>fonts</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/fonts/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/fonts/</link>
       <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/fonts/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/fonts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>geospatial database</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/geospatial-database/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/geospatial-database/</link>
       <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/geospatial-database/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/geospatial-database/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PostGIS</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/postgis/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/postgis/</link>
       <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/postgis/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/postgis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PostgreSQL</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/postgresql/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/postgresql/</link>
       <pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/postgresql/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/postgresql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>code</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/code/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/code/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/code/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DHCP</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/dhcp/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/dhcp/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/dhcp/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/dhcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>IP</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/ip/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/ip/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/ip/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/ip/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/python/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/python/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/python/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/python/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Repeated tasks</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/repeated-tasks/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/repeated-tasks/</link>
       <pubDate>Thu, 26 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/repeated-tasks/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/repeated-tasks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blogdown</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/blogdown/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/blogdown/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/blogdown/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/blogdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/r-markdown/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/r-markdown/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/r-markdown/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
       <title>theme</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/theme/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/theme/</link>
       <pubDate>Wed, 18 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/theme/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/theme/</guid>
       <description></description>
     </item>
     
     <item>
       <title>geospatial data</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/geospatial-data/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/geospatial-data/</link>
       <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/geospatial-data/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/geospatial-data/</guid>
       <description></description>
     </item>
     
     <item>
       <title>large dataset</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/large-dataset/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/large-dataset/</link>
       <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/large-dataset/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/large-dataset/</guid>
       <description></description>
     </item>
     
     <item>
       <title>leaflet</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/leaflet/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/leaflet/</link>
       <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/leaflet/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/leaflet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vector tiles</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/vector-tiles/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/vector-tiles/</link>
       <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/vector-tiles/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/vector-tiles/</guid>
       <description></description>
     </item>
     
     <item>
       <title>plot</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/plot/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/plot/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/plot/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/plot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>regression</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/regression/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/regression/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/regression/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/regression/</guid>
       <description></description>
     </item>
     
     <item>
       <title>example</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/example/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/example/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/example/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/example/</guid>
       <description></description>
     </item>
     
     <item>
       <title>photoswipe</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/photoswipe/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/photoswipe/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/photoswipe/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/photoswipe/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bigimg</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/bigimg/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/bigimg/</link>
       <pubDate>Tue, 07 Mar 2017 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/bigimg/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/bigimg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>math</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/math/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/math/</link>
       <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/math/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/math/</guid>
       <description></description>
     </item>
     
     <item>
       <title>markdown</title>
-      <link>https://suncodeearth.github.com/beautiblog/tags/markdown/</link>
+      <link>https://suncodeearth.github.com/beautiblog/public/tags/markdown/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
       <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.com/beautiblog/tags/markdown/</guid>
+      <guid>https://suncodeearth.github.com/beautiblog/public/tags/markdown/</guid>
       <description></description>
     </item>
     
