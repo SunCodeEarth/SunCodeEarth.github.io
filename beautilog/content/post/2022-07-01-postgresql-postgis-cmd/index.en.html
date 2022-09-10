@@ -1,14 +1,13 @@
 ---
-title: PostgreSQL/PostGIS with/ instllation
-author: Shipeng Sun
-date: '2022-07-01'
-slug: postgresql-start-cmd
-categories:
-  - Database
+title: "PostgreSQL/PostGIS without instllation"
+author: "Shipeng Sun"
+date: "2022-07-01"
+slug: "postgresql-start-cmd"
+categories: Database
 tags:
-  - PostgreSQL
-  - PostGIS
-  - geospatial database
+- PostgreSQL
+- PostGIS
+- geospatial database
 type: ''
 subtitle: ''
 image: ''
@@ -16,7 +15,7 @@ image: ''
 
 
 
-<p><a href="https://www.postgresql.org/download/windows/">Using EnterpriseDB installer to install PostgreSQL</a> and <a href="http://www.bostongis.com/PrinterFriendly.aspx?content_name=postgis_tut01">using Stackbuilder to install PostGIS</a> is very easy. However, PostgreSQL/PostGIS as a service as the result of such installations has some overhead because it is running in the background no matter it is actually used or not. Note that PostgreSQL has a small footprint when in “idle”. Nevertheless, it could be useful to run PostgreSQL/PostGIS as needed.</p>
+<p><a href="https://www.postgresql.org/download/windows/">Using EnterpriseDB installer to install PostgreSQL</a> and <a href="http://www.bostongis.com/PrinterFriendly.aspx?content_name=postgis_tut01">using Stackbuilder to install PostGIS</a> is very easy. However, running PostgreSQL/PostGIS as a service, which is the default result of such installations, has some overhead because it is running in the background no matter it is actually used or not. Note that PostgreSQL has a small footprint when in “idle”. Nevertheless, it could be useful to run PostgreSQL/PostGIS as needed using binaries.</p>
 <div id="download-postgresql-and-postgis-binaries" class="section level2">
 <h2>Download PostgreSQL and PostGIS Binaries</h2>
 <p>PostgreSQL and PostGIS binaries are executable files and can run without installation. Here are a few good sources for information.</p>
@@ -30,7 +29,7 @@ image: ''
 <h2>Commands to manage PostgreSQL/PostGIS</h2>
 <pre class="bash"><code>
 @ECHO Change to the bin folder of the downloaded/unzipped PostgreSQL Binaries
-@ECHO Intialize a database cluster (data folder/directory) using initdb
+@ECHO Intialize a database cluster (data folder/directory) using initdb with -D
 
 initdb -D c:\Users\Arthur\pgdata -U postgres -W -E UTF8 -A scram-sha-256
 </code></pre>
@@ -38,7 +37,7 @@ initdb -D c:\Users\Arthur\pgdata -U postgres -W -E UTF8 -A scram-sha-256
 <pre class="bash"><code>
 @ECHO OFF
 
-REM Initialize the database using a data folder
+REM Initialize the database cluster using a data folder
 REM C:\PortableSoftware\pgsql\bin\initdb -D C:\PortableSoftware\pgsql\data
 
 REM Start the service with a log file
