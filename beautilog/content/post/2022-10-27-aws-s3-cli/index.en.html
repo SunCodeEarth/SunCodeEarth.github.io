@@ -1,0 +1,37 @@
+---
+title: "AWS S3 CLI"
+author: "Shipeng Sun"
+date: "2022-10-27"
+slug: []
+categories: Cloud Computing
+tags:
+- AWS
+- large dataset
+type: ''
+subtitle: ''
+image: ''
+---
+
+
+
+<p>AWS s3 (Simple Storage Service) is one of the simplest Amazon Web Service. It works just like a network drive. Amazon has granted many public institutions free S3 buckets. Smithsonian Institute (SI) is one of them. With its open access initiative, SI also shared a large amount of data on s3.</p>
+<ul>
+<li><p><a href="https://github.com/Smithsonian/OpenAccess">Smithsonian Open Access on github</a></p></li>
+<li><p><a href="https://registry.opendata.aws/smithsonian-open-access/">AWS registry for Smithsonian</a></p></li>
+</ul>
+<p>The data largely contain metadata at SI, 3D models, and pictures. To access the data, <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">the ASW CLI tool</a> can be used. CLI commands for S3 is available <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html">there, too</a>.</p>
+<pre class="bash"><code>
+# List all buckets and objects
+&gt;aws s3 ls --no-sign-request s3://smithsonian-open-access/
+
+                           PRE 3d/
+                           PRE media/
+                           PRE metadata/
+              
+# List all recursively in the entire bucket
+&gt;aws s3 ls --no-sign-request s3://smithsonian-open-access/media --recursive
+
+# aws s3 mv can copy a single file. 
+# aws s3 sync can copy/overwrite the entire bucket/folder.
+&gt;aws s3 sync --no-sign-request s3://smithsonian-open-access/metadata/edan/saampaik ./saampaik
+</code></pre>
