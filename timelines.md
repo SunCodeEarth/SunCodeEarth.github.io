@@ -1,4 +1,4 @@
-## Usefule JS libraries for timeline visualization
+## Useful JS libraries for timeline visualization
 A good [summary and review of timeline JS libraries](https://bashooka.com/coding/javascript-timeline-libraries/). 
 The following three stand out from the rest for their extraordinary flexibility and functionalitiy.
 - [vis.js](https://visjs.org/)
