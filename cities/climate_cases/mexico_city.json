@@ -1,0 +1,14 @@
+{
+    "entity": {"entity_id": "2", "city_name": "Mexico City", "country_name": "Mexico" },
+    "cases": [
+        {"case_desc":"Mexico City’s Rainwater Harvesting Program",
+         "url":"https://docs.google.com/document/d/13x3PO9MW-ZakCBVThkCrqeuEHYAzYxQu/edit"},
+        {"case_desc": "Tools and strategies for decision-making on climate change, air quality and sustainable development in the Megalopolis of the Valley of Mexico", 
+         "url": "https://docs.google.com/document/d/1y9ndEMzm6Z_orjSPLjepilUm7DL4q7vz/edit"},
+        {"case_desc": "Mexico City’s Altépetl Program: Tackling Pandemic Effects and Climate Change",
+         "url": "https://#"}
+        ]
+}
+
+
+
