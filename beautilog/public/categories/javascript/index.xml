@@ -1,23 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>JavaScript on Blogging on Earth</title>
-    <link>https://suncodeearth.github.io/beautilog/public/categories/javascript/</link>
-    <description>Recent content in JavaScript on Blogging on Earth</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
-    <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Tue, 17 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.io/beautilog/public/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Vector Tiles for Leaflet</title>
-      <link>https://suncodeearth.github.io/beautilog/public/post/vector-tiles-for-leaflet/</link>
-      <pubDate>Tue, 17 May 2022 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.io/beautilog/public/post/vector-tiles-for-leaflet/</guid>
-      <description>Install GDAL ToolsThe GDAL tools are installed from https://www.gisinternals.com/. Install the core with Python applications, which contain some useful raster tools like gdal2tile.py.
-Alternatively, it can be installed using OSGeo4W. However, OSGeo4W can interfere with PostgreSQL/PostGIS on GDAL for the setting. Therefore, it is not recommended to use OSGeo4W for GDAL.
-GIS InternalsBy default, it is installed under C:\Program Files\GDAL. We can start with GDAL specified command terminalC:\Windows\SysWOW64\cmd.</description>
-    </item>
-    
-  </channel>
-</rss>

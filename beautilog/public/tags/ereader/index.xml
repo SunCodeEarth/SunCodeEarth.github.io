@@ -1,24 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ereader on Blogging on Earth</title>
-    <link>https://suncodeearth.github.io/beautilog/public/tags/ereader/</link>
-    <description>Recent content in ereader on Blogging on Earth</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Shipeng Sun)</managingEditor>
-    <webMaster>youremail@domain.com (Shipeng Sun)</webMaster>
-    <lastBuildDate>Sun, 17 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://suncodeearth.github.io/beautilog/public/tags/ereader/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Read New on new Reader</title>
-      <link>https://suncodeearth.github.io/beautilog/public/post/setting-up-new-ebook-reader/</link>
-      <pubDate>Sun, 17 Jul 2022 00:00:00 +0000</pubDate>
-      <author>youremail@domain.com (Shipeng Sun)</author>
-      <guid>https://suncodeearth.github.io/beautilog/public/post/setting-up-new-ebook-reader/</guid>
-      <description>Acquired a new ebook reader Rakuten Kobo Elipsa. The device has a good size at 10 inch. It also supports Dropbox for loading books and OverDrive for borrowing from public libraries.
-A few useful settings:
-DoubleCommander: A open-source alternative to TotalCommander. A more powerful and more convenient file explorer.
-Briss: A open source PDF cropper. It is running on Java. Windows removes Java by default, but many programs, like ArcGIS Pro, installed their own Java Running Environment (JRE).</description>
-    </item>
-    
-  </channel>
-</rss>
