@@ -1,0 +1,25 @@
+{
+    "entity": {"entity_id": "1", "city_name": "New York", "country_name": "United States" },
+    "cases": [
+        {"case_desc":"An Integrative Approach to Community Climate Resilience in Red Hook, Brooklyn",
+         "url":"https://academiccommons.columbia.edu/doi/10.7916/d4nz-5f56"},
+        {"case_desc": "Co-digestion and gas-to-grid at Newtown Creek Wastewater Treatment Plant", 
+         "url": "https://docs.google.com/document/d/13Zmq5nHh2wnJDKZePuatiVhEZ4fql9QS/edit"},
+        {"case_desc": "Enhancing adaptation to sea level rise and coastal flooding in New York City",
+         "url": "https://docs.google.com/document/d/1M6aO0KejdZFSMktsFeLutVaiCF1Zqwb5/edit"},
+        {"case_desc": "Integrated Stormwater Management in New York City",
+         "url": "https://academiccommons.columbia.edu/doi/10.7916/84dx-en06"},
+        {"case_desc": "Managed Retreat in Oakwood Beach, Staten Island (New York City)",
+         "url": "https://academiccommons.columbia.edu/doi/10.7916/1e5x-bg43"}]
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,67 @@
+{
+    "name": "ExcessN",
+    "entries": [
+        {
+            "Inputs": [
+                {
+                    "name": "Synthetic Fertilizer",
+                    "value": 59
+                },
+                {
+                    "name": "Manure",
+                    "value": 25
+                },
+                {
+                    "name": "Legumes",
+                    "value": 10
+                },
+                {
+                    "name": "Air Pollution",
+                    "value": 6
+                }
+            ]
+        },
+        {
+            "Outputs": [
+                {
+                    "name": "Harvested",
+                    "value": 46
+                },
+                {
+                    "regions": [
+                        {
+                            "name": "Rest of the World",
+                            "id": 703,
+                            "value": 28,
+                            "WebVis": {"linkPosY": 0, "textOffset": 20}
+                        },
+                        {
+                            "name": "China",
+                            "id": 156,
+                            "value": 33,
+                            "WebVis": {"linkPosY": 360, "textOffset": 780}
+                        },
+                        {
+                            "name": "India",
+                            "id": 356,
+                            "value": 18,
+                            "WebVis": {"linkPosY": 280, "textOffset": 550}
+                        },
+                        {
+                            "name": "United States",
+                            "id": 840,
+                            "value": 11,
+                            "WebVis": {"linkPosY": 200, "textOffset": 168}
+                        },
+                        {
+                            "name": "Africa",
+                            "id": 710,
+                            "value": 10,
+                            "WebVis": {"linkPosY": 60, "textOffset": 350}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

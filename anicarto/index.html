@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+path {
+  fill: #ddd;
+  stroke: #999;
+}
+
+#USAMap {
+	/* width: 100%; */
+	height: calc(100vh - 100px) !important;
+	/*top: 80px;
+	left: 5%;
+	right: 5%; 
+    position: relative;*/
+	background: transparent;
+    z-index: 20;
+	pointer-events: visible; 	
+}
+
+.link {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .2;
+  z-index: 100;
+}
+ 
+.link:hover {
+  stroke-opacity: .4;
+}
+
+#CartogramAnimationMaps {
+  /* width: 90%;
+  height: 100vh;
+  background: #eee; */
+  /* left: 5%;
+  right: 5%;
+  top: 0px;
+  position: absolute;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px; */
+  z-index: 10;
+}
+
+#MapTitle {
+	left: 10%;
+	height: 80px;
+    top: 30px;
+	/* position: absolute; */
+	font-family: Avenir,Arial,Verdana,Times New Roman;
+	color: #006633;
+}
+
+#creditInfo {
+	/* right: 20px;
+	top: 40%;
+	position:absolute; */
+	font-family: Verdana,Times New Roman, Arial;
+	color: #003300;
+	font-size: 11px;
+	z-index: 30;
+}
+
+</style>
+<head>
+    <title>
+      United States 2012 Presidential Election - Cartogram Animation with d3.js for the web and Carto3F for the data
+    </title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.geo.projection.v0.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+
+    <!--script src="./d3.v3.min.js"></script>
+    <script src="./d3.geo.projection.v0.min.js"></script>
+    <script src="./queue.v1.min.js"></script>
+    <script src="./topojson.v1.min.js"></script-->
+</head>
+<body>
+
+<div id="CartogramAnimationMaps" class="container-fluid text-center">
+    <div id="MapTitle" class="row d-flex align-items-center">
+        <div class="col-9 text-center">
+            <h2>United States 2012 Presidential Election</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div id="USAMap" class="col-md-8 justify-content-start d-flex align-self-start">
+        </div>
+        <div id="creditInfo" class="col-md-4 text-start d-flex align-self-center">
+            <span>
+                <i class="bi bi-c-circle"></i>2014 <a href="http://sunsp.net" target="_blank">Shipeng Sun <i class="bi bi-box-arrow-up-right"></i></a><br>
+                Director of <a href="http://uis.edu/gis" target="_blank">GIS Lab</a><br>
+                Department of <a href="http://uis.edu/ens" target="_blank">Envrionmental Studies</a><br>
+                <a href="http://uis.edu" target="_blank">Univeristy of Illinois Springfield</a><br>
+                
+                <br>Now at <a href="http://geo.hunter.cuny.edu" target="_blank">Department of Geography<br> and Environmental Science <i class="bi bi-box-arrow-up-right"></i></a>
+                <br><a href="https://hunter.cuny.edu" target="_blank">Hunter College <i class="bi bi-box-arrow-up-right"></i></a><br> The City University of New York
+                <br>
+                <br>
+                Blue: Democratic Candidate<br>
+                Red: Republican Candidate<br>
+                Color blended using popular vote.<br>
+                Geometry varies by population. <br>
+                <br>
+                
+                Data produced using <a href="http://sunsp.net/portfolio.html" target="_blank">Carto3F program</a><br>
+                Visualization is based on <a href="http://d3js.org" target="_blank">d3.js</a><br>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script src="./anicarto.min.js"></script>
+
+<div id="mainfooter">
+<div style="display:none">
+
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=9563557; 
+var sc_invisible=0; 
+var sc_security="4a72786c"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div style="display:none" class="statcounter"><a title="view StatCounter analytics from 01/24/2014" href="http://statcounter.com/p9563557/?guest=1" target="_blank">
+<img class="statcounter" src="http://c.statcounter.com/9563557/0/4a72786c/0/" alt="web analytics"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+</p>
+<script type="text/javascript">
+document.write("<p style=\"font-size: 60%\"><a title=\"view StatCounter analytics from 01/24/2014\" href=\"http://statcounter.com/p9563557/?guest=1\">View StatCounter</a></p>");
+</script>
+</div>
+</div>
