@@ -1,0 +1,17 @@
+[
+  {
+    "listing": "/portfolio.html",
+    "items": [
+      "/pfolio/algo/cartogram.html",
+      "/pfolio/algo/gerrymetric.html",
+      "/pfolio/algo/distomic.html",
+      "/pfolio/algo/flow.html",
+      "/pfolio/abms/intraurban.html",
+      "/pfolio/abms/sluce.html",
+      "/pfolio/webgis/anicarto.html",
+      "/pfolio/webgis/carsimodel.html",
+      "/pfolio/webgis/excess_nutrition.html",
+      "/pfolio/webgis/nysdistricting.html"
+    ]
+  }
+]

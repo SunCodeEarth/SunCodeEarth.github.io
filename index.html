@@ -1,19 +1,1200 @@
-<html>
-  <body>
-    <h1>This is a landing page for various resources. </h1>
-    <h2>
-      <a href="https://suncodeearth.github.io/rspatial">R Spatial Book for GTECH 38/78520 at Hunter College</a>
-    </h2>
-    <h2>
-      <a href="https://suncodeearth.github.io/blog">Personal Blog</a>
-    </h2>
-	  
-    <h2>
-      <a href="https://suncodeearth.github.io/nys-cd">New York State 2022 Districting</a>
-    </h2>
-	  
-    <h2>
-      <a href="19_07_05_bgi.html">Boost Geometry (Spatial) Index</a>
-    </h2>
-  </body>
-</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Personal Website - Shipeng Sun</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./images/S.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d166b450ba5a8e9f7a0ab969bf6592c1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-8c93888c6c882addb7400aff489883b2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-44a1f9eed13e755cec262e8c7f221ad1.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+<script type="ojs-define">
+
+{"contents":[{"name":"carousel_links","value":[{"caption":"North America in great universal geographic map (Kun yu wan guo quan tu)","image":"images/ming_na_rect.png","link":"https://www.loc.gov/item/2010585650/"},{"caption":"New York City Skyline ","image":"images/nyc_skyline_water.png","link":"https://www.flickr.com/photos/wwarby/2229937103/sizes/h/in/photostream/"},{"caption":"The Vibrant Urban Landscape","image":"images/park_street.png","link":"https://hunter.cuny.edu"},{"caption":"Algorithms for Geovisualization and Spatial Analysis","image":"images/pubs_algos.png","link":"https://hunter.cuny.edu"},{"caption":"Futuristic Cityscape Envisioned by AI","image":"images/futuristic_cityscape3_by_zakazeskiz_dg4beed-fullview.png","link":"https://www.deviantart.com/zakazeskiz/art/Futuristic-Cityscape3-974709157"}]}]}
+
+</script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="././images/S_Logo_Cut.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Live Simply in a Complex World</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house-door" role="img">
+</i> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./bio.html"> <i class="bi bi-file-person" role="img">
+</i> 
+<span class="menu-text">Bio</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-journals" role="img">
+</i> 
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="./pubs.html"><i class="bi bi-book" role="img">
+</i> 
+ <span class="dropdown-text">Publication</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./portfolio.html"><i class="bi bi-cast" role="img">
+</i> 
+ <span class="dropdown-text">Portfolio</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./download.html"><i class="bi bi-cloud-download" role="img">
+</i> 
+ <span class="dropdown-text">Download</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./teach.html"> <i class="bi bi-people-fill" role="img">
+</i> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> <i class="bi bi-info-square" role="img">
+</i> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-social-media" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="bi bi-laptop" role="img">
+</i> 
+ <span class="menu-text">Social Media</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-social-media">    
+        <li>
+    <a class="dropdown-item" href="https://twitter.com"><i class="bi bi-twitter-x" role="img">
+</i> 
+ <span class="dropdown-text">Geography@Hunter</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="http://www.geography.hunter.cuny.edu"><i class="bi bi-globe" role="img">
+</i> 
+ <span class="dropdown-text">Shipeng Sun</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://github.com/suncodeearth"><i class="bi bi-github" role="img">
+</i> 
+ <span class="dropdown-text">Source Code</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://observablehq.com/@suncodeearth"><i class="bi bi-0-circle-fill" role="img">
+</i> 
+ <span class="dropdown-text">Observable</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="welcome-to-my-personal-website" class="level3">
+<h3 class="anchored" data-anchor-id="welcome-to-my-personal-website">Welcome to my personal website!</h3>
+<p>I am currently an Associate Professor in the <a href="http://www.geography.hunter.cuny.edu" class="external">Department of Geography and Environmental Science</a> at <a href="https://www.hunter.cuny.edu" class="external">Hunter College</a>, <a href="https://www.cuny.edu" class="external">The City University of New York</a>. I teach <a href="./teach.html">Geographic Information Science, GeoInformatics, and Spatial Data Science related courses</a> and also develop and apply <a href="./pubs.html">spatial analysis and modeling techniques</a> to explore our networked world.</p>
+<p>The complexity generated by and embedded in the connections, relatedness, interactions, and interdependence among places, environments, and societies requires new thinking, new theories, and new analytic methods for a sustainable world. It also makes interdisciplinary, planned and unplanned cooperation a necessity in all natural and social sciences but particularly human-environmental and geographical sciences. Network analysis and agent-based modeling, powered by geocomputation and GeoAI, are methodological frameworks that can be adopted to visualize, analyze, and simulate the pattern and complexity in these interactions. It is particularly promising, sometimes discouraging, but always challenging to integrate the population, economy, and ecology across spatial scales by capturing and modeling their relations and interactions using networks and the virtual laboratory of agent-based models.</p>
+<div class="cell g-col-lg-6 g-col-12 g-col-md-12">
+<div class="cell-output-display">
+<div id="gallery-carousel" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+<button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+<button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+<button type="button" data-bs-target="#gallery-carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active" data-bs-interval="3000">
+<a href="https://www.loc.gov/item/2010585650/">
+<img src="images/ming_na_rect.png" class="d-block  mx-auto border">
+</a>
+<div class="carousel-caption d-none d-md-block">
+<p class="fw-light">North America in great universal geographic map (Kun yu wan guo quan tu)</p>
+</div>
+</div>
+<div class="carousel-item" data-bs-interval="3000">
+<a href="https://www.flickr.com/photos/wwarby/2229937103/sizes/h/in/photostream/">
+<img src="images/nyc_skyline_water.png" class="d-block  mx-auto border">
+</a>
+<div class="carousel-caption d-none d-md-block">
+<p class="fw-light">New York City Skyline </p>
+</div>
+</div>
+<div class="carousel-item" data-bs-interval="3000">
+<a href="https://hunter.cuny.edu">
+<img src="images/park_street.png" class="d-block  mx-auto border">
+</a>
+<div class="carousel-caption d-none d-md-block">
+<p class="fw-light">The Vibrant Urban Landscape</p>
+</div>
+</div>
+<div class="carousel-item" data-bs-interval="3000">
+<a href="https://hunter.cuny.edu">
+<img src="images/pubs_algos.png" class="d-block  mx-auto border">
+</a>
+<div class="carousel-caption d-none d-md-block">
+<p class="fw-light">Algorithms for Geovisualization and Spatial Analysis</p>
+</div>
+</div>
+<div class="carousel-item" data-bs-interval="3000">
+<a href="https://www.deviantart.com/zakazeskiz/art/Futuristic-Cityscape3-974709157">
+<img src="images/futuristic_cityscape3_by_zakazeskiz_dg4beed-fullview.png" class="d-block  mx-auto border">
+</a>
+<div class="carousel-caption d-none d-md-block">
+<p class="fw-light">Futuristic Cityscape Envisioned by AI</p>
+</div>
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#gallery-carousel" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Prevoius</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#gallery-carousel" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
+</div>
+<style>
+
+#hero-banner {
+  padding-top: 35px;
+  background-color: rgb(237,243,249);
+}
+
+#quarto-content main { 
+  margin-top: 0;
+  padding-top: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.headline {
+  font-size: 1.25em;
+  font-weight: 300;
+  padding-bottom: 1em;
+}
+
+.headline p {
+  margin: 0;
+  padding-bottom: 0.2rem;
+}
+
+.headline a {
+  text-decoration: none;
+}
+
+.headline ul li {
+  margin-bottom: 0.3em;
+}
+
+.carousel.card {
+  padding-top: 2em;
+}
+
+.carousel img {
+  width: 80%;
+  margin-bottom: 110px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  margin-bottom: 110px;
+}
+
+.carousel-caption {
+  padding-top: 1em;
+}
+
+.touch {
+  
+}
+
+.quote-author {
+  float: right; 
+  display: flex
+}
+</style>
+<!--
+![](images/ming_na_rect.jpg){group="digital-city"}
+
+![](images/nyc_skyline.jpg){group="digital-city"}
+
+![](images/futuristic_cityscape3_by_zakazeskiz_dg4beed-fullview.jpg){group="digital-city"}
+-->
+<p>I hope my research, teaching, and service as an academic and my pursuit of eco-friendly lifestyle as a cosmopolitan citizen could make a tiny but positive contribution to the greatest collective efforts ever to build a sustainable planet for the nine billion people living on the Earth in the near future.<br>
+</p>
+</section>
+<section id="by-our-theories-you-shall-know-us" class="level3">
+<h3 class="anchored" data-anchor-id="by-our-theories-you-shall-know-us">“By our theories you shall know us”</h3>
+<p><br>
+A well-known quote from David Harvey, explaining why the following <em>“theories”</em> or <em>ideas</em> are on the home page.<br>
+</p>
+<blockquote class="blockquote">
+<p>Academic conventions divide up the seamless web of the real social world into separate spherers, each with its own theorising. … It is wise to bear in mind that such a conventional cutting of reality is at best just a convenience of the mind. … Subdivisions of social knowledge thus may roughtly correspond to the ways in which human affairs are organized in particitular times and places. They may, accordingly, appear to be increasingly arbitrary when practices change.</p>
+<p><cite class="quote-author">– Robert W. Cox (1981).&nbsp; <em>Social Forces, States and World Orders</em>. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</cite></p>
+</blockquote>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p>The value of complexity exists in the eye of its beholder. For some it is merely a passing fad, for others an interesting complement to accepted conceptual frameworks, and for others it is a pioneering break from a moribund Newtonian worldview. …. Complexity offers a host of new approaches to the study of economic, political, social and environmental systems.</p>
+<p><cite class="quote-author">– Steven M. Manson (2001).&nbsp; <em>Simplify Complexity: A Review on Complexity Theory</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</cite></p>
+</blockquote>
+<p><br>
+</p>
+<blockquote class="blockquote">
+<p>Housing activity—households using dwellings—forms a central feature in the human use of the earth. A house is a structure; a home is an experience. Housing is an interactive process with meanings tied to status, social position, wealth, power, aspirations, and personal identity. Housing decisions reflect social drives for congregation and segregation within U.S. cities, thus making social and cultural categories of urban society visible, intelligible, and stable.</p>
+<p><cite class="quote-author">– John S. Adams (1984).&nbsp; <em>The Meaning of Housing in America</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</cite></p>
+</blockquote>
+<p><br>
+</p>
+<!--
+> Everything is related to everything else, but near things are more related than distant things.
+>
+> <cite class="quote-author">-- Waldo Tobler (1970).  *First Law of Geography*.       </cite>
+
+\
+-->
+<blockquote class="blockquote">
+<p>Greedy people, competing, make the world go round.</p>
+<p><cite class="quote-author">– Paul Krugman (2009).&nbsp; <span style="color:DarkSlateGray;" title="Seven words? That is eight. Exactly! It’s a perfect example of how mathematics and quantitative methods in social sciences, and to a great extent natural sciences as well, can be imprecise—yet still yield meaningful insights."><em>Seven-word&nbsp;</em></span><em>explanation of Economics for Ig Nobels</em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</cite></p>
+</blockquote>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="151" data-source-offset="-84"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 150;"><span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">ojs_carousel</span>(images<span class="op">,</span> options <span class="op">=</span> {}) {</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> {</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a>    animDuration <span class="op">=</span> <span class="dv">100</span><span class="op">,</span></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>    translateY <span class="op">=</span> <span class="dv">0</span><span class="op">,</span></span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a>    translateZ <span class="op">=</span> <span class="dv">3980</span><span class="op">,</span></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a>    height <span class="op">=</span> <span class="dv">398</span><span class="op">,</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a>    size <span class="op">=</span> <span class="dv">200</span><span class="op">,</span></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a>    perspective <span class="op">=</span> <span class="dv">1000</span><span class="op">,</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a>    imgCornerRadius <span class="op">=</span> <span class="dv">5</span><span class="op">,</span></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>    imgBorderColor <span class="op">=</span> <span class="st">"rgba(239,232,170,.51)"</span><span class="op">,</span></span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a>    imgBorderSize <span class="op">=</span> <span class="dv">9</span><span class="op">,</span></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>    imgBorderOpacity <span class="op">=</span> <span class="fl">0.2</span><span class="op">,</span></span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a>    background <span class="op">=</span> <span class="st">"rgba(0,0,0,0.06)"</span></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>  } <span class="op">=</span> options<span class="op">;</span></span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> css <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel_main{</span></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a><span class="vs">      display: flex;</span></span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a><span class="vs">      background : </span><span class="sc">${</span>background<span class="sc">}</span><span class="vs">;</span></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a><span class="vs">      height: </span><span class="sc">${</span>height<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-items: center;</span></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-content: center;</span></span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a><span class="vs">      justify-content: center;</span></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a><span class="vs">      overflow: hidden;</span></span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel figure {</span></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="vs">      display: flex;</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a><span class="vs">      position: absolute;</span></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-items: center;</span></span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-content: center;</span></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a><span class="vs">      justify-content: center;</span></span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a><span class="vs">      top: 0;</span></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a><span class="vs">      bottom: 0;</span></span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a><span class="vs">      left: 0;</span></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a><span class="vs">      right:0;</span></span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a><span class="vs">      margin: auto;</span></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel figure img {</span></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="vs">      border: </span><span class="sc">${</span>imgBorderSize<span class="sc">}</span><span class="vs">px solid </span><span class="sc">${</span>d3</span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">color</span>(imgBorderColor)</span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">copy</span>({ <span class="dt">opacity</span><span class="op">:</span> imgBorderOpacity })</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">formatRgb</span>()<span class="sc">}</span><span class="vs">;</span></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a><span class="vs">      border-radius: </span><span class="sc">${</span>imgCornerRadius<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a><span class="vs">      transform: rotateY(180deg);</span></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a><span class="vs">    /* Cannot wrap around those big images. We are looking at images facing back. </span></span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a><span class="vs">       Therefore, they must be rorate 180 to display the front.</span></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a><span class="vs">       Same "ratateY(180deg) applies to the image as well.</span></span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a><span class="vs">    */</span></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel figcaption {</span></span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a><span class="vs">      transform: rotateY(180deg);</span></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a><span class="vs">      font-size: 2.9rem;</span></span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a><span class="vs">      -webkit-transform: rotateY(180deg);</span></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a><span class="vs">      text-align: center;</span></span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span></span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a><span class="vs">    .carousel_container {</span></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a><span class="vs">      position: relative;</span></span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a><span class="vs">      padding:0px;</span></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="vs">      display: flex;</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-items: center;</span></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a><span class="vs">      align-content: center;</span></span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a><span class="vs">      justify-content: center;</span></span>
+<span id="cb1-217"><a href="#cb1-217" aria-hidden="true" tabindex="-1"></a><span class="vs">        width: </span><span class="sc">${</span>size<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-218"><a href="#cb1-218" aria-hidden="true" tabindex="-1"></a><span class="vs">      height: </span><span class="sc">${</span>size<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-219"><a href="#cb1-219" aria-hidden="true" tabindex="-1"></a><span class="vs">        -webkit-perspective: </span><span class="sc">${</span>perspective<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-220"><a href="#cb1-220" aria-hidden="true" tabindex="-1"></a><span class="vs">              perspective: </span><span class="sc">${</span>perspective<span class="sc">}</span><span class="vs">px;</span></span>
+<span id="cb1-221"><a href="#cb1-221" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-222"><a href="#cb1-222" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel {</span></span>
+<span id="cb1-223"><a href="#cb1-223" aria-hidden="true" tabindex="-1"></a><span class="vs">        width: 100%;</span></span>
+<span id="cb1-224"><a href="#cb1-224" aria-hidden="true" tabindex="-1"></a><span class="vs">        height: 100%;</span></span>
+<span id="cb1-225"><a href="#cb1-225" aria-hidden="true" tabindex="-1"></a><span class="vs">        position: absolute;</span></span>
+<span id="cb1-226"><a href="#cb1-226" aria-hidden="true" tabindex="-1"></a><span class="vs">        -webkit-transform-style: preserve-3d;</span></span>
+<span id="cb1-227"><a href="#cb1-227" aria-hidden="true" tabindex="-1"></a><span class="vs">                        transform-style: preserve-3d;</span></span>
+<span id="cb1-228"><a href="#cb1-228" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-229"><a href="#cb1-229" aria-hidden="true" tabindex="-1"></a><span class="vs">    #carousel.running{</span></span>
+<span id="cb1-230"><a href="#cb1-230" aria-hidden="true" tabindex="-1"></a><span class="vs">        animation: spinY </span><span class="sc">${</span>animDuration<span class="sc">}</span><span class="vs">s infinite normal linear forwards;</span></span>
+<span id="cb1-231"><a href="#cb1-231" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-232"><a href="#cb1-232" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span></span>
+<span id="cb1-233"><a href="#cb1-233" aria-hidden="true" tabindex="-1"></a><span class="vs">    @keyframes spinY {</span></span>
+<span id="cb1-234"><a href="#cb1-234" aria-hidden="true" tabindex="-1"></a><span class="vs">            0% {transform:rotateY(360deg);}</span></span>
+<span id="cb1-235"><a href="#cb1-235" aria-hidden="true" tabindex="-1"></a><span class="vs">            100% {transform:rotateY(0deg);}</span></span>
+<span id="cb1-236"><a href="#cb1-236" aria-hidden="true" tabindex="-1"></a><span class="vs">    }</span></span>
+<span id="cb1-237"><a href="#cb1-237" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span><span class="op">;</span></span>
+<span id="cb1-238"><a href="#cb1-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-239"><a href="#cb1-239" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> body <span class="op">=</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;div id="carousel_main" &gt;</span></span>
+<span id="cb1-240"><a href="#cb1-240" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class="carousel_container"&gt;</span></span>
+<span id="cb1-241"><a href="#cb1-241" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;div id="carousel" class='running'&gt;</span></span>
+<span id="cb1-242"><a href="#cb1-242" aria-hidden="true" tabindex="-1"></a><span class="vs">      &lt;/div&gt;</span></span>
+<span id="cb1-243"><a href="#cb1-243" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb1-244"><a href="#cb1-244" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/div&gt;`</span><span class="op">;</span></span>
+<span id="cb1-245"><a href="#cb1-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-246"><a href="#cb1-246" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> figures <span class="op">=</span> body<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#carousel"</span>)<span class="op">;</span></span>
+<span id="cb1-247"><a href="#cb1-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-248"><a href="#cb1-248" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> n <span class="op">=</span> images<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb1-249"><a href="#cb1-249" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb1-250"><a href="#cb1-250" aria-hidden="true" tabindex="-1"></a>    css <span class="op">+=</span> <span class="vs">`#carousel figure:nth-child(</span><span class="sc">${</span>i <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="vs">) { -webkit-transform: rotateY(</span><span class="sc">${</span></span>
+<span id="cb1-251"><a href="#cb1-251" aria-hidden="true" tabindex="-1"></a>      (<span class="dv">360</span> <span class="op">/</span> n) <span class="op">*</span> i</span>
+<span id="cb1-252"><a href="#cb1-252" aria-hidden="true" tabindex="-1"></a>    <span class="sc">}</span><span class="vs">deg) translateY(</span><span class="sc">${</span>translateY<span class="sc">}</span><span class="vs">px) translateZ(</span><span class="sc">${</span>translateZ<span class="sc">}</span><span class="vs">px);</span><span class="sc">\n</span><span class="vs">}</span><span class="sc">\n</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-253"><a href="#cb1-253" aria-hidden="true" tabindex="-1"></a>    figures<span class="op">.</span><span class="fu">append</span>(<span class="fu">html</span><span class="vs">`&lt;figure&gt;</span><span class="sc">${</span>images[i]<span class="sc">}</span><span class="vs">&lt;/figure&gt;`</span>)<span class="op">;</span></span>
+<span id="cb1-254"><a href="#cb1-254" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-255"><a href="#cb1-255" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-256"><a href="#cb1-256" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;style&gt;</span><span class="sc">${</span>css<span class="sc">}</span><span class="vs">&lt;/style&gt;</span><span class="sc">${</span>body<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></span>
+<span id="cb1-257"><a href="#cb1-257" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-258"><a href="#cb1-258" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-259"><a href="#cb1-259" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">compose_ojs_carousel_images</span>(imageURLsArray) {</span>
+<span id="cb1-260"><a href="#cb1-260" aria-hidden="true" tabindex="-1"></a>    <span class="co">//return imageURLsArray.map((d) =&gt; htl.html`&lt;img src=${d}&gt;`);</span></span>
+<span id="cb1-261"><a href="#cb1-261" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> imageURLsArray<span class="op">.</span><span class="fu">map</span>((d) <span class="kw">=&gt;</span> htl<span class="op">.</span><span class="fu">html</span><span class="vs">`&lt;a href=</span><span class="sc">${</span>d<span class="op">.</span><span class="at">link</span><span class="sc">}</span><span class="vs">&gt;</span></span>
+<span id="cb1-262"><a href="#cb1-262" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;img src=</span><span class="sc">${</span>d<span class="op">.</span><span class="at">image</span><span class="sc">}</span><span class="vs">&gt;&lt;/a&gt;</span></span>
+<span id="cb1-263"><a href="#cb1-263" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;figcaption&gt;</span><span class="sc">${</span>d<span class="op">.</span><span class="at">caption</span><span class="sc">}</span><span class="vs">&lt;/figcaption&gt;</span></span>
+<span id="cb1-264"><a href="#cb1-264" aria-hidden="true" tabindex="-1"></a><span class="vs">    `</span>)<span class="op">;</span></span>
+<span id="cb1-265"><a href="#cb1-265" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-266"><a href="#cb1-266" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
+<p><br>
+</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="273" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 272;"><span id="cb2-273"><a href="#cb2-273" aria-hidden="true" tabindex="-1"></a>imagesLinks <span class="op">=</span> <span class="kw">new</span> <span class="bu">Array</span>(<span class="dv">3</span>)<span class="op">.</span><span class="fu">fill</span>([<span class="st">"images/ming_na_rect.png"</span><span class="op">,</span> </span>
+<span id="cb2-274"><a href="#cb2-274" aria-hidden="true" tabindex="-1"></a>               <span class="st">"images/nyc_skyline_water.png"</span><span class="op">,</span></span>
+<span id="cb2-275"><a href="#cb2-275" aria-hidden="true" tabindex="-1"></a>               <span class="st">"images/futuristic_cityscape3_by_zakazeskiz_dg4beed-fullview.png"</span>])</span>
+<span id="cb2-276"><a href="#cb2-276" aria-hidden="true" tabindex="-1"></a>               <span class="op">.</span><span class="fu">flat</span>()</span>
+<span id="cb2-277"><a href="#cb2-277" aria-hidden="true" tabindex="-1"></a>               <span class="co">//.splice(0,2);// remove 2 from index 0, </span></span>
+<span id="cb2-278"><a href="#cb2-278" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb2-279"><a href="#cb2-279" aria-hidden="true" tabindex="-1"></a><span class="co">//console.log(new Array(3).fill(carousel_links).flat());               </span></span>
+<span id="cb2-280"><a href="#cb2-280" aria-hidden="true" tabindex="-1"></a><span class="co">// This one uses options from the Input</span></span>
+<span id="cb2-281"><a href="#cb2-281" aria-hidden="true" tabindex="-1"></a><span class="co">/*/</span></span>
+<span id="cb2-282"><a href="#cb2-282" aria-hidden="true" tabindex="-1"></a><span class="co">ojs_carousel(compose_ojs_carousel_images(new Array(3).fill(carousel_links).flat()), options);</span></span>
+<span id="cb2-283"><a href="#cb2-283" aria-hidden="true" tabindex="-1"></a><span class="co">/*/</span></span>
+<span id="cb2-284"><a href="#cb2-284" aria-hidden="true" tabindex="-1"></a><span class="fu">ojs_carousel</span>(<span class="fu">compose_ojs_carousel_images</span>(</span>
+<span id="cb2-285"><a href="#cb2-285" aria-hidden="true" tabindex="-1"></a>                <span class="kw">new</span> <span class="bu">Array</span>(<span class="dv">3</span>)<span class="op">.</span><span class="fu">fill</span>(<span class="fu">getRandomSubset</span>(carousel_links<span class="op">,</span><span class="dv">4</span>))<span class="op">.</span><span class="fu">flat</span>()</span>
+<span id="cb2-286"><a href="#cb2-286" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb2-287"><a href="#cb2-287" aria-hidden="true" tabindex="-1"></a>            )<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-2-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb3" data-startfrom="325" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 324;"><span id="cb3-325"><a href="#cb3-325" aria-hidden="true" tabindex="-1"></a>getRandomSubset <span class="op">=</span> <span class="kw">function</span>(arr<span class="op">,</span> size) {</span>
+<span id="cb3-326"><a href="#cb3-326" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> shuffled <span class="op">=</span> [<span class="op">...</span>arr]<span class="op">.</span><span class="fu">sort</span>(() <span class="kw">=&gt;</span> <span class="fl">0.5</span> <span class="op">-</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>())<span class="op">;</span></span>
+<span id="cb3-327"><a href="#cb3-327" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> shuffled<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> size)<span class="op">;</span></span>
+<span id="cb3-328"><a href="#cb3-328" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxuLy9pbXBvcnQge2NvbXBvc2Vfb2pzX2Nhcm91c2VsX2ltYWdlcywgb2pzX2Nhcm91c2VsfSBmcm9tICcuL2xpYi9vanNfY2Fyb3VzZWwuanMnXG5cbmZ1bmN0aW9uIG9qc19jYXJvdXNlbChpbWFnZXMsIG9wdGlvbnMgPSB7fSkge1xuXG4gIGNvbnN0IHtcbiAgICBhbmltRHVyYXRpb24gPSAxMDAsXG4gICAgdHJhbnNsYXRlWSA9IDAsXG4gICAgdHJhbnNsYXRlWiA9IDM5ODAsXG4gICAgaGVpZ2h0ID0gMzk4LFxuICAgIHNpemUgPSAyMDAsXG4gICAgcGVyc3BlY3RpdmUgPSAxMDAwLFxuICAgIGltZ0Nvcm5lclJhZGl1cyA9IDUsXG4gICAgaW1nQm9yZGVyQ29sb3IgPSBcInJnYmEoMjM5LDIzMiwxNzAsLjUxKVwiLFxuICAgIGltZ0JvcmRlclNpemUgPSA5LFxuICAgIGltZ0JvcmRlck9wYWNpdHkgPSAwLjIsXG4gICAgYmFja2dyb3VuZCA9IFwicmdiYSgwLDAsMCwwLjA2KVwiXG4gIH0gPSBvcHRpb25zO1xuXG4gIGxldCBjc3MgPSBgXG4gICAgI2Nhcm91c2VsX21haW57XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgYmFja2dyb3VuZCA6ICR7YmFja2dyb3VuZH07XG4gICAgICBoZWlnaHQ6ICR7aGVpZ2h0fXB4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgb3ZlcmZsb3c6IGhpZGRlbjtcbiAgICB9XG4gICAgXG4gICAgI2Nhcm91c2VsIGZpZ3VyZSB7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgICAgdG9wOiAwO1xuICAgICAgYm90dG9tOiAwO1xuICAgICAgbGVmdDogMDtcbiAgICAgIHJpZ2h0OjA7XG4gICAgICBtYXJnaW46IGF1dG87XG4gICAgfVxuICAgICNjYXJvdXNlbCBmaWd1cmUgaW1nIHtcbiAgICAgIGJvcmRlcjogJHtpbWdCb3JkZXJTaXplfXB4IHNvbGlkICR7ZDNcbiAgICAuY29sb3IoaW1nQm9yZGVyQ29sb3IpXG4gICAgLmNvcHkoeyBvcGFjaXR5OiBpbWdCb3JkZXJPcGFjaXR5IH0pXG4gICAgLmZvcm1hdFJnYigpfTtcbiAgICAgIGJvcmRlci1yYWRpdXM6ICR7aW1nQ29ybmVyUmFkaXVzfXB4O1xuICAgICAgdHJhbnNmb3JtOiByb3RhdGVZKDE4MGRlZyk7XG4gICAgfVxuICAgIFxuICAgIC8qIENhbm5vdCB3cmFwIGFyb3VuZCB0aG9zZSBiaWcgaW1hZ2VzLiBXZSBhcmUgbG9va2luZyBhdCBpbWFnZXMgZmFjaW5nIGJhY2suIFxuICAgICAgIFRoZXJlZm9yZSwgdGhleSBtdXN0IGJlIHJvcmF0ZSAxODAgdG8gZGlzcGxheSB0aGUgZnJvbnQuXG4gICAgICAgU2FtZSBcInJhdGF0ZVkoMTgwZGVnKSBhcHBsaWVzIHRvIHRoZSBpbWFnZSBhcyB3ZWxsLlxuICAgICovXG4gICAgI2Nhcm91c2VsIGZpZ2NhcHRpb24ge1xuICAgICAgdHJhbnNmb3JtOiByb3RhdGVZKDE4MGRlZyk7XG4gICAgICBmb250LXNpemU6IDIuOXJlbTtcbiAgICAgIC13ZWJraXQtdHJhbnNmb3JtOiByb3RhdGVZKDE4MGRlZyk7XG4gICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgfVxuICAgIFxuICAgIC5jYXJvdXNlbF9jb250YWluZXIge1xuICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgICAgcGFkZGluZzowcHg7XG4gICAgICBkaXNwbGF5OiBmbGV4O1xuICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcbiAgICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIFx0d2lkdGg6ICR7c2l6ZX1weDtcbiAgICAgIGhlaWdodDogJHtzaXplfXB4O1xuICAgIFx0LXdlYmtpdC1wZXJzcGVjdGl2ZTogJHtwZXJzcGVjdGl2ZX1weDtcbiAgICAgICAgICAgICAgcGVyc3BlY3RpdmU6ICR7cGVyc3BlY3RpdmV9cHg7XG4gICAgfVxuICAgICNjYXJvdXNlbCB7XG4gICAgXHR3aWR0aDogMTAwJTtcbiAgICBcdGhlaWdodDogMTAwJTtcbiAgICBcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBcdC13ZWJraXQtdHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcbiAgICBcdFx0XHRcdFx0dHJhbnNmb3JtLXN0eWxlOiBwcmVzZXJ2ZS0zZDtcbiAgICB9XG4gICAgI2Nhcm91c2VsLnJ1bm5pbmd7XG4gICAgXHRhbmltYXRpb246IHNwaW5ZICR7YW5pbUR1cmF0aW9ufXMgaW5maW5pdGUgbm9ybWFsIGxpbmVhciBmb3J3YXJkcztcbiAgICB9XG4gICAgXG4gICAgQGtleWZyYW1lcyBzcGluWSB7XG4gICAgXHRcdDAlIHt0cmFuc2Zvcm06cm90YXRlWSgzNjBkZWcpO31cbiAgICBcdFx0MTAwJSB7dHJhbnNmb3JtOnJvdGF0ZVkoMGRlZyk7fVxuICAgIH1cbiAgICBgO1xuXG4gIGxldCBib2R5ID0gaHRsLmh0bWxgPGRpdiBpZD1cImNhcm91c2VsX21haW5cIiA+XG4gICAgPGRpdiBjbGFzcz1cImNhcm91c2VsX2NvbnRhaW5lclwiPlxuICAgICAgPGRpdiBpZD1cImNhcm91c2VsXCIgY2xhc3M9J3J1bm5pbmcnPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gIDwvZGl2PmA7XG5cbiAgbGV0IGZpZ3VyZXMgPSBib2R5LnF1ZXJ5U2VsZWN0b3IoXCIjY2Fyb3VzZWxcIik7XG5cbiAgY29uc3QgbiA9IGltYWdlcy5sZW5ndGg7XG4gIGZvciAobGV0IGkgPSAwOyBpIDwgbjsgaSsrKSB7XG4gICAgY3NzICs9IGAjY2Fyb3VzZWwgZmlndXJlOm50aC1jaGlsZCgke2kgKyAxfSkgeyAtd2Via2l0LXRyYW5zZm9ybTogcm90YXRlWSgke1xuICAgICAgKDM2MCAvIG4pICogaVxuICAgIH1kZWcpIHRyYW5zbGF0ZVkoJHt0cmFuc2xhdGVZfXB4KSB0cmFuc2xhdGVaKCR7dHJhbnNsYXRlWn1weCk7XFxufVxcbmA7XG4gICAgZmlndXJlcy5hcHBlbmQoaHRtbGA8ZmlndXJlPiR7aW1hZ2VzW2ldfTwvZmlndXJlPmApO1xuICB9XG5cbiAgcmV0dXJuIGh0bC5odG1sYDxzdHlsZT4ke2Nzc308L3N0eWxlPiR7Ym9keX1gO1xufVxuXG5mdW5jdGlvbiBjb21wb3NlX29qc19jYXJvdXNlbF9pbWFnZXMoaW1hZ2VVUkxzQXJyYXkpIHtcbiAgICAvL3JldHVybiBpbWFnZVVSTHNBcnJheS5tYXAoKGQpID0+IGh0bC5odG1sYDxpbWcgc3JjPSR7ZH0+YCk7XG4gICAgcmV0dXJuIGltYWdlVVJMc0FycmF5Lm1hcCgoZCkgPT4gaHRsLmh0bWxgPGEgaHJlZj0ke2QubGlua30+XG4gICAgPGltZyBzcmM9JHtkLmltYWdlfT48L2E+XG4gICAgPGZpZ2NhcHRpb24+JHtkLmNhcHRpb259PC9maWdjYXB0aW9uPlxuICAgIGApO1xuXG59XG5cbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImltYWdlc0xpbmtzID0gbmV3IEFycmF5KDMpLmZpbGwoW1wiaW1hZ2VzL21pbmdfbmFfcmVjdC5wbmdcIiwgXG4gICAgICAgICAgICAgICBcImltYWdlcy9ueWNfc2t5bGluZV93YXRlci5wbmdcIixcbiAgICAgICAgICAgICAgIFwiaW1hZ2VzL2Z1dHVyaXN0aWNfY2l0eXNjYXBlM19ieV96YWthemVza2l6X2RnNGJlZWQtZnVsbHZpZXcucG5nXCJdKVxuICAgICAgICAgICAgICAgLmZsYXQoKVxuICAgICAgICAgICAgICAgLy8uc3BsaWNlKDAsMik7Ly8gcmVtb3ZlIDIgZnJvbSBpbmRleCAwLCBcbiAgICAgICAgICAgICAgIFxuLy9jb25zb2xlLmxvZyhuZXcgQXJyYXkoMykuZmlsbChjYXJvdXNlbF9saW5rcykuZmxhdCgpKTsgICAgICAgICAgICAgICBcbi8vIFRoaXMgb25lIHVzZXMgb3B0aW9ucyBmcm9tIHRoZSBJbnB1dFxuLyovXG5vanNfY2Fyb3VzZWwoY29tcG9zZV9vanNfY2Fyb3VzZWxfaW1hZ2VzKG5ldyBBcnJheSgzKS5maWxsKGNhcm91c2VsX2xpbmtzKS5mbGF0KCkpLCBvcHRpb25zKTtcbi8qL1xub2pzX2Nhcm91c2VsKGNvbXBvc2Vfb2pzX2Nhcm91c2VsX2ltYWdlcyhcbiAgICAgICAgICAgICAgICBuZXcgQXJyYXkoMykuZmlsbChnZXRSYW5kb21TdWJzZXQoY2Fyb3VzZWxfbGlua3MsNCkpLmZsYXQoKVxuICAgICAgICAgICAgICApXG4gICAgICAgICAgICApO1xuLy8qL1xuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiY2VsbE5hbWUiOiJvanMtY2VsbC0zIiwiaW5saW5lIjpmYWxzZSwic291cmNlIjoiZ2V0UmFuZG9tU3Vic2V0ID0gZnVuY3Rpb24oYXJyLCBzaXplKSB7XG4gIGNvbnN0IHNodWZmbGVkID0gWy4uLmFycl0uc29ydCgoKSA9PiAwLjUgLSBNYXRoLnJhbmRvbSgpKTtcbiAgcmV0dXJuIHNodWZmbGVkLnNsaWNlKDAsIHNpemUpO1xufVxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+<p>Copyright 2025, Shipeng Sun</p>
+</div>
+    <div class="nav-footer-right">
+<p>Last updated: April 22, 2025</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
