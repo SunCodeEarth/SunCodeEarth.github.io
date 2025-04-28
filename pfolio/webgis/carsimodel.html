@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -265,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="carsi-sir-model-for-covid-19" class="level2 page-columns page-full">
+<section id="carsi-sir-model-for-covid-19" class="level2">
 <h2 class="anchored" data-anchor-id="carsi-sir-model-for-covid-19"><a href="http://www.geo.hunter.cuny.edu/~ssun/covid_dashboard" class="external" target="_blank">CARSI SIR Model for COVID 19</a></h2>
 <p>The <strong>CARSI</strong> (Center for Advanced Research of Spatial Information) Model uses an embedded recursive SIR (susceptible, infected, removed) model to simultaneously solve for two key epidemiological parameters Ro and the contact ratio (CR). The modeling is based on a set of assumptions including a fatality rate of 0.6 %, an initial infection rate of 0.00125 and a cycle duration of 21 days. It is modeled on fatalities as reported by the New York Times. The model assumes 42 million vaccinations have occurred in the US by February 8, 2021 and will increases as a sigmoidal function to an asuymtote of around 190 million. Each county was assumed to get a pro-rate share of vaccines based on population. Population source was the 2020 US Census estimates. The total projections from the model are calculated by summing up the results from over 3,200 county level models.</p>
 <p>To see the model for an individual county, click on a county on either map to the right.</p>
@@ -275,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="open-the-web-app-in-a-new-tab" class="level4">
 <h4 class="anchored" data-anchor-id="open-the-web-app-in-a-new-tab"><a href="http://carsimodel.com" class="external" target="_blank">Open the web app in a new tab</a></h4>
 </section>
-<section id="explore-the-app-right-here." class="level4 page-columns page-full">
+<section id="explore-the-app-right-here." class="level4">
 <h4 class="anchored" data-anchor-id="explore-the-app-right-here.">Explore the app right here.</h4>
 <div class="cell" data-eval="false">
 <div class="sourceCode cell-code hidden" id="cb1" data-startfrom="31" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 30;"><span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>resizeIFrameToFitContent <span class="op">=</span> ( iframe ) <span class="kw">=&gt;</span> {</span>
@@ -379,12 +379,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="column-screen-inset">
-<div style="width: 100%; height: 1180px; border: double">
-<iframe style="width: 100%; height: 100%; border: none;" id="cm_iframe" src="http://carsimodel.com">
-</iframe>
-</div>
-</div>
+<!-- github would not load content from unsecured website. -->
+<!-- :::: column-screen-inset -->
+<!-- ::: {style="width: 100%; height: 1180px; border: double"} -->
+<!-- <iframe style="width: 100%; height: 100%; border: none;" id="cm_iframe" src="http://carsimodel.com"> -->
+<!-- </iframe> -->
+<!-- ::: -->
+<!-- :::: -->
 
 
 </section>
