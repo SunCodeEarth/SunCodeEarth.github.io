@@ -82,3 +82,15 @@ The original selector does not work well
 .ac.is-active .ac-trigger::after {
   content: "\2013";
 }
+
+/* This targets the specific link and removes the icon */
+.ss-no-icon {
+  color: grey;
+  size: lg;
+}
+
+.ss-no-icon::after {
+  display: none !important;
+  content: none !important;
+  padding: 0 !important;
+}
