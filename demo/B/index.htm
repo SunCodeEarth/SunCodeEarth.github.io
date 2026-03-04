@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+
+	<title>Visualizing School Closures in Puerto Rico (2019)</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/leaflet-search.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+	 crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+	 crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../src/leaflet-search.js"></script>
+<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+            padding: 0;
+		}
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+        #header{border:3px solid rgb(105, 105, 105);padding:1px;overflow:hidden}
+        #header div{border:1px solid rgb(252, 252, 252);background:rgb(252, 252, 252);color:rgb(252, 252, 252);padding:20px 50px;height:100%;}
+        #header-left-container{float:left;width:23%;height: 5%;}
+        #header-right-container{float:right;width:60%;height:5%;}
+
+</style>    
+	<style>#map { width: 100%; height: 100%; }
+.info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
+.legend { text-align: left; line-height: 18px; color: #555; } .legend i { width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.7; }</style>
+</head>
+<body>
+</head>
+
+<body>
+
+    <div id="header">
+
+        <div id="header-left-container">
+            <p style ="font-size:22px;color:rgb(13, 106, 143);">Visualizing School Closures in Puerto Rico (2019)</p> 
+        </div>
+        <div id="header-right-container">
+            <p style = "font-size:12px;color:rgb(58,58,58);">The objective of this study was to utilize tools contained within the free and open source GIS
+            stack to analyze school closure and performance data for Puerto Rico.  Puerto Rico has been embarking
+            on an ambitious school closure program to consolidate teaching resources and has increased the number
+            of schools closed dramatically in the 2018-2019 school year.  Using a variety of spatial and non-spatial 
+            data sources, this study attempted to examine the trends in school closure patterns, identify potential 
+            inequities in the distribution of school closures, and develop a WebGIS to disseminate the information 
+            and data developed in this study.  Users can toggle layers depicting 5 mile accessibility buffers for the open elementary, middle,
+            and high schools, the major cities on the island, and Social Vulnerability Index (SVI) scores for each census tract.  Users can also
+            click on any school location to see that facilities status for the 2018-19 school year and additional information relating to that school.</p> 
+        </div>
+    
+    </div>
+	<div id="mapid" style="width: 100%; height: 100%;"></div>
+	<div id="mapnav" style="width: 100%; height: 100%;"></div>
+    <div id="infopad" style="width: 100%; height: 100%;"></div>
+    
+    
+	<script>
+
+		var mymap = L.map('mapid').setView([18.15, -66.40], 9.4);
+
+		var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+	            maxZoom: 19,
+	            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+        }).addTo(mymap);
+ 
+        // control that shows state info on hover
+	    var info = L.control();
+
+	    info.onAdd = function (mymap) {
+		    this._div = L.DomUtil.create('div', 'info');
+		    this.update();
+		    return this._div;
+	    };
+
+	    info.update = function (props) {
+		    this._div.innerHTML = '<h4>Social Vulnerability Index</h4>' +  (props ?
+			     '<b>'+ props.RPL_THEMES + '</b>'
+			    : 'Hover over a Census Tract');
+	    };
+
+	    info.addTo(mymap);
+            function popUp(f, l) { // f: feature, l: layer
+			    var out = [];
+			    var allFields = false;
+			    if (allFields) { // use all the fields
+				if (f.properties) {
+					for (key in f.properties) {
+
+						out.push(key + ": " + f.properties[key]);
+					}
+					l.bindPopup(out.join("<br />"));
+				}
+			} else { // this is a customized popup message
+				l.bindPopup('' + '<strong><u>Block Group GEOID:</u> </strong>' + f.properties.GEOID + '<p>' +
+					'<strong><u>Poverty Rate:</u> </strong>' + ' ' + f.properties.Pov_Per + '</p>' + '<p>'); 
+
+			}
+		}
+        
+       
+       var myStyle1 = {
+		    radius: 3,
+            fillColor: "FFFF00",
+            color: "#686868",
+            weight: 1,
+            opacity: .875,
+            fillOpacity: 0.8
+		}; 
+		
+        var Cities_gjson = L.geoJSON(null, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng,);
+            },
+            onEachFeature:function(feature,layer){
+                layer.bindPopup("<p>City: "+feature.properties.name+"</br> Population: "+feature.properties.population+"</p>");
+                }  
+        });
+        
+        $.getJSON("Cities.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			Cities_gjson.addData(data);
+		});
+		 var myStyle1 = {
+		    radius: 3,
+            fillColor: "#37FDFC",
+            color: "#686868",
+            weight: 1,
+            opacity: .875,
+            fillOpacity: 0.8
+		};
+
+		
+
+        var myStyle2 = {
+			"color": "#FF69B4",
+			"weight": 5,
+			"opacity": 0.65
+		};
+
+		var elem_buff_gjson = L.geoJSON(null, {
+				style: myStyle2
+				});
+
+		$.getJSON("Elem_Buff.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			elem_buff_gjson.addData(data);
+		});
+        
+        
+        var myStyle3 = {
+			"color": "#32CD32",
+			"weight": 5,
+			"opacity": 0.65
+		};
+		
+		var middle_buff_gjson = L.geoJSON(null, {
+				style: myStyle3
+				});
+
+		$.getJSON("middle.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			middle_buff_gjson.addData(data);
+		});
+       
+       
+        var myStyle4 = {
+			"color": "#0080FF",
+			"weight": 5,
+			"opacity": 0.65
+		};
+		
+		var hs_buff_gjson = L.geoJSON(null, {
+				style: myStyle4
+				});
+
+		$.getJSON("HS.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			hs_buff_gjson.addData(data);
+		});
+       
+        function getColor(d){
+            return d > 1.00 ? '#bd0026':
+                   d > .75 ? '#f03620':
+                   d > .5 ? '#fd8d3c':
+                   d > .25 ? '#fecc5c':
+                             '#ffffb2';
+        }
+        function style(feature) {
+            return {
+                fillColor: getColor(feature.properties.RPL_THEMES),
+                weight: 1,
+                opacity: 1,
+                color: 'lightgray',
+                dashArray: '0',
+                fillOpacity: 0.7
+            };
+           
+        }  
+                
+
+
+	    function highlightFeature(e) {
+		    var layer = e.target;
+
+		    layer.setStyle({
+			    weight: 5,
+			    color: '#666',
+			    dashArray: '',
+			    fillOpacity: 0.7
+		    });
+
+		    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+			    layer.bringToFront();
+		    }
+
+		    info.update(layer.feature.properties);
+	    }
+
+	    
+
+	    function resetHighlight(e) {
+		    SVI_Tract.resetStyle(e.target);
+		    info.update();
+	    }
+
+	    function zoomToFeature(e) {
+		    map.fitBounds(e.target.getBounds());
+	    }
+
+	    function onEachFeature(feature, layer) {
+		    layer.on({
+			    mouseover: highlightFeature,
+			    mouseout: resetHighlight,
+			    click: zoomToFeature
+		});
+	}
+
+	    var SVI_Tract = L.geoJson(null, {
+		    style: style,
+		    onEachFeature: onEachFeature
+	    });
+
+
+		$.getJSON("SVI_Tract.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			SVI_Tract.addData(data);
+		});
+		
+		var myStyle1 = {
+		    radius: 3,
+            fillColor: "#37FDFC",
+            color: "#686868",
+            weight: 1,
+            opacity: .875,
+            fillOpacity: 0.8
+		};
+
+
+		var PR_Schools_gjson = L.geoJSON(null, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng,myStyle1);
+            },
+            onEachFeature:function(feature,layer){
+                layer.bindPopup("<p>School Name: "+feature.properties.name+"</br>2019 Status: "+feature.properties.Status+"</br>School Code: "+feature.properties.schoolcode+"</br>Grade Level: "+feature.properties.grade+"</br>School Type: "+feature.properties.type_1+"</p>");
+                }  
+        });
+
+        $.getJSON("PR_Schools.geojson", function (data) {
+			// L.geoJson function is used to parse geojson file and load on to map
+			PR_Schools_gjson.addData(data);
+            PR_Schools_gjson.addTo(mymap);
+		});
+		
+
+		var baseMaps = {
+			"Humanitarian Open Street Map": OpenStreetMap_HOT // Button choice: Only one in this group can be turned on
+
+		};
+
+		var overlayMaps = { // checkbox
+			"PR Schools": PR_Schools_gjson,
+			"Social Vulnerability Index":SVI_Tract,
+			"Major Cities": Cities_gjson,
+			"Elementary School Buffer": elem_buff_gjson,
+			"Middle School Buffer":middle_buff_gjson,
+			"High School Buffer":hs_buff_gjson
+		};
+
+		L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+		
+		
+
+	</script>
+
+</body>
+
+</html>
