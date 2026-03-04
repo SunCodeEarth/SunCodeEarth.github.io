@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BK Health Mapper</title>
+    <link rel="icon" href="favicon.ico" type="image/icon type">
+
+<!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type='text/css'>
+
+<!-- SCRIPTS - After CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+<!-- CSS -->
+<style>
+
+/* Legend specific  styles*/
+.legend {
+  padding: 6px 8px;
+  font: 10px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);*/
+  /*border-radius: 5px;*/
+  line-height: 24px;
+  color: #555;
+}
+.legend h4 {
+  text-align: center;
+  font-size: 12px;
+  /*margin: 2px 12px 8px;*/
+  color: #777;
+  margin-top: 0px;
+}
+.legend span {
+  position: relative;
+  bottom: 3px;
+}
+.legend i {
+  width: 12px;
+  height: 18px;
+  float: left;
+  margin: 0 4px 0 0;
+  opacity: 0.7;
+}
+.headerColor{
+  background-color: rgb(0, 0, 0);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* General */
+li {
+  list-style-type: circle;
+  margin: 0;
+  padding: 0;
+}
+
+#mapid{ 
+  z-index:1; 
+}
+
+.w3-modal-content {
+    z-index: 100;
+}
+
+.leaflet-fade-anim .leaflet-tile, .leaflet-zoom-anim .leaflet-zoom-animated { 
+  will-change:auto !important; 
+}
+
+.leaflet-tooltip {
+  font-size: 10px;
+            }
+
+/* COLOR PREDOMINANT LANGUAGE RETURN SIDEBAR TEXT*/
+.Chinese{
+            color : #963f92ff;
+            font-weight: bold;
+        }
+.Russian{
+            color: #e28513ff;
+            font-weight: bold;
+        }
+.Yiddish{
+            color: #3288bd;
+            font-weight: bold;
+        }
+.Spanish{
+            color: #41a15b;
+            font-weight: bold;
+        }
+.Haitian {
+    color: rgb(44, 165, 172);
+    font-weight: bold;
+}
+.Polish {
+    color: rgb(78, 218, 155);
+    font-weight: bold;
+}
+
+.highcharts-credits {
+display: none !important;
+}
+
+.jumbotron {
+  background-image: url('LongBridge-g2.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: auto 40%;
+}
+
+a {
+  color: #008080
+}
+
+</style>
+</head>
+
+<!--BODY-->
+
+<body>
+
+<!--HEADER--> 
+
+<div class="jumbotron jumbotron-fluid text-center headerColor" >
+<p style="color: white; text-shadow: 2px 2px 4px #858080; font-size:50px; margin-top: 10px;margin-bottom: 10px;" >Brooklyn Health Map</p>
+</div>
+
+<!-- MAIN PAGE -->
+
+<div id="map"  class="row" style="margin-right: 0px;margin-left: 0px;">
+  
+<!--LEFT SIDE: MAP -->
+<div class="col-sm-8"> 
+<div style="width: 100%; height:70%" >
+  <div class="btn-group">
+        <button type="button" class="btn w3-white"><b>Census Tract Level</b></button>
+        <button type="button" id="demographics" class="btn w3-cyan">Brooklyn Demographics</button>
+        <button type="button" id="unhealthy" class="btn w3-blue-grey">Unhealthy Behaviors</button>
+        <button type="button" id="outcomes" class="btn w3-pale-red">Health Outcomes</button>
+        <button type="button" id="screening" class="btn w3-purple">Screening Rates</button>
+    </div>
+    <div id="mapid" style="width:100%; height:700px"></div>
+    <script src="script.js"></script>
+</div>
+</div>
+
+<!--RIGHT SIDE: FIGURES-->
+  <div class="col-sm-4">
+  <table class="w3-table w3-round-large w3-border">
+    <thead>
+      <tr class="w3-teal">
+        <th>ZIP CODE LEVEL DATA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select id="zipCodes">
+  <option value=''>Select a Zip Code</option>
+</select></th>
+
+      </tr>
+    </thead>
+    <tr>
+      
+      <td>
+
+  <div>
+  <div id="mapContainer1" style="font-size: 13px; height: 670px; overflow: auto;">
+  <h3 style= "text-align:center">Welcome to the Brooklyn Health Map!</h3>
+<br>
+
+  <p><i class="fa fa-arrow-left" aria-hidden="true"></i>  To the left, you will find a map of Brooklyn showing various health and demographic data on the census tract level. There is also a "Zip Code Boundaries" layer, which you can use to orient yourself with the different areas of Brookyln. 
+  <ul><li>Click each tract to find relevant data about block groups</li> 
+  <br>
+  <li>Toggle the "Zip Code Boundaries" layer to find population data on the zip code level and to see where census tracts fall and are divided</li>
+  <br>
+  <li>Zoom in to see street names and road level details on the map and to see which streets and blocks fall within each tract</li></ul></p>
+<br>
+  <p><i class="fa fa-arrow-up" aria-hidden="true"></i>  To view a summary of health data across all categories, click the <i>"Select a Zip Code"</i> dropdown button above and select a zip code. </p>
+<br>
+  <p><i class="fa fa-arrow-down" aria-hidden="true"></i>  Finally, check out the charts below to see an overview of the health statistics on a neighborhood level (neighborhoods defined as <a href ="https://en.wikipedia.org/wiki/List_of_Brooklyn_neighborhoods" style="color:#008080" target="_blank">geographical neighborhoods</a>)</p>
+  </div>
+</div>
+
+</td>
+    </tr>
+  </table>
+<!--break?-->
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+
+<div class="w3-container">
+
+  <div class="w3-bar w3-black">
+    <button class="w3-bar-item w3-button tablink w3-blue" onclick="openCity(event,'CHART_behavior')">Unhealthy Behaviors</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'CHART_health')">Health Outcomes</button>
+    <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'CHART_screening')">Screening</button>
+  </div>
+  
+    <div>
+  <div id="CHART_behavior" style="height: 400px" class="w3-container w3-border city"></div>
+  </div>
+
+    <div>
+  <div id="CHART_health" style="height: 400px; display: none" class="w3-container w3-border city"></div>
+  </div>
+
+  <div>
+  <div id="CHART_screening" style="height: 400px; display: none" class="w3-container w3-border city"></div>
+  </div>
+</div>
+
+
+<!--FOOTER--> 
+<footer class="w3-container w3-black" style=" left: 0; bottom: 0; width: 100%">
+  <p style="color: gray;">&copy; Created 2021
+    <button onclick="document.getElementById('id01').style.display='block'" style="padding-top: 0px;padding-bottom: 0px;" class="w3-button w3-black w3-right">About this page</button>
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+          <span onclick="document.getElementById('id01').style.display='none'" 
+          class="w3-button w3-display-topright w3-light-grey">&times;</span>
+        <div class="w3-container">
+          <p style="color: black; font-size: 18px;"> The data are derived from the <a href ="https://www.cdc.gov/places/about/index.html" target="_blank">2020 PLACES: Local Data for Better Health project</a> and the <a href="https://acsdatacommunity.prb.org/discussion-forum/f/forum/520/u-s-census-bureau-releases-2014-2018-acs-5-year-estimates" target="_blank">American Community Survey 2014-2018 - Language Spoken at Home 5-year estimates</a>.<br><br>Zip code level language statisics are estimates calculated using the 
+HUD-USPS 'ZIP-TRACT' ZIP Code Crosswalk files from the first quarter of 2021. As a result, the uncertainty of estimates of the aggregate language data is higher at the zip code level, than at the tract level (95% CI).<br><br>For questions, comments, or suggestions about this resource, contact <a href="mailto:sheena.philogene@brooklyn.cuny.edu?subject = Cancer Map" >Sheena Philogene</a>.</p>
+<br><p style="color: black; font-size: 12px;">Header image adapted from Brooklyn Bridge image by <a href="https://pixabay.com/users/gdj-1086657/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3995530">Gordon Johnson</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=3995530">Pixabay</a>.</p> 
+        </div>
+      </div>
+    </div>
+    </p>
+  </footer>
+
+
+</body>
+</html>
