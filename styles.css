@@ -9,13 +9,14 @@
 
   margin-bottom: 8px;
   border: 1px solid var(--color-light-grey);
-  background-color: var(--color-white);
+  background-color: var(--bs-body-bg);
   box-sizing: border-box;
 }
 
 .ac .ac-header {
   margin: 0;
   padding: 0;
+  color: var(--color-grey);
 }
 
 .ac .ac-trigger {
@@ -47,7 +48,7 @@
 }
 
 .ac .ac-trigger:focus {
-  color: var(--color-black);
+  color: var(--bs-body-color);
 }
 
 .ac .ac-panel {
@@ -60,7 +61,7 @@
   font:
     15px/24px "Arial",
     sans-serif;
-  color: var(--color-black);
+  color: var(--bs-body-color);
   padding: 8px;
   margin: 0;
 }
