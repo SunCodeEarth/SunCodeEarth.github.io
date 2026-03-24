@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,6 +103,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -210,13 +246,63 @@ ul.task-list li input[type="checkbox"] {
 <p>The “3D” Image Carousel is based on <a href="https://observablehq.com/@esperanc/image-carousel">an Observable JS example</a>. Further revision and optimization are applied to make it work in the Quarto Document.</p>
 <p>The simple accordion is created by applying a modified version of <a href="https://michu2k.github.io/Accordion/">Accordion JS</a>.</p>
 <p>Suggestions and comments are welcome and appreciated.</p>
+<div class="cell">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="21" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 20;"><span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getDualCulturalDates</span>() {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> now <span class="op">=</span> <span class="kw">new</span> <span class="bu">Date</span>()<span class="op">;</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 1. Western Format (ISO 8601 or Localized)</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> westernDate <span class="op">=</span> now<span class="op">.</span><span class="fu">toLocaleDateString</span>(<span class="st">'en-US'</span><span class="op">,</span> {</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="dt">month</span><span class="op">:</span> <span class="st">'long'</span><span class="op">,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="dt">day</span><span class="op">:</span> <span class="st">'numeric'</span><span class="op">,</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="dt">year</span><span class="op">:</span> <span class="st">'numeric'</span><span class="op">,</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    })<span class="op">;</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 2. Ancient Chinese Format (Lunar/Sexagenary)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">// We use the 'zh-u-ca-chinese' locale to trigger the Chinese Calendar</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> chineseDate <span class="op">=</span> <span class="kw">new</span> <span class="bu">Intl</span><span class="op">.</span><span class="fu">DateTimeFormat</span>(<span class="st">'zh-Hans-CN-u-ca-chinese'</span><span class="op">,</span> {</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="dt">dateStyle</span><span class="op">:</span> <span class="st">'full'</span><span class="op">,</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        <span class="co">//weekday: 'long',</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">//year: 'numeric',</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">//month: 'long',</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">//day: '2-digit',</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    })<span class="op">.</span><span class="fu">format</span>(now)<span class="op">;</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">"(Gregorian) "</span> <span class="op">+</span> westernDate <span class="op">+</span> <span class="st">" &lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;（农历）"</span> <span class="op">+</span> chineseDate</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="dt">western</span><span class="op">:</span> westernDate<span class="op">,</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="dt">chinese</span><span class="op">:</span> chineseDate</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div id="ojs-cell-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
 <section id="shipeng-sun.-all-rights-reserved." class="level5">
 <h5 class="anchored" data-anchor-id="shipeng-sun.-all-rights-reserved.">© Shipeng Sun. All Rights Reserved.</h5>
+<p><sup><sub><span><span id="ojs-element-id-1"></span></span></sub></sup></p>
 
 
+<div class="ojs-auto-generated hidden">
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Z2V0RHVhbEN1bHR1cmFsRGF0ZXMoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTEifV19
+</script>
+</div>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImZ1bmN0aW9uIGdldER1YWxDdWx0dXJhbERhdGVzKCkge1xyXG4gICAgY29uc3Qgbm93ID0gbmV3IERhdGUoKTtcclxuXHJcbiAgICAvLyAxLiBXZXN0ZXJuIEZvcm1hdCAoSVNPIDg2MDEgb3IgTG9jYWxpemVkKVxyXG4gICAgY29uc3Qgd2VzdGVybkRhdGUgPSBub3cudG9Mb2NhbGVEYXRlU3RyaW5nKCdlbi1VUycsIHtcclxuICAgICAgICBtb250aDogJ2xvbmcnLFxyXG4gICAgICAgIGRheTogJ251bWVyaWMnLFxyXG4gICAgICAgIHllYXI6ICdudW1lcmljJyxcclxuICAgIH0pO1xyXG5cclxuICAgIC8vIDIuIEFuY2llbnQgQ2hpbmVzZSBGb3JtYXQgKEx1bmFyL1NleGFnZW5hcnkpXHJcbiAgICAvLyBXZSB1c2UgdGhlICd6aC11LWNhLWNoaW5lc2UnIGxvY2FsZSB0byB0cmlnZ2VyIHRoZSBDaGluZXNlIENhbGVuZGFyXHJcbiAgICBjb25zdCBjaGluZXNlRGF0ZSA9IG5ldyBJbnRsLkRhdGVUaW1lRm9ybWF0KCd6aC1IYW5zLUNOLXUtY2EtY2hpbmVzZScsIHtcclxuICAgICAgICBkYXRlU3R5bGU6ICdmdWxsJyxcclxuICAgICAgICAvL3dlZWtkYXk6ICdsb25nJyxcclxuICAgICAgICAvL3llYXI6ICdudW1lcmljJyxcclxuICAgICAgICAvL21vbnRoOiAnbG9uZycsXHJcbiAgICAgICAgLy9kYXk6ICcyLWRpZ2l0JyxcclxuICAgIH0pLmZvcm1hdChub3cpO1xyXG5cclxuICAgIHJldHVybiBcIihHcmVnb3JpYW4pIFwiICsgd2VzdGVybkRhdGUgKyBcIiA8PDw8Pj4+Pu+8iOWGnOWOhu+8iVwiICsgY2hpbmVzZURhdGVcclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgd2VzdGVybjogd2VzdGVybkRhdGUsXHJcbiAgICAgICAgY2hpbmVzZTogY2hpbmVzZURhdGVcclxuICAgIH07XHJcbn1cclxuXHJcbiJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
